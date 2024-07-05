@@ -62,49 +62,49 @@ Multilayer Rounded Clouds
 
 [[subpack]]
 define = "PERFORMANCE_MODE"
-materials = ["RenderChunk Clouds"]
+materials = ["RenderChunk","Clouds"]
 description = '''
 §cPerformance Mode
 '''
 
 [[subpack]]
 define = "NIGHT_VISION"
-materials = ["RenderChunk Actor"]
+materials = ["RenderChunk","Actor"]
 description = '''
 Night Vision
 '''
 
 [[subpack]]
 define = "BLACK_AND_WHITE_STYLE"
-materials = ["RenderChunk Clouds Sky EndSky LegacyCubemap Actor"]
+materials = ["RenderChunk","Clouds","Sky","EndSky","LegacyCubemap","Actor"]
 description = '''
 Black And White Style
 '''
 
 [[subpack]]
 define = "NOSTALGIA_STYLE"
-materials = ["RenderChunk Clouds Sky EndSky LegacyCubemap"]
+materials = ["RenderChunk","Clouds","Sky","EndSky","LegacyCubemap"]
 description = '''
 Nostalgia Style
 '''
 
 [[subpack]]
 define = "VIBRANT_STYLE"
-materials = ["RenderChunk Clouds Sky EndSky LegacyCubemap"]
+materials = ["RenderChunk","Clouds","Sky","EndSky","LegacyCubemap"]
 description = '''
 §bVibrant Style
 '''
 
 [[subpack]]
 define = "UNBOUND_STYLE"
-materials = ["RenderChunk Clouds Sky EndSky LegacyCubemap"]
+materials = ["RenderChunk","Clouds","Sky","EndSky","LegacyCubemap"]
 description = '''
 Unbound Style
 '''
 
 [[subpack]]
 define = "SPOOKY_STYLE"
-materials = ["RenderChunk Clouds Sky EndSky LegacyCubemap"]
+materials = ["RenderChunk","Clouds","Sky","EndSky","LegacyCubemap"]
 description = '''
 Spooky Style
 '''
