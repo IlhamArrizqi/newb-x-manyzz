@@ -1,23 +1,23 @@
-name = "Newb X Legacy"
+name = "§lNewb X §cManyzz §aV2.9"
 version = [0, 15, 0]
 min_supported_mc_version = [1, 20, 80]
 url = "https://devendrn.github.io/newb-shader/"
-authors = ["devendrn"]
+authors = ["Itzmanyzz","devendrn"]
 materials = ["Sky", "LegacyCubemap", "Clouds", "EndSky", "SunMoon", "RenderChunk", "Actor"]
 
 [description]
 # %w = patch warning, %v = version
 long = '''
 §c%w
-§7- An enchanced vanilla shader for Minecraft!
+§7- Upgrade Minecraft visuals: vibrant colors, realistic lighting, immersive effects
 %v
-§3https://devendrn.github.io/newb-shader/
+§3https://github.com/IlhamArrizqi/newb-x-manyzz
 '''
-short = "Legacy port of Newb Shader for RenderDragon"
+short = "Upgrade Minecraft visuals: vibrant colors, realistic lighting, immersive effects"
 
 [uuid] # Use https://www.uuidgenerator.net/version4
-header = "95f774cf-4afa-73e7-a21a-72146307b1d2"
-module = "900f3d8b-37b4-465f-8f56-941687e36c35"
+header = "0d638c6e-c043-4587-b8da-430cf1444077"
+module = "6ee241ac-a460-46f4-8fbc-b9aa9d093686"
 
 [info]
 # %a = authors
@@ -33,6 +33,20 @@ credits = '''
 # right-most subpack is enabled by default
 
 [[subpack]]
+define = "VANILLA_CLOUDS"
+materials = ["Clouds"]
+description = '''
+Vanilla Clouds
+'''
+
+[[subpack]]
+define = "SOFT_CLOUDS"
+materials = ["Clouds"]
+description = '''
+Soft Clouds
+'''
+
+[[subpack]]
 define = "ROUNDED_CLOUDS"
 materials = ["Clouds"]
 description = '''
@@ -40,31 +54,59 @@ Rounded Clouds
 '''
 
 [[subpack]]
-define = "CHUNK_ANIM"
-materials = ["RenderChunk"]
+define = "MULTILAYER_CLOUDS"
+materials = ["Clouds"]
 description = '''
-Chunk loading animation
+Multilayer Rounded Clouds
 '''
 
 [[subpack]]
-define = "NO_WAVE_NO_FOG"
-materials = ["RenderChunk"]
+define = "PERFORMANCE_MODE"
+materials = ["RenderChunk Clouds"]
 description = '''
-No fog and wave effects
+§cPerformance Mode
 '''
 
 [[subpack]]
-define = "NO_FOG"
-materials = ["RenderChunk"]
+define = "NIGHT_VISION"
+materials = ["RenderChunk Actor"]
 description = '''
-No fog effect
+Night Vision
 '''
 
 [[subpack]]
-define = "NO_WAVE"
-materials = ["RenderChunk"]
+define = "BLACK_AND_WHITE_STYLE"
+materials = ["RenderChunk Clouds Sky EndSky LegacyCubemap Actor"]
 description = '''
-No wave effects
+Black And White Style
+'''
+
+[[subpack]]
+define = "NOSTALGIA_STYLE"
+materials = ["RenderChunk Clouds Sky EndSky LegacyCubemap"]
+description = '''
+Nostalgia Style
+'''
+
+[[subpack]]
+define = "VIBRANT_STYLE"
+materials = ["RenderChunk Clouds Sky EndSky LegacyCubemap"]
+description = '''
+§bVibrant Style
+'''
+
+[[subpack]]
+define = "UNBOUND_STYLE"
+materials = ["RenderChunk Clouds Sky EndSky LegacyCubemap"]
+description = '''
+Unbound Style
+'''
+
+[[subpack]]
+define = "SPOOKY_STYLE"
+materials = ["RenderChunk Clouds Sky EndSky LegacyCubemap"]
+description = '''
+Spooky Style
 '''
 
 [[subpack]]
