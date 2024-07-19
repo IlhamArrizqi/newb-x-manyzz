@@ -39,7 +39,7 @@
 /* Terrain lighting */
 #define NL_SUN_INTENSITY 3.0   // 0.5 weak ~ 5.0 bright
 #define NL_TORCH_INTENSITY 2.0  // 0.5 weak ~ 3.0 bright
-#define NL_NIGHT_BRIGHTNESS 1.5 // 0.0 dark ~ 2.0 bright
+#define NL_NIGHT_BRIGHTNESS 1.0 // 0.0 dark ~ 2.0 bright
 #define NL_CAVE_BRIGHTNESS  2.0 // 0.0 dark ~ 2.0 bright
 #define NL_SHADOW_INTENSITY 1.0 // 0.0 no shadow ~ 1.0 strong shadow
 #define NL_BLINKING_TORCH     // [toggle] flickering light
@@ -62,7 +62,7 @@
 
 /* Fog */
 #define NL_FOG_TYPE 2             // 0:no fog, 1:vanilla, 2:smoother vanilla
-#define NL_MIST_DENSITY 1.0      // 0.0 no mist ~ 1.0 misty
+#define NL_MIST_DENSITY 0.8      // 0.0 no mist ~ 1.0 misty
 #define NL_RAIN_MIST_OPACITY 0.12 // [toggle] 0.04 very subtle ~ 0.5 thick rain mist blow
 
 /* Sky colors - zenith=top, horizon=bottom */
@@ -125,8 +125,8 @@
 #define NL_CLOUD1_OPACITY 0.9              // 0.0 invisible ~ 1.0 opaque
 
 /* Rounded cloud Settings */
-#define NL_CLOUD2_THICKNESS 5.0      // 0.5 slim ~ 5.0 fat
-#define NL_CLOUD2_RAIN_THICKNESS 5.0 // 0.5 slim ~ 5.0 fat
+#define NL_CLOUD2_THICKNESS 1.0      // 0.5 slim ~ 5.0 fat
+#define NL_CLOUD2_RAIN_THICKNESS 1.0 // 0.5 slim ~ 5.0 fat
 #define NL_CLOUD2_STEPS 5            // 3 low quality ~ 16 high quality
 #define NL_CLOUD2_SCALE 0.01        // 0.003 large ~ 0.3 tiny
 #define NL_CLOUD2_SHAPE 0.0          // 0.0 round ~ 1.0 box
@@ -134,10 +134,9 @@
 #define NL_CLOUD2_VELOCIY 4.0        // 0.0 static ~ 4.0 very fast
 #define NL_CLOUD2_REALISTIC          // [toggle] like REALISTIS Clouds
 #define NL_CLOUD2_MULTILAYER         // [toggle] extra cloud layer
-//#define NL_CLOUD2_BOX              // [toggle] box clouds
 
 /* Aurora settings */
-#define NL_AURORA 18.2           // [toggle] 0.4 dim ~ 4.0 very bright
+#define NL_AURORA 4.0           // [toggle] 0.4 dim ~ 4.0 very bright
 #define NL_AURORA_VELOCITY 0.14 // 0.0 static ~ 0.3 very fast
 #define NL_AURORA_SCALE 0.02    // 0.002 large ~ 0.4 tiny
 #define NL_AURORA_WIDTH 0.2    // 0.04 thin line ~ 0.4 thick lines
