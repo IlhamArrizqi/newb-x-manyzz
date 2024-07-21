@@ -37,10 +37,10 @@
 #define NL_TINT vec3(0.7,0.5,0.8) // [toggle] color overlay
 
 /* Terrain lighting */
-#define NL_SUN_INTENSITY 3.0   // 0.5 weak ~ 5.0 bright
+#define NL_SUN_INTENSITY 3.5   // 0.5 weak ~ 5.0 bright
 #define NL_TORCH_INTENSITY 2.0  // 0.5 weak ~ 3.0 bright
 #define NL_NIGHT_BRIGHTNESS 1.0 // 0.0 dark ~ 2.0 bright
-#define NL_CAVE_BRIGHTNESS  2.0 // 0.0 dark ~ 2.0 bright
+#define NL_CAVE_BRIGHTNESS  1.0 // 0.0 dark ~ 2.0 bright
 #define NL_SHADOW_INTENSITY 1.0 // 0.0 no shadow ~ 1.0 strong shadow
 #define NL_BLINKING_TORCH     // [toggle] flickering light
 //#define NL_CLOUD_SHADOW       // [toggle] cloud shadow (simple clouds only)
@@ -62,7 +62,7 @@
 
 /* Fog */
 #define NL_FOG_TYPE 2             // 0:no fog, 1:vanilla, 2:smoother vanilla
-#define NL_MIST_DENSITY 0.8      // 0.0 no mist ~ 1.0 misty
+#define NL_MIST_DENSITY 1.0      // 0.0 no mist ~ 1.0 misty
 #define NL_RAIN_MIST_OPACITY 0.12 // [toggle] 0.04 very subtle ~ 0.5 thick rain mist blow
 
 /* Sky colors - zenith=top, horizon=bottom */
@@ -136,12 +136,21 @@
 #define NL_CLOUD2_MULTILAYER         // [toggle] extra cloud layer
 
 /* Aurora settings */
-#define NL_AURORA 4.0           // [toggle] 0.4 dim ~ 4.0 very bright
+//#define NL_AURORA 4.0           // [toggle] 0.4 dim ~ 4.0 very bright
 #define NL_AURORA_VELOCITY 0.14 // 0.0 static ~ 0.3 very fast
 #define NL_AURORA_SCALE 0.02    // 0.002 large ~ 0.4 tiny
 #define NL_AURORA_WIDTH 0.2    // 0.04 thin line ~ 0.4 thick lines
 #define NL_AURORA_COL1 vec3(0.0,0.5,1.0)
 #define NL_AURORA_COL2 vec3(0.5,0.0,0.5)
+
+/* Aurora settings */
+#define NL_AURORAS
+#define matrot(x) mat2(cos(x),-sin(x),sin(x),cos(x))
+#define amount 4.0
+#define saturate(x) clamp(x,0.0,1.0)
+#define downcol vec3(0,1,0.25)
+#define upcol vec3(0,0.25,1)
+#define steps 10.0
 
 /* Chunk loading slide in animation */
 #define NL_CHUNK_LOAD_ANIM 140.0 // [toggle] -600.0 fall from top ~ 600.0 rise from bottom
