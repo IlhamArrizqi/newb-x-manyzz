@@ -1,5 +1,5 @@
 #ifndef INSTANCING
-$input v_fogColor, v_worldPos, v_underwaterRainTime
+$input v_fogColor, v_worldPos, v_underwaterRainTime, sPos
 #endif
 
 #include <bgfx_shader.sh>
@@ -54,8 +54,10 @@ void main() {
     horizonEdgeCol = getHorizonEdgeCol(horizonCol, rainFactor, v_fogColor);
   }
 
-  vec3 skyColor = nlRenderSky(horizonEdgeCol, horizonCol, zenithCol, -viewDir, v_fogColor, v_underwaterRainTime.z, rainFactor, false, underWater, false);
+  vec3 skyColor = nlRenderSky(horizonEdgeCol, horizonCol, zenithCol, -viewDir, v_fogColor, v_underwaterRainTime.z, rainFactor, false, underWater, false)*1.0;
+
   skyColor = colorCorrection(skyColor);
+  
   skyColor += pow(vec3_splat(star(sPos.zx*250.0, v_underwaterRainTime.z))*1.0, vec3(16,7,5))*mask;
 
   gl_FragColor = vec4(skyColor, 1.0);
