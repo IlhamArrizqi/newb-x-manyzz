@@ -143,14 +143,6 @@
 #define NL_AURORA_COL1 vec3(0.0,0.5,1.0)
 #define NL_AURORA_COL2 vec3(0.5,0.0,0.5)
 
-/* Aurora settings */
-#define NL_AURORAS
-#define matrot(x) mat2(cos(x),-sin(x),sin(x),cos(x))
-#define amount 4.0
-#define saturate(x) clamp(x,0.0,1.0)
-#define downcol vec3(0,1,0.25)
-#define upcol vec3(0,0.25,1)
-#define steps 10.0
 
 /* Chunk loading slide in animation */
 #define NL_CHUNK_LOAD_ANIM 140.0 // [toggle] -600.0 fall from top ~ 600.0 rise from bottom
