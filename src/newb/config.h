@@ -67,15 +67,15 @@
 
 /* Sky colors - zenith=top, horizon=bottom */
 #define NL_DAY_ZENITH_COL    vec3(0.6902,0.6588,1.0)
-#define NL_DAY_HORIZON_COL   vec3(1.0,0.7882,0.7882)
+#define NL_DAY_HORIZON_COL   vec3(0.847,0.749,0.847)
 #define NL_NIGHT_ZENITH_COL  vec3(0.05,0.04,0.17)
-#define NL_NIGHT_HORIZON_COL vec3(0.1,0.15,0.3)
+#define NL_NIGHT_HORIZON_COL vec3(0.13,0.12,0.23)
 #define NL_RAIN_ZENITH_COL   vec3(0.5,0.5,0.7)
-#define NL_RAIN_HORIZON_COL  vec3(1.0,1.0,1.0)
+#define NL_RAIN_HORIZON_COL  vec3(0.65,0.65,0.75)
 #define NL_END_ZENITH_COL    vec3(0.1,0.0,0.2)
-#define NL_END_HORIZON_COL   vec3(0.05,0.0,0.1)
+#define NL_END_HORIZON_COL   vec3(0.15,0.1,0.25)
 #define NL_DAWN_ZENITH_COL   vec3(0.404,0.031,0.541)
-#define NL_DAWN_HORIZON_COL  vec3(0.922,0.620,0.376)
+#define NL_DAWN_HORIZON_COL  vec3(0.722,0.508,0.686)
 #define NL_DAWN_EDGE_COL     vec3(0.859,0.698,0.455)
 
 /* Rainbow */
