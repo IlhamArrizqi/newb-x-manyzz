@@ -37,9 +37,9 @@
 #define NL_TINT vec3(0.7,0.5,0.8) // [toggle] color overlay
 
 /* Terrain lighting */
-#define NL_SUN_INTENSITY 3.5   // 0.5 weak ~ 5.0 bright
+#define NL_SUN_INTENSITY 4.0   // 0.5 weak ~ 5.0 bright
 #define NL_TORCH_INTENSITY 2.0  // 0.5 weak ~ 3.0 bright
-#define NL_NIGHT_BRIGHTNESS 1.0 // 0.0 dark ~ 2.0 bright
+#define NL_NIGHT_BRIGHTNESS 0.8 // 0.0 dark ~ 2.0 bright
 #define NL_CAVE_BRIGHTNESS  1.0 // 0.0 dark ~ 2.0 bright
 #define NL_SHADOW_INTENSITY 1.0 // 0.0 no shadow ~ 1.0 strong shadow
 #define NL_BLINKING_TORCH     // [toggle] flickering light
@@ -66,17 +66,17 @@
 #define NL_RAIN_MIST_OPACITY 0.12 // [toggle] 0.04 very subtle ~ 0.5 thick rain mist blow
 
 /* Sky colors - zenith=top, horizon=bottom */
-#define NL_DAY_ZENITH_COL    vec3(0.6902,0.6588,1.0)
-#define NL_DAY_HORIZON_COL   vec3(0.847,0.749,0.847)
+#define NL_DAY_ZENITH_COL    vec3(0.3,0.5,0.8)
+#define NL_DAY_HORIZON_COL   vec3(0.65,0.8,1.0)
 #define NL_NIGHT_ZENITH_COL  vec3(0.05,0.04,0.17)
 #define NL_NIGHT_HORIZON_COL vec3(0.13,0.12,0.23)
 #define NL_RAIN_ZENITH_COL   vec3(0.5,0.5,0.7)
 #define NL_RAIN_HORIZON_COL  vec3(0.65,0.65,0.75)
 #define NL_END_ZENITH_COL    vec3(0.1,0.0,0.2)
 #define NL_END_HORIZON_COL   vec3(0.15,0.1,0.25)
-#define NL_DAWN_ZENITH_COL   vec3(0.404,0.031,0.541)
-#define NL_DAWN_HORIZON_COL  vec3(0.722,0.508,0.686)
-#define NL_DAWN_EDGE_COL     vec3(0.859,0.698,0.455)
+#define NL_DAWN_ZENITH_COL   vec3(1.0,0.6902,0.6902)
+#define NL_DAWN_HORIZON_COL  vec3(1.0,0.150,0.150)
+#define NL_DAWN_EDGE_COL     vec3(1.0,0.150,0.150)
 
 /* Rainbow */
 #define NL_RAINBOW         // [toggle] enable rainbow in sky
