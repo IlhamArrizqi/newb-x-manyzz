@@ -74,9 +74,9 @@
 #define NL_RAIN_HORIZON_COL  vec3(0.65,0.65,0.75)
 #define NL_END_ZENITH_COL    vec3(0.1,0.0,0.2)
 #define NL_END_HORIZON_COL   vec3(0.15,0.1,0.25)
-#define NL_DAWN_ZENITH_COL   vec3(.4,0.4,0.8)
-#define NL_DAWN_HORIZON_COL  vec3(0.9608,0.1373,0.0588)
-#define NL_DAWN_EDGE_COL     vec3(1.0,0.6902,0.6902)
+#define NL_DAWN_ZENITH_COL   vec3(0.3804,0.7843,1.0)
+#define NL_DAWN_HORIZON_COL  vec3(1.0,0.2784,0.0392)
+#define NL_DAWN_EDGE_COL     vec3(1.0,0.7647,0.7647)
 
 /* Rainbow */
 #define NL_RAINBOW         // [toggle] enable rainbow in sky
