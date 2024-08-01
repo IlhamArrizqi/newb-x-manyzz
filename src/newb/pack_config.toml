@@ -1,4 +1,4 @@
-name = "§lNewb X §cManyzz §aV3.0"
+name = "§lNewb X §cManyzz §aTEST"
 version = [0, 15, 0]
 min_supported_mc_version = [1, 20, 80]
 url = "https://devendrn.github.io/newb-shader/"
@@ -16,8 +16,8 @@ long = '''
 short = "Upgrade Minecraft visuals: vibrant colors, realistic lighting, immersive effects"
 
 [uuid] # Use https://www.uuidgenerator.net/version4
-header = "0d638c6e-c043-4587-b8da-430cf1444077"
-module = "6ee241ac-a460-46f4-8fbc-b9aa9d093686"
+header = "93365be7-26a2-458a-a6a8-3c47ea0b19fe"
+module = "465344b5-46bd-4caf-b580-a8952a7f8960"
 
 [info]
 # %a = authors
@@ -58,55 +58,6 @@ define = "MULTILAYER_CLOUDS"
 materials = ["Clouds"]
 description = '''
 Multilayer Rounded Clouds
-'''
-
-[[subpack]]
-define = "PERFORMANCE_MODE"
-materials = ["RenderChunk","Clouds"]
-description = '''
-§cPerformance Mode
-'''
-
-[[subpack]]
-define = "NIGHT_VISION"
-materials = ["RenderChunk","Actor"]
-description = '''
-Night Vision
-'''
-
-[[subpack]]
-define = "BLACK_AND_WHITE_STYLE"
-materials = ["RenderChunk","Clouds","Sky","EndSky","LegacyCubemap","Actor"]
-description = '''
-Black And White Style
-'''
-
-[[subpack]]
-define = "NOSTALGIA_STYLE"
-materials = ["RenderChunk","Clouds","Sky","EndSky","LegacyCubemap"]
-description = '''
-Nostalgia Style
-'''
-
-[[subpack]]
-define = "VIBRANT_STYLE"
-materials = ["RenderChunk","Clouds","Sky","EndSky","LegacyCubemap"]
-description = '''
-§bVibrant Style
-'''
-
-[[subpack]]
-define = "UNBOUND_STYLE"
-materials = ["RenderChunk","Clouds","Sky","EndSky","LegacyCubemap"]
-description = '''
-Unbound Style
-'''
-
-[[subpack]]
-define = "SPOOKY_STYLE"
-materials = ["RenderChunk","Clouds","Sky","EndSky","LegacyCubemap"]
-description = '''
-Spooky Style
 '''
 
 [[subpack]]
