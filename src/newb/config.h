@@ -136,7 +136,7 @@
 #define NL_CLOUD2_MULTILAYER         // [toggle] extra cloud layer
 
 /* Aurora settings */
-//#define NL_AURORA 4.0           // [toggle] 0.4 dim ~ 4.0 very bright
+#define NL_AURORA 4.0           // [toggle] 0.4 dim ~ 4.0 very bright
 #define NL_AURORA_VELOCITY 0.14 // 0.0 static ~ 0.3 very fast
 #define NL_AURORA_SCALE 0.02    // 0.002 large ~ 0.4 tiny
 #define NL_AURORA_WIDTH 0.2    // 0.04 thin line ~ 0.4 thick lines
