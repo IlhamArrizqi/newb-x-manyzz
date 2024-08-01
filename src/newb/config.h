@@ -75,7 +75,7 @@
 #define NL_END_ZENITH_COL    vec3(0.1,0.0,0.2)
 #define NL_END_HORIZON_COL   vec3(0.15,0.1,0.25)
 #define NL_DAWN_ZENITH_COL   vec3(0.3804,0.7843,1.0)
-#define NL_DAWN_HORIZON_COL  vec3(1.0,0.2784,0.0392)
+#define NL_DAWN_HORIZON_COL  vec3(1.0,0.3333,0.0)
 #define NL_DAWN_EDGE_COL     vec3(1.0,0.7647,0.7647)
 
 /* Rainbow */
