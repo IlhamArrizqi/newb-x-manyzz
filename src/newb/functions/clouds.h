@@ -41,6 +41,7 @@ vec4 renderCloudsSimple(nl_skycolor skycol, vec3 pos, highp float t, float rain)
 }
 
 // rounded clouds
+
 #ifdef NL_CLOUD2_REALISTIC
 float mod289(float x){return x - floor(x * (1.0 / 289.0)) * 289.0;}
 vec4 mod289(vec4 x){return x - floor(x * (1.0 / 289.0)) * 289.0;}
@@ -89,6 +90,7 @@ float noise(vec2 p){
 }
 #endif
 // rounded clouds 3D density map
+float cloudDf(vec3 pos, float rain) {
   #ifdef NL_CLOUD2_REALISTIC
   pos.xyz += 0.0*noise(pos.xyz);
   pos.xz += 0.7*noise(7.0*pos.xyz);
@@ -98,7 +100,6 @@ float noise(vec2 p){
   pos.xz += 1.99*noise(99.99*pos.xz);
 #endif
 
-float cloudDf(vec3 pos, float rain) {
   vec2 p0 = floor(pos.xz);
   vec2 u = smoothstep(0.999*NL_CLOUD2_SHAPE, 1.0, pos.xz-p0);
   
