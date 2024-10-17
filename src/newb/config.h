@@ -332,9 +332,8 @@
   #undef NL_WATER_WAVE
   #undef NL_RAIN_MIST_OPACITY
   #undef NL_CHUNK_LOAD_ANIM -140.0
-  #undef NL_FOG_TYPE
+  #undef NL_FOG
   #undef NL_BLINKING_TORCH
-  #define NL_FOG_TYPE 0
   #undef NL_CLOUD_TYPE
   #define NL_CLOUD_TYPE 0
   #undef NL_WATER_CLOUD_REFLECTION
