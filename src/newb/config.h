@@ -128,15 +128,15 @@
 
 /* Rounded cloud Settings */
 #define NL_CLOUD2_THICKNESS 1.0      // 0.5 slim ~ 5.0 fat
-#define NL_CLOUD2_RAIN_THICKNESS 2.5 // 0.5 slim ~ 5.0 fat
+#define NL_CLOUD2_RAIN_THICKNESS 1.0 // 0.5 slim ~ 5.0 fat
 #define NL_CLOUD2_STEPS 5            // 3 low quality ~ 16 high quality
-#define NL_CLOUD2_SCALE 0.01        // 0.003 large ~ 0.3 tiny
+#define NL_CLOUD2_SCALE 0.03         // 0.003 large ~ 0.3 tiny
 #define NL_CLOUD2_SHAPE 0.5          // 0.0 round ~ 1.0 box
-#define NL_CLOUD2_DENSITY 15.0       // 1.0 blurry ~ 100.0 sharp
+#define NL_CLOUD2_DENSITY 55.0       // 1.0 blurry ~ 100.0 sharp
 #define NL_CLOUD2_VELOCITY 2.0       // 0.0 static ~ 4.0 very fast
 #define NL_CLOUD2_REALISTIC          // [toggle] like REALISTIS Clouds
-//#define NL_CLOUD2_SMOOTH             // [toggle] super soft clouds
-//#define NL_CLOUD2_MULTILAYER       // [toggle] extra cloud layer
+//#define NL_CLOUD2_SMOOTH           // [toggle] super soft clouds
+#define NL_CLOUD2_MULTILAYER       // [toggle] extra cloud layer
 
 /* Aurora settings */
 #define NL_AURORA 4.0           // [toggle] 0.4 dim ~ 4.0 very bright
@@ -346,11 +346,11 @@
 
 #ifdef MULTILAYER_ROUNDED_CLOUDS
   #undef NL_CLOUD2_REALISTIC
-  #define NL_CLOUD2_MULTILAYER
 #endif
 
 #ifdef ROUNDED_CLOUDS
   #undef NL_CLOUD2_REALISTIC
+  #undef NL_CLOUD2_MULTILAYER
 #endif
 
 #ifdef SOFT_CLOUDS
