@@ -32,12 +32,12 @@
 #define NL_GAMMA 0.8             // 0.3 low ~ 2.0 high
 #define NL_EXPOSURE 1.3            // [toggle] 0.5 dark ~ 3.0 bright
 #define NL_SATURATION 1.9          // [toggle] 0.0 grayscale ~ 4.0 super saturated
-#define NL_TINT vec3(0.6,0.5,0.8) // [toggle] color overlay
+#define NL_TINT vec3(0.9,0.6,0.4) // [toggle] color overlay
 
 /* Terrain lighting */
-#define NL_SUN_INTENSITY 4.0   // 0.5 weak ~ 5.0 bright
+#define NL_SUN_INTENSITY 3.0   // 0.5 weak ~ 5.0 bright
 #define NL_TORCH_INTENSITY 2.0  // 0.5 weak ~ 3.0 bright
-#define NL_NIGHT_BRIGHTNESS 0.8 // 0.0 dark ~ 2.0 bright
+#define NL_NIGHT_BRIGHTNESS 1.0 // 0.0 dark ~ 2.0 bright
 #define NL_CAVE_BRIGHTNESS 1.0  // 0.0 dark ~ 2.0 bright
 #define NL_SHADOW_INTENSITY 1.0 // 0.0 no shadow ~ 1.0 strong shadow
 #define NL_BLINKING_TORCH     // [toggle] flickering light
