@@ -29,7 +29,7 @@
 
 /* Color correction */
 #define NL_TONEMAP_TYPE 4            // 1:Exponential, 2:Reinhard, 3:Extended Reinhard, 4:ACES
-#define NL_GAMMA 0.8             // 0.3 low ~ 2.0 high
+#define NL_GAMMA 1.25             // 0.3 low ~ 2.0 high
 #define NL_EXPOSURE 1.3            // [toggle] 0.5 dark ~ 3.0 bright
 #define NL_SATURATION 1.9          // [toggle] 0.0 grayscale ~ 4.0 super saturated
 #define NL_TINT vec3(0.9,0.6,0.4) // [toggle] color overlay
@@ -94,7 +94,7 @@
 //#define NL_EXTRA_PLANTS_WAVE // [toggle] !dont use! wave using texture coords (1.21.0 vanilla 2048x1024)
 
 /* Water */
-#define NL_WATER_TRANSPARENCY 0.6 // 0.0 transparent ~ 1.0 normal
+#define NL_WATER_TRANSPARENCY 0.75 // 0.0 transparent ~ 1.0 normal
 #define NL_WATER_BUMP 0.4        // 0.001 plain ~ 0.2 bumpy water
 #define NL_WATER_TEX_OPACITY 0.77  // 0.0 plain water ~ 1.0 vanilla water texture
 #define NL_WATER_WAVE             // [toggle] wave effect
@@ -134,8 +134,8 @@
 #define NL_CLOUD2_SHAPE 0.5          // 0.0 round ~ 1.0 box
 #define NL_CLOUD2_DENSITY 55.0       // 1.0 blurry ~ 100.0 sharp
 #define NL_CLOUD2_VELOCITY 2.0       // 0.0 static ~ 4.0 very fast
-#define NL_CLOUD2_REALISTIC          // [toggle] like REALISTIS Clouds
-//#define NL_CLOUD2_SMOOTH           // [toggle] super soft clouds
+//#define NL_CLOUD2_REALISTIC          // [toggle] like REALISTIS Clouds
+#define NL_CLOUD2_SMOOTH           // [toggle] super soft clouds
 #define NL_CLOUD2_MULTILAYER       // [toggle] extra cloud layer
 
 /* Aurora settings */
@@ -339,9 +339,9 @@
   #undef NL_WATER_CLOUD_REFLECTION
 #endif
 
-#ifdef SUPER_SOFT_CLOUDS
-  #undef NL_CLOUD2_REALISTIC
-  #define NL_CLOUD2_SMOOTH
+#ifdef SUBTLE_CLOUDS
+  #undef NL_CLOUD2_SMOOTH
+  #define NL_CLOUD2_REALISTIC
 #endif
 
 #ifdef MULTILAYER_ROUNDED_CLOUDS

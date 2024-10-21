@@ -45,10 +45,10 @@ Soft Clouds
 '''
 
 [[subpack]]
-define = "SUPER_SOFT_CLOUDS"
+define = "SUBTLE_CLOUDS"
 materials = ["Clouds"]
 description = '''
-Super Soft Clouds
+Subtle Clouds
 '''
 
 [[subpack]]
