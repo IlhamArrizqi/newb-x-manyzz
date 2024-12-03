@@ -198,6 +198,8 @@
   #undef NL_EXPOSURE
   #undef NL_SATURATION
   #undef NL_TINT
+  #undef NL_TINT_LOW  vec3(0.7,0.4,0.3)
+  #undef NL_TINT_HIGH vec3(1.2,0.8,0.2)
   #undef NL_DAY_ZENITH_COL
   #undef NL_DAY_HORIZON_COL
   #undef NL_NIGHT_ZENITH_COL
@@ -210,6 +212,7 @@
   #define NL_GAMMA 1.5
   #define NL_EXPOSURE 0.7
   #define NL_SATURATION 0.5
+  #define NL_TINT
   #define NL_TINT_LOW  vec3(0.2,0.13,0.27)
   #define NL_TINT_HIGH vec3(0.45,0.3,0.6)
   #define NL_DAY_ZENITH_COL    vec3(0.2,0.1,0.3)
@@ -229,6 +232,8 @@
   #undef NL_EXPOSURE 
   #undef NL_SATURATION 
   #undef NL_TINT
+  #undef NL_TINT_LOW  vec3(0.7,0.4,0.3)
+  #undef NL_TINT_HIGH vec3(1.2,0.8,0.2)
   #undef NL_WATER_TRANSPARENCY
   #undef NL_DAY_ZENITH_COL
   #undef NL_DAY_HORIZON_COL
@@ -244,6 +249,7 @@
   #define NL_GAMMA 1.2
   #define NL_EXPOSURE 1.0
   #define NL_SATURATION 1.0
+  #define NL_TINT
   #define NL_TINT_LOW  vec3(0.7,0.7,0.7)
   #define NL_TINT_HIGH vec3(1.0,1.0,1.0)
   #define NL_WATER_TRANSPARENCY 0.3
@@ -263,6 +269,8 @@
   #undef NL_EXPOSURE
   #undef NL_SATURATION
   #undef NL_TINT
+  #undef NL_TINT_LOW  vec3(0.7,0.4,0.3)
+  #undef NL_TINT_HIGH vec3(1.2,0.8,0.2)
   #undef NL_DAY_ZENITH_COL
   #undef NL_DAY_HORIZON_COL
   #undef NL_NIGHT_ZENITH_COL  
@@ -275,6 +283,7 @@
   #undef NL_DAWN_EDGE_COL    
   #define NL_EXPOSURE 0.8
   #define NL_SATURATION 2.5
+  #define NL_TINT
   #define NL_TINT_LOW  vec3(0.7,0.5,0.15)
   #define NL_TINT_HIGH vec3(1.2,0.85,0.3)
   #define NL_DAY_ZENITH_COL    vec3(0.6,0.8,1.0)
@@ -294,6 +303,8 @@
   #undef NL_EXPOSURE
   #undef NL_SATURATION
   #undef NL_TINT
+  #undef NL_TINT_LOW  vec3(0.7,0.4,0.3)
+  #undef NL_TINT_HIGH vec3(1.2,0.8,0.2)
   #undef NL_WATER_TRANSPARENCY
   #undef NL_CLOUD_TYPE
   #undef NL_DAY_ZENITH_COL
@@ -309,6 +320,7 @@
   #define NL_GAMMA 1.0
   #define NL_EXPOSURE 1.0
   #define NL_SATURATION 0.8
+  #define NL_TINT
   #define NL_TINT_LOW  vec3(0.6,0.5,0.4)
   #define NL_TINT_HIGH vec3(1.1,0.95,0.7)
   #define NL_WATER_TRANSPARENCY 0.3
@@ -330,6 +342,8 @@
 #ifdef BLACK_AND_WHITE_STYLE
   #undef NL_SATURATION
   #undef NL_TINT
+  #undef NL_TINT_LOW  vec3(0.7,0.4,0.3)
+  #undef NL_TINT_HIGH vec3(1.2,0.8,0.2)
   #define NL_SATURATION 0.0
 #endif
 
