@@ -206,12 +206,12 @@
   #undef NL_DAWN_ZENITH_COL
   #undef NL_DAWN_HORIZON_COL
   #undef NL_DAWN_EDGE_COL
-  #undef NL_CLOUD2_SCALE
   #undef NL_MIST_DENSITY
   #define NL_GAMMA 1.5
   #define NL_EXPOSURE 0.7
   #define NL_SATURATION 0.5
-  #define NL_TINT vec3(0.3,0.2,0.4)
+  #define NL_TINT_LOW  vec3(0.2,0.13,0.27)
+  #define NL_TINT_HIGH vec3(0.45,0.3,0.6)
   #define NL_DAY_ZENITH_COL    vec3(0.2,0.1,0.3)
   #define NL_DAY_HORIZON_COL   vec3(0.4,0.2,0.3)
   #define NL_NIGHT_ZENITH_COL  vec3(0.02,0.01,0.08)
@@ -220,7 +220,6 @@
   #define NL_DAWN_ZENITH_COL   vec3(0.1,0.02,0.2)
   #define NL_DAWN_HORIZON_COL  vec3(0.3,0.1,0.2)
   #define NL_DAWN_EDGE_COL     vec3(0.4,0.2,0.3)
-  #define NL_CLOUD2_SCALE 0.007
   #define NL_MIST_DENSITY 20.0
 #endif
 
@@ -245,7 +244,8 @@
   #define NL_GAMMA 1.2
   #define NL_EXPOSURE 1.0
   #define NL_SATURATION 1.0
-  #define NL_TINT vec3(1.0,1.0,1.0)
+  #define NL_TINT_LOW  vec3(0.7,0.7,0.7)
+  #define NL_TINT_HIGH vec3(1.0,1.0,1.0)
   #define NL_WATER_TRANSPARENCY 0.3
   #define NL_DAY_ZENITH_COL    vec3(0.8,0.9,1.0)
   #define NL_DAY_HORIZON_COL   vec3(0.6,0.7,0.8)
@@ -275,7 +275,8 @@
   #undef NL_DAWN_EDGE_COL    
   #define NL_EXPOSURE 0.8
   #define NL_SATURATION 2.5
-  #define NL_TINT vec3(1.0,0.7,0.2)
+  #define NL_TINT_LOW  vec3(0.7,0.5,0.15)
+  #define NL_TINT_HIGH vec3(1.2,0.85,0.3)
   #define NL_DAY_ZENITH_COL    vec3(0.6,0.8,1.0)
   #define NL_DAY_HORIZON_COL   vec3(0.7,0.85,1.0)
   #define NL_NIGHT_ZENITH_COL  vec3(0.05,0.1,0.2)
@@ -308,7 +309,8 @@
   #define NL_GAMMA 1.0
   #define NL_EXPOSURE 1.0
   #define NL_SATURATION 0.8
-  #define NL_TINT vec3(0.9,0.8,0.6)
+  #define NL_TINT_LOW  vec3(0.6,0.5,0.4)
+  #define NL_TINT_HIGH vec3(1.1,0.95,0.7)
   #define NL_WATER_TRANSPARENCY 0.3
   #define NL_CLOUD_TYPE 0
   #define NL_CLOUD0_MULTILAYER
@@ -327,7 +329,7 @@
 
 #ifdef BLACK_AND_WHITE_STYLE
   #undef NL_SATURATION
-  #undef NL_TINT vec3(1.0,0.9,0.7)
+  #undef NL_TINT
   #define NL_SATURATION 0.0
 #endif
 
