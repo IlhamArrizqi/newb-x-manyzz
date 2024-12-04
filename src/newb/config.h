@@ -33,8 +33,8 @@
 #define NL_EXPOSURE 1.3              // [toggle] 0.5 dark ~ 3.0 bright
 #define NL_SATURATION 1.9            // [toggle] 0.0 grayscale ~ 4.0 super saturated
 #define NL_TINT                      // [toggle] enable light/dark tone tinting
-#define NL_TINT_LOW  vec3(0.7,0.4,0.3) // color tint for dark tone
-#define NL_TINT_HIGH vec3(1.2,0.8,0.2) // color tint for light tone
+#define NL_TINT_LOW  vec3(0.6,0.3,0.2) // color tint for dark tone
+#define NL_TINT_HIGH vec3(1.0,0.6,0.3) // color tint for light tone
 
 /* Terrain lighting */
 #define NL_SUN_INTENSITY 3.0   // 0.5 weak ~ 5.0 bright
@@ -67,10 +67,10 @@
 #define NL_CLOUDY_FOG 0.4         // [toggle] 0.0 subtle - 0.8 dense fog clouds
 
 /* Sky colors - zenith=top, horizon=bottom */
-#define NL_DAY_ZENITH_COL    vec3(0.9,0.4,0.2)
-#define NL_DAY_HORIZON_COL   vec3(1.0,0.7,0.4)
-#define NL_NIGHT_ZENITH_COL  vec3(0.02,0.02,0.1)
-#define NL_NIGHT_HORIZON_COL vec3(0.1,0.1,0.2)
+#define NL_DAY_ZENITH_COL    vec3(0.4,0.6,1.0)
+#define NL_DAY_HORIZON_COL   vec3(0.6,0.8,1.0)
+#define NL_NIGHT_ZENITH_COL  vec3(0.01,0.01,0.05)
+#define NL_NIGHT_HORIZON_COL vec3(0.05,0.05,0.15)
 #define NL_RAIN_ZENITH_COL   vec3(0.5,0.5,0.7)
 #define NL_RAIN_HORIZON_COL  vec3(1.0,1.0,1.0)
 #define NL_END_ZENITH_COL    vec3(0.1,0.0,0.2)
