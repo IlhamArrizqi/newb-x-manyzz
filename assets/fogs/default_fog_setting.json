@@ -1,0 +1,28 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:fog_settings": {
+    "description": {
+      "identifier": "newb:fog_default"
+    },
+    "distance": {
+      "air": {
+        "fog_start": 0.1,
+        "fog_end": 50,
+        "fog_color": "#5d478b",
+        "render_distance_type": "render"
+      },
+      "water": {
+        "fog_start": 0.1,
+        "fog_end": 100,
+        "fog_color": "#8968cd",
+        "render_distance_type": "fixed"
+      },
+      "weather": {
+        "fog_start": 0.1,
+        "fog_end": 80,
+        "fog_color": "#a74ac7",
+        "render_distance_type": "render"
+      }
+    }
+  }
+}

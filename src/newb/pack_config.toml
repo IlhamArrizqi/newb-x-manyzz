@@ -1,4 +1,4 @@
-name = "Newb X Legacy"
+name = "§lNewb X §cManyzz §aV3.1.2"
 version = [0, 15, 0]
 min_supported_mc_version = [1, 21, 20]
 description = '''
@@ -7,7 +7,7 @@ description = '''
 %v
 §3https://devendrn.github.io/newb-shader/
 ''' # %w = patch warning, %v = version
-authors = ["devendrn"]
+authors = ["devendrn","Itszmanyzz"]
 url = "https://devendrn.github.io/newb-shader/"
 uuid = "95f774cf-4afa-73e7-a21a-72146307b1d2" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "LegacyCubemap", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
@@ -29,6 +29,40 @@ credits = '''
 # right-most subpack is enabled by default
 
 [[subpack]]
+define = "VANILLA_CLOUDS"
+materials = ["Clouds"]
+description = '''
+Vanilla Clouds
+'''
+[[subpack]]
+define = "MULTILAYER_VANILLA_CLOUDS"
+materials = ["Clouds"]
+description = '''
+Multilayer Vanilla Clouds
+'''
+
+[[subpack]]
+define = "SOFT_CLOUDS"
+materials = ["Clouds"]
+description = '''
+Soft Clouds
+'''
+
+[[subpack]]
+define = "SUBTLE_CLOUDS"
+materials = ["Clouds"]
+description = '''
+Subtle Clouds
+'''
+
+[[subpack]]
+define = "MULTILAYER_SUBTLE_CLOUDS"
+materials = ["Clouds"]
+description = '''
+Multilayer Subtle Clouds
+'''
+
+[[subpack]]
 define = "ROUNDED_CLOUDS"
 materials = ["Clouds"]
 description = '''
@@ -36,38 +70,24 @@ Rounded Clouds
 '''
 
 [[subpack]]
-define = "BOX_CLOUDS"
-materials = ["Clouds", "RenderChunk"]
+define = "MULTILAYER_ROUNDED_CLOUDS"
+materials = ["Clouds"]
 description = '''
-Box Clouds
+Multilayer Rounded Clouds
 '''
 
 [[subpack]]
-define = "CHUNK_ANIM"
-materials = ["RenderChunk"]
+define = "PERFORMANCE_MODE"
+materials = ["RenderChunk","Clouds"]
 description = '''
-Chunk loading animation
+§cPerformance Mode
 '''
 
 [[subpack]]
-define = "NO_WAVE_NO_FOG"
-materials = ["RenderChunk"]
+define = "NIGHT_VISION"
+materials = ["RenderChunk","Actor"]
 description = '''
-No fog and wave effects
-'''
-
-[[subpack]]
-define = "NO_FOG"
-materials = ["RenderChunk"]
-description = '''
-No fog effect
-'''
-
-[[subpack]]
-define = "NO_WAVE"
-materials = ["RenderChunk"]
-description = '''
-No wave effects
+Night Vision
 '''
 
 [[subpack]]
