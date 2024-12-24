@@ -82,6 +82,7 @@ float noise(vec2 p){
   float n = v.y*mix(c1,c2,u.x+c6) + u.y*(c3*v.x+c4+c5*u.x);
   return n;
 }
+#endif
 // rounded clouds 3D density map
 float cloudDf(vec3 pos, float rain, vec2 boxiness) {
   #ifdef NL_CLOUD2_REALISTIC
