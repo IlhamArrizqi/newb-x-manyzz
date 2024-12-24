@@ -41,7 +41,7 @@ float mod289(float x){return x - floor(x * (1.0 / 289.0)) * 289.0;}
 vec4 mod289(vec4 x){return x - floor(x * (1.0 / 289.0)) * 289.0;}
 vec4 perm(vec4 x){return mod289(((x * 34.0) + 1.0) * x);}
 
-float noise3D(vec3 p){
+float noise(vec3 p){
     vec3 a = floor(p);
     vec3 d = p - a;
     d = d * d * (2.0 - 1.0 * d);
@@ -65,26 +65,32 @@ float noise3D(vec3 p){
 #endif
 
 #ifdef NL_CLOUD2_SMOOTH
-float noise2D(vec2 u) {
-  vec2 u0 = floor(u);
-  vec2 v = u-u0;
-  v *= v*(3.0 - 2.0*v);
-  float c0 = rand(u0);
-  float c1 = rand(u0+vec2(1.0, 0.0));
-  float c2 = rand(u0+vec2(1.0, 1.0));
-  float c3 = rand(u0+vec2(0.0, 1.0));
-  return mix(mix(c0, c3, v.y), mix(c1, c2, v.y), v.x);
+float noise(vec2 p){
+  vec2 p0 = floor(p);
+  vec2 u = p-p0;
+
+  u *= u*(2.0-1.0*u);
+  vec2 v = 1.0 - u;
+
+  float c1 = rand(p0);
+  float c2 = rand(p0+vec2(1.0,0.0));
+  float c3 = rand(p0+vec2(0.0,1.0));
+  float c4 = rand(p0+vec2(1.0,1.0));
+  float c5 = rand(p0+vec2(1.0,0.0));
+  float c6 = rand(p0+vec2(1.0,0.0));
+
+  float n = v.y*mix(c1,c2,u.x+c6) + u.y*(c3*v.x+c4+c5*u.x);
+  return n;
 }
-#endif
 // rounded clouds 3D density map
 float cloudDf(vec3 pos, float rain, vec2 boxiness) {
   #ifdef NL_CLOUD2_REALISTIC
-  pos.xyz += 0.0*noise3D(pos.xyz);
-  pos.xz += 0.7*noise3D(7.0*pos.xyz);
+  pos.xyz += 0.0*noise(pos.xyz);
+  pos.xz += 0.7*noise(7.0*pos.xyz);
 #endif
 
   #ifdef NL_CLOUD2_SMOOTH
-  pos.xz += 1.99*noise2D(99.99*pos.xz);
+  pos.xz += 1.99*noise(99.99*pos.xz);
 #endif
   boxiness *= 0.999;
   vec2 p0 = floor(pos.xz);
