@@ -37,29 +37,22 @@ vec4 renderCloudsSimple(nl_skycolor skycol, vec3 pos, highp float t, float rain)
 
 // rounded clouds
 #ifdef NL_CLOUD2_REALISTIC
-vec4 mod289(vec4 x){return x - floor(x * (1.0 / 289.0)) * 289.0;}
-vec4 perm(vec4 x){return mod289(((x * 34.0) + 1.0) * x);}
+float noise(vec2 p){
+  vec2 p0 = floor(p);
+  vec2 u = p-p0;
 
-float noise(vec3 p){
-    vec3 a = floor(p);
-    vec3 d = p - a;
-    d = d * d * (2.0 - 1.0 * d);
+  u *= u*(2.0-1.0*u);
+  vec2 v = 1.0 - u;
 
-    vec4 b = a.xxyy + vec4(0.0, 1.0, 0.0, 1.0);
-    vec4 k1 = perm(b.xyxy);
-    vec4 k2 = perm(k1.xyxy + b.zzww);
+  float c1 = rand(p0);
+  float c2 = rand(p0+vec2(1.0,0.0));
+  float c3 = rand(p0+vec2(0.0,1.0));
+  float c4 = rand(p0+vec2(1.0,1.0));
+  float c5 = rand(p0+vec2(1.0,0.0));
+  float c6 = rand(p0+vec2(1.0,0.0));
 
-    vec4 c = k2 + a.zzzz;
-    vec4 k3 = perm(c);
-    vec4 k4 = perm(c + 1.0);
-
-    vec4 o1 = fract(k3 * (1.0 / 41.0));
-    vec4 o2 = fract(k4 * (1.0 / 41.0));
-
-    vec4 o3 = o2 * d.z + o1 * (1.0 - d.z);
-    vec2 o4 = o3.yw * d.x + o3.xz * (1.0 - d.x);
-
-    return o4.y * d.y + o4.x * (1.0 - d.y);
+  float n = v.y*mix(c1,c2,u.x+c6) + u.y*(c3*v.x+c4+c5*u.x);
+  return n;
 }
 #endif
 
