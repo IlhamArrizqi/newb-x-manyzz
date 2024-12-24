@@ -78,8 +78,7 @@ float noise(vec2 p){
 // rounded clouds 3D density map
 float cloudDf(vec3 pos, float rain, vec2 boxiness) {
   #ifdef NL_CLOUD2_REALISTIC
-  pos.xyz += 0.0*noise(pos.xyz);
-  pos.xz += 0.7*noise(7.0*pos.xyz);
+  pos.xz += 0.7*noise(7.0*pos.xz);
 #endif
 
   #ifdef NL_CLOUD2_SMOOTH
