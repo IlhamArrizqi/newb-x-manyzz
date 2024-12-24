@@ -64,7 +64,7 @@ float noise(vec3 p){
 }
 #endif
 
-#ifdef NL_CLOUD2_SMOOTH
+#ifdef NL_CLOUD2_SMOOTH1
 float noise(vec2 p){
   vec2 p0 = floor(p);
   vec2 u = p-p0;
