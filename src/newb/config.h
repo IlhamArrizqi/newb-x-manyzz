@@ -39,8 +39,8 @@
 /* Terrain lighting */
 #define NL_SUN_INTENSITY 3.0   // 0.5 weak ~ 5.0 bright
 #define NL_TORCH_INTENSITY 1.75  // 0.5 weak ~ 3.0 bright
-#define NL_NIGHT_BRIGHTNESS 0.8 // 0.0 dark ~ 2.0 bright
-#define NL_CAVE_BRIGHTNESS 0.8  // 0.0 dark ~ 2.0 bright
+#define NL_NIGHT_BRIGHTNESS 0.5 // 0.0 dark ~ 2.0 bright
+#define NL_CAVE_BRIGHTNESS 0.5  // 0.0 dark ~ 2.0 bright
 #define NL_SHADOW_INTENSITY 1.0 // 0.0 no shadow ~ 1.0 strong shadow
 #define NL_BLINKING_TORCH     // [toggle] flickering light
 //#define NL_CLOUD_SHADOW       // [toggle] cloud shadow (simple clouds only)
@@ -151,7 +151,7 @@
 
 /* Realistic cloud settings */
 #define NL_CLOUD3_SCALE vec2(0.03, 0.04) // 0.003 large ~ 1.0 tiny
-#define NL_CLOUD3_SPEED 0.05            // 0.0 static ~ 4.0 fast moving
+#define NL_CLOUD3_SPEED 0.03            // 0.0 static ~ 4.0 fast moving
 #define NL_CLOUD3_SHADOW 0.9             // 0.1 subtle ~ 1.0 dark
 #define NL_CLOUD3_SHADOW_OFFSET 0.3      // 0.05 minimal ~ 1.0 large
 
@@ -159,7 +159,7 @@
 #define NL_AURORA 1.2           // [toggle] 0.4 dim ~ 4.0 very bright
 #define NL_AURORA_VELOCITY 0.14 // 0.0 static ~ 0.3 very fast
 #define NL_AURORA_SCALE 0.02    // 0.002 large ~ 0.4 tiny
-#define NL_AURORA_WIDTH 0.2    // 0.04 thin line ~ 0.4 thick lines
+#define NL_AURORA_WIDTH 0.15    // 0.04 thin line ~ 0.4 thick lines
 #define NL_AURORA_COL1 vec3(0.0,0.5,1.0)
 #define NL_AURORA_COL2 vec3(0.5,0.0,0.5)
 
