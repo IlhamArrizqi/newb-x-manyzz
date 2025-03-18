@@ -1,15 +1,15 @@
-name = "Newb X Legacy"
+name = "§lNewb X §cManyzz §fDefault §aV3.1.3"
 version = [0, 15, 0]
 min_supported_mc_version = [1, 21, 20]
 description = '''
 §c%w
-§7- An enchanced vanilla shader for Minecraft!
+§7- Upgrade Minecraft visuals: vibrant colors, realistic lighting, immersive effects
 %v
 §3https://devendrn.github.io/newb-shader/
 ''' # %w = patch warning, %v = version
-authors = ["devendrn"]
+authors = ["devendrn","Itszmanyzz"]
 url = "https://devendrn.github.io/newb-shader/"
-uuid = "95f774cf-4afa-73e7-a21a-72146307b1d2" # Use https://www.uuidgenerator.net/version4
+uuid = "e83de1f4-1b8b-47c7-9fbc-b1f94d0fc182" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
 [info] 
@@ -29,6 +29,46 @@ credits = '''
 # right-most subpack is enabled by default
 
 [[subpack]]
+define = "PERFORMANCE_MODE"
+materials = ["RenderChunk","Clouds"]
+description = '''
+§cPerformance Mode
+'''
+
+[[subpack]]
+define = "NIGHT_VISION"
+materials = ["RenderChunk","Actor"]
+description = '''
+Night Vision
+'''
+
+[[subpack]]
+define = "VANILLA_CLOUDS"
+materials = ["Clouds"]
+description = '''
+Vanilla Clouds
+'''
+
+[[subpack]]
+define = "MULTILAYER_VANILLA_CLOUDS"
+materials = ["Clouds"]
+description = '''
+Multilayer Vanilla Clouds
+'''
+[[subpack]]
+define = "SOFT_CLOUDS_CLOUDS"
+materials = ["Clouds"]
+description = '''
+Soft Clouds
+'''
+
+[[subpack]]
+define = "SUPER_SOFT_CLOUDS"
+materials = ["Clouds"]
+description = '''
+Super Soft Clouds
+'''
+[[subpack]]
 define = "ROUNDED_CLOUDS"
 materials = ["Clouds"]
 description = '''
@@ -36,38 +76,17 @@ Rounded Clouds
 '''
 
 [[subpack]]
-define = "BOX_CLOUDS"
-materials = ["Clouds", "RenderChunk"]
+define = "MULTILAYER_ROUNDE_CLOUDS"
+materials = ["Clouds"]
 description = '''
-Box Clouds
+Multilayer Rounded Clouds
 '''
 
 [[subpack]]
-define = "CHUNK_ANIM"
-materials = ["RenderChunk"]
+define = "SUBTLE_CLOUDS"
+materials = ["Clouds"]
 description = '''
-Chunk loading animation
-'''
-
-[[subpack]]
-define = "NO_WAVE_NO_FOG"
-materials = ["RenderChunk"]
-description = '''
-No fog and wave effects
-'''
-
-[[subpack]]
-define = "NO_FOG"
-materials = ["RenderChunk"]
-description = '''
-No fog effect
-'''
-
-[[subpack]]
-define = "NO_WAVE"
-materials = ["RenderChunk"]
-description = '''
-No wave effects
+Subtle Clouds
 '''
 
 [[subpack]]

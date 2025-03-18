@@ -36,9 +36,55 @@ vec4 renderCloudsSimple(nl_skycolor skycol, vec3 pos, highp float t, float rain)
 }
 
 // rounded clouds
+#ifdef NL_CLOUD2_SUBTLE
+float noise(vec2 p){
+  vec2 p0 = floor(p);
+  vec2 u = p-p0;
+
+  u *= u*(2.0-1.0*u);
+  vec2 v = 1.0 - u;
+
+  float c1 = rand(p0);
+  float c2 = rand(p0+vec2(1.0,0.0));
+  float c3 = rand(p0+vec2(0.0,1.0));
+  float c4 = rand(p0+vec2(1.0,1.0));
+  float c5 = rand(p0+vec2(1.0,0.0));
+  float c6 = rand(p0+vec2(1.0,0.0));
+
+  float n = v.y*mix(c1,c2,u.x+c6) + u.y*(c3*v.x+c4+c5*u.x);
+  return n;
+}
+#endif
+
+#ifdef NL_CLOUD2_SMOOTH
+float noise(vec2 p){
+  vec2 p0 = floor(p);
+  vec2 u = p-p0;
+
+  u *= u*(2.0-1.0*u);
+  vec2 v = 1.0 - u;
+
+  float c1 = rand(p0);
+  float c2 = rand(p0+vec2(1.0,0.0));
+  float c3 = rand(p0+vec2(0.0,1.0));
+  float c4 = rand(p0+vec2(1.0,1.0));
+  float c5 = rand(p0+vec2(1.0,0.0));
+  float c6 = rand(p0+vec2(1.0,0.0));
+
+  float n = v.y*mix(c1,c2,u.x+c6) + u.y*(c3*v.x+c4+c5*u.x);
+  return n;
+}
+#endif
 
 // rounded clouds 3D density map
 float cloudDf(vec3 pos, float rain, vec2 boxiness) {
+  #ifdef NL_CLOUD2_SUBTLE
+  pos.xz += 0.7*noise(7.0*pos.xz);
+#endif
+
+  #ifdef NL_CLOUD2_SMOOTH
+  pos.xz += 1.99*noise(99.99*pos.xz);
+#endif
   boxiness *= 0.999;
   vec2 p0 = floor(pos.xz);
   vec2 u = max((pos.xz-p0-boxiness.x)/(1.0-boxiness.x), 0.0);
