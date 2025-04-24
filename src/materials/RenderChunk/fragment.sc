@@ -34,6 +34,8 @@ void main() {
   lightTint = mix(lightTint.bbb, lightTint*lightTint, 0.35 + 0.65*v_lightmapUV.y*v_lightmapUV.y*v_lightmapUV.y);
 
   color.rgb *= lightTint;
+float shadow = smoothstep(0.875,0.860, pow(v_lightmapUV.y,2.0));
+diffuse.rgb *= 1.0-0.4*shadow;
 
   #if defined(TRANSPARENT) && !(defined(SEASONS) || defined(RENDER_AS_BILLBOARDS))
     if (v_extra.b > 0.9) {
