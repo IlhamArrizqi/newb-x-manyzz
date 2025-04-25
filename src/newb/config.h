@@ -180,7 +180,7 @@
 /* Sun/Moon */
 #define NL_SUNMOON_ANGLE 83.0        // [toggle] 0.0 no tilt ~ 90.0 tilt of 90 degrees
 #define NL_SUNMOON_SIZE 1.0            // 0.3 tiny ~ 4.0 massive
-#define NL_SUNMOON_RAIN_VISIBILITY 0.3 // 0.0 invisible during rain ~ 1.0 always visible
+//#define NL_SUNMOON_RAIN_VISIBILITY 0.3 // 0.0 invisible during rain ~ 1.0 always visible
 
 /* Fake godrays during sunrise/sunset */
 #define NL_GODRAY 0.8 // [toggle] 0.1 subtle ~ 0.8 strong
