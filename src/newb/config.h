@@ -29,17 +29,17 @@
 
 /* Color correction */
 #define NL_TONEMAP_TYPE 4              // 1:Exponential, 2:Reinhard, 3:Extended Reinhard, 4:ACES
-#define NL_GAMMA 1.25                  // 0.3 low ~ 2.0 high
+#define NL_GAMMA 1.20                  // 0.3 low ~ 2.0 high
 #define NL_EXPOSURE 1.3              // [toggle] 0.5 dark ~ 3.0 bright
-#define NL_SATURATION 1.75            // [toggle] 0.0 grayscale ~ 4.0 super saturated
+#define NL_SATURATION 1.6            // [toggle] 0.0 grayscale ~ 4.0 super saturated
 #define NL_TINT                      // [toggle] enable light/dark tone tinting
-#define NL_TINT_LOW  vec3(0.5,0.3,0.2) // color tint for dark tone
-#define NL_TINT_HIGH vec3(1.0,0.7,0.3) // color tint for light tone
+#define NL_TINT_LOW  vec3(0.6,0.4,0.3) // color tint for dark tone
+#define NL_TINT_HIGH vec3(1.0,0.8,0.4) // color tint for light tone
 
 /* Terrain lighting */
-#define NL_SUN_INTENSITY 3.0   // 0.5 weak ~ 5.0 bright
+#define NL_SUN_INTENSITY 2.7   // 0.5 weak ~ 5.0 bright
 #define NL_TORCH_INTENSITY 1.75  // 0.5 weak ~ 3.0 bright
-#define NL_NIGHT_BRIGHTNESS 0.5 // 0.0 dark ~ 2.0 bright
+#define NL_NIGHT_BRIGHTNESS 1.0 // 0.0 dark ~ 2.0 bright
 #define NL_CAVE_BRIGHTNESS 0.5  // 0.0 dark ~ 2.0 bright
 #define NL_SHADOW_INTENSITY 1.0 // 0.0 no shadow ~ 1.0 strong shadow
 #define NL_BLINKING_TORCH     // [toggle] flickering light
@@ -180,7 +180,7 @@
 /* Sun/Moon */
 #define NL_SUNMOON_ANGLE 83.0        // [toggle] 0.0 no tilt ~ 90.0 tilt of 90 degrees
 #define NL_SUNMOON_SIZE 1.0            // 0.3 tiny ~ 4.0 massive
-//#define NL_SUNMOON_RAIN_VISIBILITY 0.3 // 0.0 invisible during rain ~ 1.0 always visible
+#define NL_SUNMOON_RAIN_VISIBILITY 0.3 // 0.0 invisible during rain ~ 1.0 always visible
 
 /* Fake godrays during sunrise/sunset */
 #define NL_GODRAY 0.8 // [toggle] 0.1 subtle ~ 0.8 strong
