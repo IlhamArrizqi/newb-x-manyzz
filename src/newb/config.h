@@ -28,7 +28,7 @@
 */
 
 /* Color correction */
-#define NL_TONEMAP_TYPE 4              // 1:Exponential, 2:Reinhard, 3:Extended Reinhard, 4:ACES
+#define NL_TONEMAP_TYPE 9              // 1:Exponential, 2:Reinhard, 3:Extended Reinhard, 4:ACES
 #define NL_GAMMA 1.20                  // 0.3 low ~ 2.0 high
 #define NL_EXPOSURE 1.3              // [toggle] 0.5 dark ~ 3.0 bright
 #define NL_SATURATION 1.6            // [toggle] 0.0 grayscale ~ 4.0 super saturated
@@ -67,8 +67,8 @@
 #define NL_CLOUDY_FOG 0.4         // [toggle] 0.0 subtle - 0.8 dense fog clouds
 
 /* Sky colors - zenith=top, horizon=bottom */
-#define NL_DAY_ZENITH_COL    vec3(0.6,0.7,1.0)
-#define NL_DAY_HORIZON_COL   vec3(0.6,0.9,1.0)
+#define NL_DAY_ZENITH_COL    vec3(0.1,0.4,1.0)
+#define NL_DAY_HORIZON_COL   vec3(0.3,0.75,1.0)
 #define NL_NIGHT_ZENITH_COL  vec3(0.004,0.024,0.04)
 #define NL_NIGHT_HORIZON_COL vec3(0.159,0.151,0.211)
 #define NL_RAIN_ZENITH_COL   vec3(0.85,0.9,1.0)
