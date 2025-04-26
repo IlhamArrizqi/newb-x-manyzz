@@ -67,8 +67,8 @@
 #define NL_CLOUDY_FOG 0.4         // [toggle] 0.0 subtle - 0.8 dense fog clouds
 
 /* Sky colors - zenith=top, horizon=bottom */
-#define NL_DAY_ZENITH_COL    vec3(0.788,0.884,1.0)
-#define NL_DAY_HORIZON_COL   vec3(0.63,0.83,0.93)
+#define NL_DAY_ZENITH_COL    vec3(0.6,0.7,1.0)
+#define NL_DAY_HORIZON_COL   vec3(0.6,0.9,1.0)
 #define NL_NIGHT_ZENITH_COL  vec3(0.004,0.024,0.04)
 #define NL_NIGHT_HORIZON_COL vec3(0.159,0.151,0.211)
 #define NL_RAIN_ZENITH_COL   vec3(0.85,0.9,1.0)
@@ -98,7 +98,7 @@
 
 /* Water */
 #define NL_WATER_TRANSPARENCY 0.75 // 0.0 transparent ~ 1.0 normal
-#define NL_WATER_BUMP 0.5        // 0.001 plain ~ 0.2 bumpy water
+#define NL_WATER_BUMP 0.2        // 0.001 plain ~ 0.2 bumpy water
 #define NL_WATER_WAVE_SPEED  1.0  // 0.2 calm ~ 2.0 turbulent
 #define NL_WATER_TEX_OPACITY 0.77  // 0.0 plain water ~ 1.0 vanilla water texture
 #define NL_WATER_WAVE             // [toggle] wave effect
@@ -180,7 +180,6 @@
 /* Sun/Moon */
 #define NL_SUNMOON_ANGLE 83.0        // [toggle] 0.0 no tilt ~ 90.0 tilt of 90 degrees
 #define NL_SUNMOON_SIZE 1.0            // 0.3 tiny ~ 4.0 massive
-#define NL_SUNMOON_RAIN_VISIBILITY 0.3 // 0.0 invisible during rain ~ 1.0 always visible
 
 /* Fake godrays during sunrise/sunset */
 #define NL_GODRAY 0.8 // [toggle] 0.1 subtle ~ 0.8 strong
