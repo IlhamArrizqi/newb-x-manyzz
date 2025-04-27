@@ -102,6 +102,26 @@ vec3 getSunBloom(float viewDirX, vec3 horizonEdgeCol, vec3 FOG_COLOR) {
   return NL_MORNING_SUN_COL*horizonEdgeCol*(sunBloom*factor*factor);
 }
 
+vec3 renderEndSky(vec3 horizonCol, vec3 zenithCol, vec3 v, float t){
+  vec3 sky = vec3(0.0, 0.0, 0.0);
+  v.y = smoothstep(-1.2,1.5,abs(v.y)); // sky 2
+  v.x += 0.0*sin(10.0*v.y - t + v.z);
+
+  float a = atan2(v.x, v.z);
+
+  float s = sin(a*7.0 + 0.5*t);
+  s = s*s;
+  s *= 0.1 + 0.4*sin(a*11.0 - 0.22*t);
+  float g = smoothstep(1.2-s, -1.7, v.y);
+
+  float f = (1.0*g + 0.8*smoothstep(1.0,-0.1,v.y));
+  float h = (1.0*g + 1.2*smoothstep(0.9,-0.2,v.y));
+  vec3 mixHorizon = mix(horizonCol, vec3(0.4, 0.2, 0.8), 1.0);
+  sky += mix(zenithCol, mixHorizon, f*f);
+  sky += (g*g*g*g*0.6 + 0.4*h*h*h*h);
+
+  return sky;
+}
 
 vec3 renderEndSky(vec3 horizonCol, vec3 zenithCol, vec3 viewDir, float t) {
   t *= 0.1;
