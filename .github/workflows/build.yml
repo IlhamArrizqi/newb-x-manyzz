@@ -36,8 +36,8 @@ jobs:
           ${{ github.workspace }}/tool/data
     - run: pip install -r requirements.txt
     - run: |
-        .\build.bat setup
-        .\build.bat pack -p windows -v ${{ inputs.subversion }} --no-zip
+        python tool setup
+        python tool pack -p windows -v ${{ inputs.subversion }} --no-zip
     - uses: actions/upload-artifact@v4
       with:
         name: newb-x-windows
@@ -104,8 +104,9 @@ jobs:
           ${{ github.workspace }}/tool/data
     - run: pip install -r requirements.txt
     - run: |
-        .\build.bat setup
-        .\build.bat pack -p merged -v ${{ inputs.subversion }} --no-zip
+        python tool setup
+        python tool pack -p merged -v ${{ inputs.subversion }} --no-zip
+        
     - uses: actions/upload-artifact@v4
       with:
         name: newb-x-merged
