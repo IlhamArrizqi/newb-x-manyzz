@@ -37,9 +37,9 @@
 #define NL_TINT_HIGH vec3(1.0,0.8,0.4) // color tint for light tone
 
 /* Terrain lighting */
-#define NL_SUN_INTENSITY 3.5   // 0.5 weak ~ 5.0 bright
+#define NL_SUN_INTENSITY 4.5   // 0.5 weak ~ 5.0 bright
 #define NL_TORCH_INTENSITY 1.75  // 0.5 weak ~ 3.0 bright
-#define NL_NIGHT_BRIGHTNESS 1.5 // 0.0 dark ~ 2.0 bright
+#define NL_NIGHT_BRIGHTNESS 1.75 // 0.0 dark ~ 2.0 bright
 #define NL_CAVE_BRIGHTNESS 1.0  // 0.0 dark ~ 2.0 bright
 #define NL_SHADOW_INTENSITY 1.0 // 0.0 no shadow ~ 1.0 strong shadow
 #define NL_BLINKING_TORCH     // [toggle] flickering light
@@ -51,7 +51,7 @@
 #define NL_NIGHT_SUN_COL   vec3(0.15,0.2,0.3)
 
 /* Ambient light on terrain (light that is added everywhere) */
-#define NL_NETHER_AMBIENT vec3(1.0,0.5,0.5)
+#define NL_NETHER_AMBIENT vec3(0.8,0.4,0.4)
 #define NL_END_AMBIENT    vec3(0.2,0.2,1.0)
 
 /* Torch colors */
@@ -70,7 +70,7 @@
 #define NL_DAY_ZENITH_COL    vec3(0.15,0.38,0.85)
 #define NL_DAY_HORIZON_COL   vec3(0.55,0.78,0.95)
 #define NL_NIGHT_ZENITH_COL  vec3(0.01,0.015,0.03)
-#define NL_NIGHT_HORIZON_COL vec3(0.12,0.13,0.18)
+#define NL_NIGHT_HORIZON_COL vec3(0.12,0.13,0.28)
 #define NL_RAIN_ZENITH_COL   vec3(0.85,0.9,1.0)
 #define NL_RAIN_HORIZON_COL  vec3(1.0,1.0,1.0)
 #define NL_DAWN_ZENITH_COL   vec3(0.05,0.08,0.15)
