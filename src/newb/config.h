@@ -29,36 +29,36 @@
 
 /* Color correction */
 #define NL_TONEMAP_TYPE 4              // 1:Exponential, 2:Reinhard, 3:Extended Reinhard, 4:ACES
-#define NL_GAMMA 1.20                  // 0.3 low ~ 2.0 high
-#define NL_EXPOSURE 1.3              // [toggle] 0.5 dark ~ 3.0 bright
-#define NL_SATURATION 1.6            // [toggle] 0.0 grayscale ~ 4.0 super saturated
+#define NL_GAMMA 1.0                  // 0.3 low ~ 2.0 high
+#define NL_EXPOSURE 1.6              // [toggle] 0.5 dark ~ 3.0 bright
+#define NL_SATURATION 1.3            // [toggle] 0.0 grayscale ~ 4.0 super saturated
 #define NL_TINT                      // [toggle] enable light/dark tone tinting
-#define NL_TINT_LOW  vec3(0.6,0.4,0.3) // color tint for dark tone
-#define NL_TINT_HIGH vec3(1.0,0.8,0.4) // color tint for light tone
+#define NL_TINT_LOW  vec3(0.55,0.45,0.4) // color tint for dark tone
+#define NL_TINT_HIGH vec3(1.1,0.9,0.6) // color tint for light tone
 
 /* Terrain lighting */
-#define NL_SUN_INTENSITY 4.5   // 0.5 weak ~ 5.0 bright
-#define NL_TORCH_INTENSITY 1.75  // 0.5 weak ~ 3.0 bright
-#define NL_NIGHT_BRIGHTNESS 1.75 // 0.0 dark ~ 2.0 bright
-#define NL_CAVE_BRIGHTNESS 1.0  // 0.0 dark ~ 2.0 bright
-#define NL_SHADOW_INTENSITY 1.0 // 0.0 no shadow ~ 1.0 strong shadow
+#define NL_SUN_INTENSITY 4.8   // 0.5 weak ~ 5.0 bright
+#define NL_TORCH_INTENSITY 2.2  // 0.5 weak ~ 3.0 bright
+#define NL_NIGHT_BRIGHTNESS 2.0 // 0.0 dark ~ 2.0 bright
+#define NL_CAVE_BRIGHTNESS 1.5  // 0.0 dark ~ 2.0 bright
+#define NL_SHADOW_INTENSITY 0.9 // 0.0 no shadow ~ 1.0 strong shadow
 #define NL_BLINKING_TORCH     // [toggle] flickering light
 //#define NL_CLOUD_SHADOW       // [toggle] cloud shadow (simple clouds only)
 
 /* Sun/moon light color on terrain */
-#define NL_MORNING_SUN_COL vec3(0.8,0.6,0.6)
-#define NL_NOON_SUN_COL    vec3(0.7,0.8,1.0)
-#define NL_NIGHT_SUN_COL   vec3(0.15,0.2,0.3)
+#define NL_MORNING_SUN_COL vec3(0.85,0.65,0.55)
+#define NL_NOON_SUN_COL    vec3(0.75,0.85,0.95)
+#define NL_NIGHT_SUN_COL   vec3(0.12,0.18,0.26)
 
 /* Ambient light on terrain (light that is added everywhere) */
-#define NL_NETHER_AMBIENT vec3(0.8,0.4,0.4)
-#define NL_END_AMBIENT    vec3(0.2,0.2,1.0)
+#define NL_NETHER_AMBIENT vec3(0.75,0.35,0.35)
+#define NL_END_AMBIENT    vec3(0.25,0.25,0.6)
 
 /* Torch colors */
-#define NL_OVERWORLD_TORCH_COL  vec3(1.0,0.6,0.2)
-#define NL_UNDERWATER_TORCH_COL vec3(0.6,0.2,0.0)
-#define NL_NETHER_TORCH_COL     vec3(1.0,0.1,0.1)
-#define NL_END_TORCH_COL        vec3(0.4,0.2,0.6)
+#define NL_OVERWORLD_TORCH_COL  vec3(1.0,0.65,0.3)
+#define NL_UNDERWATER_TORCH_COL vec3(0.5,0.25,0.1)
+#define NL_NETHER_TORCH_COL     vec3(1.0,0.15,0.15)
+#define NL_END_TORCH_COL        vec3(0.45,0.25,0.55)
 
 /* Fog */
 #define NL_FOG 1.0                // [toggle] 0.1 subtle ~ 1.0 blend with sky completely
@@ -70,7 +70,7 @@
 #define NL_DAY_ZENITH_COL    vec3(0.15,0.38,0.85)
 #define NL_DAY_HORIZON_COL   vec3(0.55,0.78,0.95)
 #define NL_NIGHT_ZENITH_COL  vec3(0.01,0.015,0.03)
-#define NL_NIGHT_HORIZON_COL vec3(0.12,0.13,0.28)
+#define NL_NIGHT_HORIZON_COL vec3(0.12,0.13,0.48)
 #define NL_RAIN_ZENITH_COL   vec3(0.85,0.9,1.0)
 #define NL_RAIN_HORIZON_COL  vec3(1.0,1.0,1.0)
 #define NL_DAWN_ZENITH_COL   vec3(0.05,0.08,0.15)
