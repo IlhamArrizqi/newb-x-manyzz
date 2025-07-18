@@ -40,7 +40,7 @@
 #define NL_SUN_INTENSITY 4.5   // 0.5 weak ~ 5.0 bright
 #define NL_TORCH_INTENSITY 2.0  // 0.5 weak ~ 3.0 bright
 #define NL_NIGHT_BRIGHTNESS 1.9 // 0.0 dark ~ 2.0 bright
-#define NL_CAVE_BRIGHTNESS 1.5  // 0.0 dark ~ 2.0 bright
+#define NL_CAVE_BRIGHTNESS 2.0  // 0.0 dark ~ 2.0 bright
 #define NL_SHADOW_INTENSITY 0.85 // 0.0 no shadow ~ 1.0 strong shadow
 #define NL_BLINKING_TORCH     // [toggle] flickering light
 //#define NL_CLOUD_SHADOW       // [toggle] cloud shadow (simple clouds only)
@@ -182,7 +182,7 @@
 #define NL_GALAXY_STARS 2.0           // [toggle] 0.1 dim - 4.0 bright
 #define NL_GALAXY_VIBRANCE 0.75          // 0.0 white - 1.0 colorful
 #define NL_GALAXY_SPEED 0.15            // 0.01 slow motion - 0.2 fast motion
-#define NL_GALAXY_DAY_VISIBILITY 0.2    // 0.0 invisible - 1.0 visible
+#define NL_GALAXY_DAY_VISIBILITY 0.3    // 0.0 invisible - 1.0 visible
 #define NL_END_GALAXY_STARS      4.0     // [toggle] 0.1 dim ~ 4.0 bright (auto distorted when blackhole is enabled)
 
 /* Chunk loading slide in animation */
