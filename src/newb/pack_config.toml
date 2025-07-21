@@ -9,7 +9,7 @@ description = '''
 ''' # %w = patch warning, %v = version
 authors = ["devendrn","Itszmanyzz"]
 url = "https://devendrn.github.io/newb-shader/"
-uuid = "603e3a38-c55e-4e76-bd49-50f560b12ef1" # Use https://www.uuidgenerator.net/version4
+uuid = "1fb19010-7852-48e0-8be0-81f3113e6d8d" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
 [info] 
@@ -48,6 +48,7 @@ materials = ["Clouds"]
 description = '''
 Multilayer Vanilla Clouds
 '''
+
 [[subpack]]
 define = "SOFT_CLOUDS_CLOUDS"
 materials = ["Clouds"]
@@ -56,11 +57,12 @@ Soft Clouds
 '''
 
 [[subpack]]
-define = "SUPER_SOFT_CLOUDS"
+define = "REALISTIC_CLOUDS"
 materials = ["Clouds"]
 description = '''
-Super Soft Clouds
+Realistic Clouds
 '''
+
 [[subpack]]
 define = "ROUNDED_CLOUDS"
 materials = ["Clouds"]
@@ -69,7 +71,7 @@ Rounded Clouds
 '''
 
 [[subpack]]
-define = "MULTILAYER_ROUNDE_CLOUDS"
+define = "MULTILAYER_ROUNDED_CLOUDS"
 materials = ["Clouds"]
 description = '''
 Multilayer Rounded Clouds
@@ -82,12 +84,12 @@ description = '''
 Subtle Clouds
 '''
 
-#[[subpack]]
-#define = "LITE"
-#materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
-#description = '''
-#Many effects disabled. A bit lighter!
-#'''
+[[subpack]]
+define = "LITE"
+materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
+description = '''
+Many effects disabled. A bit lighter!
+'''
 
 [[subpack]]
 define = "DEFAULT"

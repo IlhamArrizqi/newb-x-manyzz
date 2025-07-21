@@ -39,7 +39,7 @@
 /* Terrain lighting */
 #define NL_SUN_INTENSITY 4.5   // 0.5 weak ~ 5.0 bright
 #define NL_TORCH_INTENSITY 2.0  // 0.5 weak ~ 3.0 bright
-#define NL_NIGHT_BRIGHTNESS 1.9 // 0.0 dark ~ 2.0 bright
+#define NL_NIGHT_BRIGHTNESS 2.0 // 0.0 dark ~ 2.0 bright
 #define NL_CAVE_BRIGHTNESS 2.0  // 0.0 dark ~ 2.0 bright
 #define NL_SHADOW_INTENSITY 0.85 // 0.0 no shadow ~ 1.0 strong shadow
 #define NL_BLINKING_TORCH     // [toggle] flickering light
@@ -112,14 +112,14 @@
 #define NL_WATER_TINT vec3(0.8,0.85,1.0)
 
 /* Underwater */
-#define NL_UNDERWATER_BRIGHTNESS 1.8         // 0.0 dark ~ 3.0 bright
+#define NL_UNDERWATER_BRIGHTNESS 2.0         // 0.0 dark ~ 3.0 bright
 #define NL_CAUSTIC_INTENSITY 1.7             // 0.5 weak ~ 5.0 bright
 #define NL_UNDERWATER_WAVE 0.18               // [toggle] 0.02 subtle ~ 0.6 trippy
 #define NL_UNDERWATER_STREAKS 1.0            // [toggle] 0.8 subtle - 2.0 bright streaks from top
 #define NL_UNDERWATER_TINT vec3(0.9,1.0,0.9) // fog tint color when underwater
 
 /* Cloud type */
-#define NL_CLOUD_TYPE 3 // 0:vanilla, 1:soft, 2:rounded, 3:realistic
+#define NL_CLOUD_TYPE 2 // 0:vanilla, 1:soft, 2:rounded, 3:realistic
 
 /* Vanilla cloud settings - make sure to remove clouds.png when using this */
 #define NL_CLOUD0_THICKNESS 2.1      // 0.5 slim ~ 8.0 fat
@@ -141,10 +141,10 @@
 #define NL_CLOUD2_SCALE vec2(0.033, 0.033) // 0.003 large ~ 0.3 tiny
 #define NL_CLOUD2_SHAPE vec2(0.5, 0.5)     // 0.0 round ~ 1.0 box vec2(horizontal shape, vertical shape)
 #define NL_CLOUD2_DENSITY 25.0             // 1.0 blurry ~ 100.0 sharp
-#define NL_CLOUD2_VELOCITY 0.8             // 0.0 static ~ 4.0 very fast
+#define NL_CLOUD2_VELOCITY 1.0             // 0.0 static ~ 4.0 very fast
 //#define NL_CLOUD2_SUBTLE                 // [toggle] like REALISTIS Clouds
-//#define NL_CLOUD2_SMOOTH                      // [toggle] super soft clouds
-//#define NL_CLOUD2_LAYER2                        // [toggle] extra cloud layer
+#define NL_CLOUD2_SMOOTH                      // [toggle] super soft clouds
+#define NL_CLOUD2_LAYER2                        // [toggle] extra cloud layer
 #define NL_CLOUD2_LAYER2_OFFSET 143.0           // 30.0 near ~ 300.0 very high
 #define NL_CLOUD2_LAYER2_THICKNESS 2.5          // 0.7 slim ~ 5.0 fat
 #define NL_CLOUD2_LAYER2_RAIN_THICKNESS 3.0     // 0.7 slim ~ 5.0 fat
@@ -275,29 +275,29 @@
   #define NL_CLOUD_TYPE 1
 #endif
 
-#ifdef SUPER_SOFT_CLOUDS
+#ifdef REALISTIC_CLOUDS
   #undef NL_CLOUD_TYPE
-  #define NL_CLOUD_TYPE 2
-  #define NL_CLOUD2_SMOOTH
-  #define NL_CLOUD2_LAYER2
+  #define NL_CLOUD_TYPE 3
 #endif
 
 #ifdef ROUNDED_CLOUDS
   #undef NL_CLOUD_TYPE
+  #undef NL_CLOUD2_SMOOTH
+  #undef NL_CLOUD2_LAYER2
   #define NL_CLOUD_TYPE 2
 #endif
 
 #ifdef MULTILAYER_ROUNDED_CLOUDS
   #undef NL_CLOUD_TYPE
+  #undef NL_CLOUD2_SMOOTH
   #define NL_CLOUD_TYPE 2
-  #define NL_CLOUD2_LAYER2
 #endif
 
 #ifdef SUBTLE_CLOUDS
   #undef NL_CLOUD_TYPE
+  #undef NL_CLOUD2_SMOOTH
   #define NL_CLOUD_TYPE 2
   #define NL_CLOUD2_SUBTLE
-  #define NL_CLOUD2_LAYER2
 #endif
 
 #endif
