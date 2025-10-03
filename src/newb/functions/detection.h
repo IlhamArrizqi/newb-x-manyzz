@@ -20,9 +20,8 @@ return 1.-mix(clamp(mix(0.,2.,FOG_COLOR.b-.5),0.,1.),1.,clamp(mix(1.5,-.5,FOG_CO
 
 float timeOfDay(vec3 FOG_COLOR) {
     float dayFactor = day_detect(FOG_COLOR);
-    float nightFactor = night_detect(FOG_COLOR.rgb);
-    float sunsetFactor = sunset_detect(FOG_COLOR.rgb);
-    vec3 fTime = vec3(nightFactor, sunsetFactor, env.rainFactor);
+    float nightFactor = night_detect(FOG_COLOR);
+    float sunsetFactor = sunset_detect(FOG_COLOR);
     // Combine the factors to calculate the time of day smoothly
     return smoothstep(0.0, 1.0, mix(dayFactor, 1.0 - nightFactor, sunsetFactor));
 }

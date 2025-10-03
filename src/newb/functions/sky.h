@@ -242,7 +242,9 @@ vec3 nlRenderSky(nl_skycolor skycol, nl_environment env, vec3 viewDir, vec3 FOG_
   if (env.end) {
     sky = renderEndSky(skycol, viewDir, t);
   } else {
-    vec3 fTime = vec3(night detection, dusk detection, env.rainFactor);
+    float nightFactor = night_detect(FOG_COLOR.rgb);
+    float sunsetFactor = sunset_detect(FOG_COLOR.rgb);
+    vec3 fTime = vec3(nightFactor, sunsetFactor, env.rainFactor);
     sky = skyCol(viewDir, fTime);
     #ifdef NL_RAINBOW
       sky += mix(NL_RAINBOW_CLEAR, NL_RAINBOW_RAIN, env.rainFactor)*spectrum((viewDir.z+0.6)*8.0)*max(viewDir.y, 0.0)*FOG_COLOR.g;
