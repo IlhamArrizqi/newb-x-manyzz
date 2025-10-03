@@ -9,6 +9,24 @@ struct nl_environment {
   float dayFactor;
 };
 
+float day_detect(vec3 FOG_COLOR){
+return clamp(mix(0.,2.,FOG_COLOR.b-.5),0.,1.);}
+
+float night_detect(vec3 FOG_COLOR){
+return clamp(mix(1.5,-.5,FOG_COLOR.r+.2),0.,1.);}
+
+float sunset_detect(vec3 FOG_COLOR){
+return 1.-mix(clamp(mix(0.,2.,FOG_COLOR.b-.5),0.,1.),1.,clamp(mix(1.5,-.5,FOG_COLOR.r+.2),0.,1.));}
+
+float timeOfDay(vec3 FOG_COLOR) {
+    float dayFactor = day_detect(FOG_COLOR);
+    float nightFactor = night_detect(FOG_COLOR.rgb);
+    float sunsetFactor = sunset_detect(FOG_COLOR.rgb);
+    vec3 fTime = vec3(nightFactor, sunsetFactor, env.rainFactor);
+    // Combine the factors to calculate the time of day smoothly
+    return smoothstep(0.0, 1.0, mix(dayFactor, 1.0 - nightFactor, sunsetFactor));
+}
+
 bool detectEnd(vec3 FOG_COLOR, vec2 FOG_CONTROL) {
   // custom fog color set in biomes_client.json to help in detection
   return FOG_COLOR.r==FOG_COLOR.b && (FOG_COLOR.r-FOG_COLOR.g>0.24 || (FOG_COLOR.g==0.0 && FOG_COLOR.r>0.1));
