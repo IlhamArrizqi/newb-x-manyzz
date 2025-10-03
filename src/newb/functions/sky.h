@@ -28,7 +28,14 @@ vec3 getEndZenithCol() {
 vec3 getEndHorizonCol() {
   return NL_END_HORIZON_COL;
 }
-
+// 3 sky color
+vec3 skyCol(vec3 pos, vec3 time){
+  vec3 topc = mix(mix(mix(TopDaySkyColor, TopDuskSkyColor, time.y), TopNightSkyColor, time.x), TopRainSkyColor, time.z);
+  vec3 midc = mix(mix(mix(MiddleDaySkyColor, MiddleDuskSkyColor, time.y), MiddleNightSkyColor, time.x), MiddleRainSkyColor, time.z);
+  vec3 bottomc = mix(mix(mix(BottomDaySkyColor, BottomDuskSkyColor, time.y), BottomNightSkyColor, time.x), BottomRainSkyColor, time.z);
+  
+  return mix(bottomc, mix(midc, topc, smoothstep(0.0, 1.5, pos.y+MiddleGradHeight)), smoothstep(0.0, 1.0, pos.y+BottomGradHeight));
+}
 // values used for getting sky colors
 vec3 getSkyFactors(vec3 FOG_COLOR) {
   vec3 factors = vec3(
@@ -235,7 +242,8 @@ vec3 nlRenderSky(nl_skycolor skycol, nl_environment env, vec3 viewDir, vec3 FOG_
   if (env.end) {
     sky = renderEndSky(skycol, viewDir, t);
   } else {
-    sky = renderOverworldSky(skycol, viewDir);
+    vec3 fTime = vec3(night detection, dusk detection, env.rainFactor);
+    sky = skyCol(viewDir, fTime);
     #ifdef NL_RAINBOW
       sky += mix(NL_RAINBOW_CLEAR, NL_RAINBOW_RAIN, env.rainFactor)*spectrum((viewDir.z+0.6)*8.0)*max(viewDir.y, 0.0)*FOG_COLOR.g;
     #endif

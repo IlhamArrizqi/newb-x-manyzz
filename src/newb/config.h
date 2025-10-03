@@ -65,7 +65,25 @@
 #define NL_MIST_DENSITY 1.0      // 0.0 no mist ~ 1.0 misty
 #define NL_RAIN_MIST_OPACITY 0.12 // [toggle] 0.04 very subtle ~ 0.5 thick rain mist blow
 #define NL_CLOUDY_FOG 0.4         // [toggle] 0.0 subtle - 0.8 dense fog clouds
+/* 3 Sky colors */
+#define TopDaySkyColor vec3(0.15,0.38,0.85)
+#define MiddleDaySkyColor vec3(0.34,0.58,0.90)
+#define BottomDaySkyColor vec3(0.55,0.78,0.95)
 
+#define TopDuskSkyColor vec3(0.05,0.08,0.15)
+#define MiddleDuskSkyColor vec3(0.42,0.27,0.44)
+#define BottomDuskSkyColor vec3(0.85,0.45,0.35)
+
+#define TopNightSkyColor vec3(0.01,0.015,0.03)*0.1
+#define MiddleNightSkyColor vec3(0.08,0.10,0.28)*1.5
+#define BottomNightSkyColor vec3(0.15,0.15,0.55)*1.5
+
+#define TopRainSkyColor vec3(0.85,0.9,1.0)
+#define MiddleRainSkyColor vec3(0.93,0.95,1.0)
+#define BottomRainSkyColor vec3(1.0,1.0,1.0)
+
+#define MiddleGradHeight 0.4
+#define BottomGradHeight 0.6      // Lower Value = high gradient Bigger value = low gradient
 /* Sky colors - zenith=top, horizon=bottom */
 #define NL_DAY_ZENITH_COL    vec3(0.15,0.38,0.85)
 #define NL_DAY_HORIZON_COL   vec3(0.55,0.78,0.95)
@@ -75,7 +93,7 @@
 #define NL_RAIN_HORIZON_COL  vec3(1.0,1.0,1.0)
 #define NL_DAWN_ZENITH_COL   vec3(0.05,0.08,0.15)
 #define NL_DAWN_HORIZON_COL  vec3(0.85,0.45,0.35)
-#define NL_DAWN_EDGE_COL     vec3(1.0,0.6,0.3)
+#define NL_DAWN_EDGE_COL     vec3(1.0,0.60,0.40)
 
 /* The end sky colors */
 #define NL_END_SKY_TYPE    1
