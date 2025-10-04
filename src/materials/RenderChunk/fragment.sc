@@ -11,7 +11,7 @@ SAMPLER2D_AUTOREG(s_LightMapTexture);
 #undef saturate
 #define saturate( x ) clamp( x, 0.0, 1.0 )
 #define grayscale( x ) ( ( x.r + x.g + x.b ) / 3.0 )
-#define viewcoord( m, n ) mat3( -m.z, m.y * n.x, 0.0, m.x * n.y, -m.z, 0.0, m.x, m.y * n.z, 0.0 ) * n
+#define viewcoord( m, n ) mul(mat3( -m.z, m.y * n.x, 0.0, m.x * n.y, -m.z, 0.0, m.x, m.y * n.z, 0.0 ) * n)
 #define tbn( m, n ) mat3( m.z, m.y * n.x, -m.x, m.x * n.y, m.z, -m.y, m.x, m.y * n.z, m.z ) * n
 
 float heightmap( highp vec2 uv ){
