@@ -7,6 +7,33 @@ SAMPLER2D_AUTOREG(s_MatTexture);
 SAMPLER2D_AUTOREG(s_SeasonsTexture);
 SAMPLER2D_AUTOREG(s_LightMapTexture);
 
+/*normal mapping*/
+#undef saturate
+#define saturate( x ) clamp( x, 0.0, 1.0 )
+#define grayscale( x ) ( ( x.r + x.g + x.b ) / 3.0 )
+#define viewcoord( m, n ) mat3( -m.z, m.y * n.x, 0.0, m.x * n.y, -m.z, 0.0, m.x, m.y * n.z, 0.0 ) * n
+#define tbn( m, n ) mat3( m.z, m.y * n.x, -m.x, m.x * n.y, m.z, -m.y, m.x, m.y * n.z, m.z ) * n
+
+float heightmap( highp vec2 uv ){
+    return saturate( grayscale( texture2D( s_MatTexture, uv ).rgb ) / grayscale( textureLod( s_MatTexture, uv, 10.0 ).rgb ) );
+    } 
+
+highp vec3 normal3D( highp vec2 uv, highp vec3 m, highp vec3 n, float offset ){
+    highp vec3 vcoord = viewcoord( m, n );
+                        vcoord = vec3( -vcoord.x, vcoord.y, 0.0 );  
+  
+    float tex0 = heightmap( uv );
+    float tex1 = heightmap( uv + vcoord.xy * offset );
+    
+    vec2 pnx = vec2( heightmap( uv + vec2( offset, 0.0 ) ), heightmap( uv - vec2( offset, 0.0 ) ) );
+    vec2 pny = vec2( heightmap( uv - vec2( 0.0, offset ) ), heightmap( uv + vec2( 0.0, offset ) ) );   
+    
+    vec2 normxy = clamp( ( saturate( tex0 - vec2( pnx.x, pny.x ) ) - saturate( tex0 - vec2( pnx.y, pny.y ) ) ) / 0.01, -1.0, 1.0 );
+    float normz = 1.0 - saturate( abs( normxy.x + normxy.y ) );
+
+    return mix( n, tbn( vec3( normxy, normz ), n ), saturate( ( tex0 - tex1 ) / 0.01 ) );
+    }
+
 void main() {
   #if defined(DEPTH_ONLY_OPAQUE) || defined(DEPTH_ONLY) || defined(INSTANCING)
     gl_FragColor = vec4(1.0,1.0,1.0,1.0);
@@ -34,6 +61,23 @@ void main() {
   lightTint = mix(lightTint.bbb, lightTint*lightTint, 0.35 + 0.65*v_lightmapUV.y*v_lightmapUV.y*v_lightmapUV.y);
 
   color.rgb *= lightTint;
+
+  float optimization = smoothstep(10,15,camDist);
+  float offset = mix(0.000125,0.0,optimization);
+  highp vec3 m = normalize( v_wpos );
+  highp vec3 n = normalize( cross( dFdx( v_wpos ), dFdy( v_wpos ) ) );
+
+  highp vec3 normal = normal3D( s_MatTexture,v_texcoord0, m, n, offset );
+
+  vec3 sunDir = normalize(vec3(cos(a), sin(a), cos(a) sin(a)));
+
+  float ndotl = max(dot(normal, sunDir), 0.3);
+
+  vec3 ambient= vec3(0.02,0.04,0.08);
+
+  vec3 lighting = ambient + ndotl;
+
+  diffuse.rgb *= lighting;
 
   #if defined(TRANSPARENT) && !(defined(SEASONS) || defined(RENDER_AS_BILLBOARDS))
     if (v_extra.b > 0.9) {
