@@ -23,8 +23,8 @@ vec3 viewcoord(vec3 m, vec3 n){
 
 vec3 tbn(vec3 m, vec3 n){
   mat3 transform2 = {
-    m.z, m.y * n.x, -m.x
-    m.x * n.y, m.z, -m.y
+    m.z, m.y * n.x, -m.x,
+    m.x * n.y, m.z, -m.y,
     m.x, m.y * n.z, m.z
   };
   return mul(transform2, n);
