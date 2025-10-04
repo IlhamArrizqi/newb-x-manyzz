@@ -69,7 +69,7 @@ void main() {
 
   highp vec3 normal = normal3D( s_MatTexture,v_texcoord0, m, n, offset );
 
-  vec3 sunDir = normalize(vec3(cos(a), sin(a), cos(a) sin(a)));
+  vec3 sunDir = normalize(vec3(cos(a), sin(a), cos(a), sin(a)));
 
   float ndotl = max(dot(normal, sunDir), 0.3);
 
