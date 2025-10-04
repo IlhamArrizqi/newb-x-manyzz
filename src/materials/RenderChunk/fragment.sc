@@ -1,4 +1,4 @@
-$input v_color0, v_color1, v_fog, v_refl, v_texcoord0, v_lightmapUV, v_extra, v_wpos
+$input v_color0, v_color1, v_fog, v_refl, v_texcoord0, v_lightmapUV, v_extra, v_wpos, v_uv0
 
 #include <bgfx_shader.sh>
 #include <newb/main.sh>
@@ -66,16 +66,13 @@ void main() {
   highp vec3 m = normalize( v_wpos );
   highp vec3 n = normalize( cross( dFdx( v_wpos ), dFdy( v_wpos ) ) );
 
-  highp vec3 normal = normal3D( s_MatTexture,v_texcoord0, m, n, offset );
-
+  highp vec3 normal = normal3D( v_uv0, m, n, offset );
+  float a = radians(45.0);
   vec3 sunDir = normalize(vec3(cos(a), sin(a), cos(a) * sin(a)));
-
   float ndotl = max(dot(normal, sunDir), 0.3);
-
   vec3 ambient= vec3(0.02,0.04,0.08);
 
   vec3 lighting = ambient + ndotl;
-
   diffuse.rgb *= lighting;
 
   #if defined(TRANSPARENT) && !(defined(SEASONS) || defined(RENDER_AS_BILLBOARDS))
