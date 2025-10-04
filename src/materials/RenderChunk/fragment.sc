@@ -22,7 +22,7 @@ vec3 viewcoord(vec3 m, vec3 n){
 }
 
 vec3 tbn(vec3 m, vec3 n){
-  transform2 = {
+  mat3 transform2 = {
     m.z, m.y * n.x, -m.x
     m.x * n.y, m.z, -m.y
     m.x, m.y * n.z, m.z
