@@ -1,4 +1,4 @@
-$input v_color0, v_color1, v_fog, v_refl, v_texcoord0, v_lightmapUV, v_extra, v_position, v_uv1, v_wpos, v_uv0
+$input v_color0, v_color1, v_fog, v_refl, v_texcoord0, v_lightmapUV, v_extra, v_wpos
 
 #include <bgfx_shader.sh>
 #include <newb/main.sh>
@@ -62,8 +62,7 @@ void main() {
 
   color.rgb *= lightTint;
 
-  float optimization = smoothstep(10,15,camDist);
-  float offset = mix(0.000125,0.0,optimization);
+  float offset = 0.000185;
   highp vec3 m = normalize( v_wpos );
   highp vec3 n = normalize( cross( dFdx( v_wpos ), dFdy( v_wpos ) ) );
 
