@@ -15,7 +15,7 @@ SAMPLER2D_AUTOREG(s_LightMapTexture);
 #define tbn( m, n ) mat3( m.z, m.y * n.x, -m.x, m.x * n.y, m.z, -m.y, m.x, m.y * n.z, m.z ) * n
 
 float heightmap( highp vec2 uv ){
-    return saturate( grayscale( texture2D( s_MatTexture, uv ).rgb ) / grayscale( textureLod( s_MatTexture, uv, 10.0 ).rgb ) );
+    return saturate( grayscale( texture2D( s_MatTexture, uv ).rgb ) / grayscale( texture2DLod( s_MatTexture, uv, 10.0 ).rgb ) );
     } 
 
 highp vec3 normal3D( highp vec2 uv, highp vec3 m, highp vec3 n, float offset ){
