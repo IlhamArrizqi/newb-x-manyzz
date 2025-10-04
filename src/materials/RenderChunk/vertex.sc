@@ -1,4 +1,4 @@
-$input a_color0, a_position, a_texcoord0, a_texcoord1
+$input a_color0, a_position, a_texcoord0, a_texcoord1, v_wpos, v_uv0
 #ifdef INSTANCING
   $input i_data0, i_data1, i_data2, i_data3
 #endif
@@ -59,6 +59,7 @@ void main() {
 
   vec2 uv1 = a_texcoord1;
   vec2 lit = uv1*uv1;
+  vec2 uv0 = a_texcoord0;
 
   bool isColored = color.r != color.g || color.r != color.b;
   float shade = isColored ? color.g*1.5 : color.g;
@@ -171,6 +172,8 @@ void main() {
   v_color0 = color;
   v_color1 = a_color0;
   v_fog = fogColor;
+  v_wpos = worldPos;
+  v_uv0 = uv0;
 
   #else
 
