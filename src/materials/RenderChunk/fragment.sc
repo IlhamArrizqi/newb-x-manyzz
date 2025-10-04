@@ -12,7 +12,7 @@ SAMPLER2D_AUTOREG(s_LightMapTexture);
 #define saturate( x ) clamp( x, 0.0, 1.0 )
 #define grayscale( x ) ( ( x.r + x.g + x.b ) / 3.0 )
 
-vec3 viewcoord( m , n){
+vec3 viewcoord(vec3 m, vec3 n){
   mat3 transform = {
         -m.z, m.y * n.x, 0.0,
         m.x * n.y, -m.z, 0.0, 
@@ -21,7 +21,7 @@ vec3 viewcoord( m , n){
   return mul(transform, n);
 }
 
-vec3 tbn(m, n){
+vec3 tbn(vec3 m, vec3 n){
   transform2 = {
     m.z, m.y * n.x, -m.x
     m.x * n.y, m.z, -m.y
