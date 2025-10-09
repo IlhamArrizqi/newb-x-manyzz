@@ -69,7 +69,7 @@ highp vec3 n = normalize( cross( dFdx( v_wpos ), dFdy( v_wpos ) ) );
 
 highp vec3 normal = normal3D( v_uv0, m, n, offset );
 
-vec3 sunDir = normalize(vec3(cos(a), sin(a), cos(a) sin(a)));
+vec3 sunDir = normalize(vec3(cos(a), sin(a), cos(a) * sin(a)));
 
 float ndotl = max(dot(normal, sunDir), 0.3);
 
