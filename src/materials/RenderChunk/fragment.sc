@@ -62,13 +62,12 @@ void main() {
 
   color.rgb *= lightTint;
 
-float optimization = smoothstep(10,15,camDist);
-float offset = mix(0.000125,0.0,optimization);
+  float offset = 0.000185;
 highp vec3 m = normalize( v_wpos );
 highp vec3 n = normalize( cross( dFdx( v_wpos ), dFdy( v_wpos ) ) );
 
 highp vec3 normal = normal3D( v_uv0, m, n, offset );
-
+  float a = radians(45.0);
 vec3 sunDir = normalize(vec3(cos(a), sin(a), cos(a) * sin(a)));
 
 float ndotl = max(dot(normal, sunDir), 0.3);
