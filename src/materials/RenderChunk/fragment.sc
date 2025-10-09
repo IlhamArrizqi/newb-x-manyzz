@@ -67,7 +67,7 @@ float offset = mix(0.000125,0.0,optimization);
 highp vec3 m = normalize( v_wpos );
 highp vec3 n = normalize( cross( dFdx( v_wpos ), dFdy( v_wpos ) ) );
 
-highp vec3 normal = normal3D( s_MatTexture,v_texcoord0, m, n, offset );
+highp vec3 normal = normal3D( v_uv0, m, n, offset );
 
 vec3 sunDir = normalize(vec3(cos(a), sin(a), cos(a) sin(a)));
 
