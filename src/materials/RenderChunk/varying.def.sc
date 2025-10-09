@@ -17,4 +17,4 @@ vec2 v_lightmapUV : TEXCOORD1;
 vec3 v_position   : TEXCOORD2;
 vec4 v_extra      : TEXCOORD3;
 vec2 v_uv0		  : TEXCOORD5;
-vec3 v_wpos		  : COLOR4;
+vec3 v_wpos		  : POSITION0;

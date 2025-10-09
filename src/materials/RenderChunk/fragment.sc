@@ -7,33 +7,15 @@ SAMPLER2D_AUTOREG(s_MatTexture);
 SAMPLER2D_AUTOREG(s_SeasonsTexture);
 SAMPLER2D_AUTOREG(s_LightMapTexture);
 
-/*normal mapping*/
+/*Normal mapping*/
 #undef saturate
 #define saturate( x ) clamp( x, 0.0, 1.0 )
 #define grayscale( x ) ( ( x.r + x.g + x.b ) / 3.0 )
-
-vec3 viewcoord(vec3 m, vec3 n){
-  mat3 transform = mat3(
-        -m.z, m.y * n.x, 0.0,
-        m.x * n.y, -m.z, 0.0, 
-        m.x, m.y * n.z, 0.0
-  );
-  return mul(transform, n);
-}
-
-vec3 tbn(vec3 m, vec3 n){
-  mat3 transform2 = mat3(
-    m.z, m.y * n.x, -m.x,
-    m.x * n.y, m.z, -m.y,
-    m.x, m.y * n.z, m.z
-  );
-  return mul(transform2, n);
-}
-
+#define viewcoord( m, n ) mat3( -m.z, m.y * n.x, 0.0, m.x * n.y, -m.z, 0.0, m.x, m.y * n.z, 0.0 ) * n
 #define tbn( m, n ) mat3( m.z, m.y * n.x, -m.x, m.x * n.y, m.z, -m.y, m.x, m.y * n.z, m.z ) * n
 
 float heightmap( highp vec2 uv ){
-    return saturate( grayscale( texture2D( s_MatTexture, uv ).rgb ) / grayscale( texture2DLod( s_MatTexture, uv, 10.0 ).rgb ) );
+    return saturate( grayscale( texture2D( s_MatTexture, uv ).rgb ) / grayscale( textureLod( s_MatTexture, uv, 10.0 ).rgb ) );
     } 
 
 highp vec3 normal3D( highp vec2 uv, highp vec3 m, highp vec3 n, float offset ){
@@ -80,18 +62,22 @@ void main() {
 
   color.rgb *= lightTint;
 
-  float offset = 0.000185;
-  highp vec3 m = normalize( v_wpos );
-  highp vec3 n = normalize( cross( dFdx( v_wpos ), dFdy( v_wpos ) ) );
+float optimization = smoothstep(10,15,camDist);
+float offset = mix(0.000125,0.0,optimization);
+highp vec3 m = normalize( v_wpos );
+highp vec3 n = normalize( cross( dFdx( v_wpos ), dFdy( v_wpos ) ) );
 
-  highp vec3 normal = normal3D( v_uv0, m, n, offset );
-  float a = radians(45.0);
-  vec3 sunDir = normalize(vec3(cos(a), sin(a), cos(a) * sin(a)));
-  float ndotl = max(dot(normal, sunDir), 0.3);
-  vec3 ambient= vec3(0.02,0.04,0.08);
+highp vec3 normal = normal3D( s_MatTexture,v_texcoord0, m, n, offset );
 
-  vec3 lighting = ambient + ndotl;
-  diffuse.rgb *= lighting;
+vec3 sunDir = normalize(vec3(cos(a), sin(a), cos(a) sin(a)));
+
+float ndotl = max(dot(normal, sunDir), 0.3);
+
+vec3 ambient= vec3(0.02,0.04,0.08);
+
+vec3 lighting = ambient + ndotl;
+
+diffuse.rgb *= lighting;
 
   #if defined(TRANSPARENT) && !(defined(SEASONS) || defined(RENDER_AS_BILLBOARDS))
     if (v_extra.b > 0.9) {

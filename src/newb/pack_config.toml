@@ -1,6 +1,6 @@
-name = "§lNewb X §cManyzz §aV3.6"
+name = "§lNewb X §cManyzz §aV4.0"
 version = [0, 16, 0]
-min_supported_mc_version = [1, 21, 20]
+min_supported_mc_version = [1, 21, 111]
 description = '''
 §c%w
 §7- Upgrade Minecraft visuals: vibrant colors, realistic lighting, immersive effects

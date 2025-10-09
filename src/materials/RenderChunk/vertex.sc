@@ -57,7 +57,9 @@ void main() {
   vec3 bPos = fract(cPos);
   vec3 tiledCpos = fract(cPos*0.0625);
 
-  vec2 uv1 = a_texcoord1;
+  float uvx16 = a_texcoord1.x*16.0;
+  vec2 uv1 = vec2(fract(uvx16), floor(uvx16)*0.0625);
+
   vec2 lit = uv1*uv1;
   vec2 uv0 = a_texcoord0;
 
@@ -168,7 +170,7 @@ void main() {
   v_extra = vec4(shade, worldPos.y, water, shimmer);
   v_refl = refl;
   v_texcoord0 = a_texcoord0;
-  v_lightmapUV = a_texcoord1;
+  v_lightmapUV = uv1;
   v_color0 = color;
   v_color1 = a_color0;
   v_fog = fogColor;
