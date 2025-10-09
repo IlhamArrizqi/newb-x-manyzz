@@ -3,7 +3,7 @@ version = [0, 16, 0]
 min_supported_mc_version = [1, 21, 111]
 description = '''
 §c%w
-§7- Upgrade Minecraft visuals: vibrant colors, realistic lighting, immersive effects
+§7- Upgrade Minecraft visuals: vibrant colors,  realistic lighting, immersive effects
 %v
 §3https://devendrn.github.io/newb-shader/
 ''' # %w = patch warning, %v = version
