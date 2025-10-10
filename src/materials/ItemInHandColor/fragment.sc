@@ -11,9 +11,9 @@ uniform vec4 MatColor;
 uniform vec4 MultiplicativeTintColor;
 
 void main() {
-
+  
   #if defined(DEPTH_ONLY) || defined(INSTANCING)
-    gl_FragColor = vec4(0.0);
+    gl_FragColor = vec4(0.0,0.0,0.0,0.0);
     return;
   #endif
 
@@ -23,7 +23,7 @@ void main() {
     albedo = applyMultiColorChange(albedo, ChangeColor.rgb, MultiplicativeTintColor.rgb);
   #else
     albedo = applyColorChange(albedo, ChangeColor, albedo.a);
-    albedo.a = ChangeColor.a;
+    albedo.a *= ChangeColor.a;
   #endif
 
   albedo = applyOverlayColor(albedo, OverlayColor);
@@ -37,7 +37,7 @@ void main() {
   bool isGlowing = (v_color0.a <= 0.99);
 
 if (!isGlowing) {
-  albedo.rgb= albedo.rgb * v_light.rgb;
+  albedo.rgb *= albedo.rgb * v_light.rgb;
 } else {
 
   albedo.rgb *= 4.5;
