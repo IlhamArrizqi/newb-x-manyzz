@@ -81,7 +81,7 @@ vec3 renderOverworldSky(nl_skycolor skyCol, nl_environment env, vec3 viewDir, bo
   float avy = abs(viewDir.y);
   float mask = 0.5 + (0.5*viewDir.y/(0.4 + avy));
 
-  vec2 g = 0.5 - 0.5*vec2(dot(env.sunDir, viewDir), dot(env.moonDir, viewDir));
+  vec2 g = clamp(0.5 - 0.5*vec2(dot(env.sunDir, viewDir), dot(env.moonDir, viewDir)), 0.0, 1.0);
   vec2 g1 = 1.0-mix(sqrt(g), g, env.rainFactor);
   vec2 g2 = g1*g1;
   vec2 g4 = g2*g2;
