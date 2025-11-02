@@ -110,7 +110,6 @@
 #define NL_WATER_WAVE_SPEED  0.8  // 0.2 calm ~ 2.0 turbulent
 #define NL_WATER_TEX_OPACITY 0.3  // 0.0 plain water ~ 1.0 vanilla water texture
 #define NL_WATER_WAVE             // [toggle] wave effect
-#define NL_WATER_CLOUD_AURORA_REFLECTION // [toggle] simple clouds/aurora reflection
 //#define NL_WATER_REFL_MASK      // [toggle] fake water reflection mask
 #define NL_WATER_TINT vec3(0.52,0.9,0.45)
 
@@ -169,6 +168,8 @@
 #define NL_AURORA_COL1 vec3(0.1,1.0,0.0)
 #define NL_AURORA_COL2 vec3(0.1,0.0,1.0)
 
+#define NL_CLOUD_AURORA_REFLECTION // [toggle] simple clouds/aurora reflection
+
 /* Shooting star */
 #define NL_SHOOTING_STAR 1.0        // [toggle] 0.2 dim ~ 1.0 bright
 #define NL_SHOOTING_STAR_PERIOD 6.0 // 0.4 fast ~ 12.0 slow (12 secs)
@@ -200,7 +201,6 @@
 //#define NL_GROUND_REFL 0.4       // [toggle] 0.2 slightly reflective ~ 1.0 fully reflect sky
 #define NL_GROUND_RAIN_WETNESS 1.0 // 0.0 no wetness ~ 1.0 fully wet blocks when raining
 #define NL_GROUND_RAIN_PUDDLES 0.7 // 0.0 no puddles ~ 1.0 puddles
-//#define NL_GROUND_AURORA_REFL    // [toggle] aurora reflection on ground
 
 /* Entity (Actor, ItemInHand) */
 #define NL_ENTITY_BRIGHTNESS     0.65 // 0.1 dark ~ 1.6 bright
@@ -234,7 +234,7 @@
   #undef NL_LAVA_NOISE
   #undef NL_WEATHER_SPECK
   #undef NL_SHOOTING_STAR
-  #undef NL_WATER_CLOUD_AURORA_REFLECTION
+  #undef NL_CLOUD_AURORA_REFLECTION
   #undef NL_UNDERWATER_STREAKS
   #undef NL_RAIN_MIST_OPACITY
   #undef NL_CLOUDY_FOG
