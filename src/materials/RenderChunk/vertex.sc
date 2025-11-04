@@ -162,7 +162,7 @@ void main() {
         pos.y += cos(length(abs(a_position.xyz - 8.0) * 10.0) + ViewPositionAndTime.w * 4.0) * 0.03;
     #endif
      #ifdef NL_LAVA_NOISE_BUMP
-        worldPos.y += NL_LAVA_NOISE_BUMPlava.a;
+        worldPos.y += NL_LAVA_NOISE_BUMP*lava.a;
     #endif
   }
    color.rgb= lava.rgb;
