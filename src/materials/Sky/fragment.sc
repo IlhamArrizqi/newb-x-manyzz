@@ -45,6 +45,8 @@ void main() {
   #endif
 }
 
+SAMPLER2D_AUTOREG(s_NoiseVoxel);
+
 float pow2(float x) { return x * x; }
 float pow1_5(float x) { return pow(x, 1.5); }
 float clamp01(float x) { return clamp(x, 0.0, 1.0); }
@@ -82,8 +84,7 @@ vec3 GetAurora(vec3 vDir, float time, float dither) {
 
     aurora *= 3.8;
     return aurora * visibility / float(sampleCount);
-
+}
   float dither = fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453);
  vec3 aurora = GetAurora(viewDir, v_underwaterRainTimeDay.z, dither);
 skyColor += aurora;
-}
