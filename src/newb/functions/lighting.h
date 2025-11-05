@@ -43,7 +43,7 @@ vec3 nlLighting(
   #endif
 
   vec3 torchLight = torchColor*torchAttenuation;
-  float gameBrightness = texture2D(tex, vec2_splat(0.0)).g;
+  float gameBrightness = texelFetch(tex, ivec2(0,0), 0).g;
   float lum = 0.0;
 
   if (env.nether || env.end) {
