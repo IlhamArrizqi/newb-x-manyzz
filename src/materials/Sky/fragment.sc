@@ -43,6 +43,7 @@ void main() {
   #else
     gl_FragColor = vec4(0.0, 0.0, 0.0, 0.0);
   #endif
+}
 
 float pow2(float x) { return x * x; }
 float pow1_5(float x) { return pow(x, 1.5); }
