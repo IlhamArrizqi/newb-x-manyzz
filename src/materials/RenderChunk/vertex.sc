@@ -63,6 +63,19 @@ void main() {
   bool isColored = color.r != color.g || color.r != color.b;
   float shade = isColored ? color.g*1.5 : color.g;
 
+  vec4 diffuse = texture2DLod(s_MatTexture, a_texcoord0, 0.0);
+  bool isCherry = false;
+
+  #if defined(ALPHA_TEST) && !defined(RENDER_AS_BILLBOARDS)
+      bool isCherryTex = (diffuse.r > diffuse.g && diffuse.b > diffuse.g && diffuse.r > diffuse.b);
+      isCherry = (isCherryTex || color.a == 0.0) && (bPos.x + bPos.y + bPos.z < 0.001);
+  #endif
+
+  bool isTree = (isColored && (bPos.x+bPos.y+bPos.z < 0.001)) || isCherry;
+  #if defined(ALPHA_TEST)
+    isTree = (isColored && (bPos.x+bPos.y+bPos.z < 0.001)) || isCherry;
+  #endif
+
   nl_environment env = nlDetectEnvironment(FogColor.rgb, FogAndDistanceControl.xyz);
   nl_skycolor skycol = nlSkyColors(env, FogColor.rgb);
 
@@ -88,6 +101,24 @@ void main() {
   #if defined(ALPHA_TEST) && (defined(NL_PLANTS_WAVE) || defined(NL_LANTERN_WAVE)) && !defined(RENDER_AS_BILLBOARDS)
     nlWave(worldPos, light, env.rainFactor, uv1, lit, a_texcoord0, bPos, a_color0, cPos, tiledCpos, t, s_MatTexture, isColored, camDis, isTree);
   #endif
+
+  if (isCherry) {
+      float windStrength = 1.0 - saturate(length(cPos.xz) * 0.01); 
+      float rainFactor = saturate(FogColor.b * 1.5); 
+
+      float wave = 0.05 * windStrength;
+      wave *= 0.5;
+
+      float phaseDiff = dot(cPos, vec3_splat(0.785398)) + fastRand(tiledCpos.xz + tiledCpos.y);
+
+      wave *= 1.0 + mix(
+          sin(t * 2.8 + phaseDiff),
+          sin(t * 4.2 + phaseDiff),
+          rainFactor
+      );
+
+      worldPos.xyz -= vec3(wave, wave * wave * 0.5, wave);
+  }
 
   // loading chunks
   relativeDist += RenderChunkFogAlpha.x;
