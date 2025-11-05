@@ -48,7 +48,6 @@ vec3 GetAurora(vec3 vDir, float time, float dither) {
 
     aurora *= 3.8;
     return aurora * visibility / float(sampleCount);
-}
 
   float dither = fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453);
  vec3 aurora = GetAurora(viewDir, v_underwaterRainTimeDay.z, dither);
