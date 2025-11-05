@@ -52,7 +52,7 @@ vec3 GetAurora(vec3 vDir, float time, float dither) {
   float dither = fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453);
  vec3 aurora = GetAurora(viewDir, v_underwaterRainTimeDay.z, dither);
 skyColor += aurora;
-
+}
 void main() {
   #ifndef INSTANCING
     vec3 viewDir = normalize(v_worldPos);
