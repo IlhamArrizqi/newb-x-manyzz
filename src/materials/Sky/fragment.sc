@@ -61,6 +61,8 @@ void main() {
     env.rainFactor = v_underwaterRainTimeDay.y;
     env.dayFactor = v_underwaterRainTimeDay.w;
 
+    float mask = (1.0-1.0*env.rainFactor)*max(1.0 - 3.0*max(v_fogColor.b, v_fogColor.g), 0.0);
+
     nl_skycolor skycol;
     if (env.underwater) {
       skycol = nlUnderwaterSkyColors(env.rainFactor, v_fogColor.rgb);
@@ -72,7 +74,7 @@ void main() {
 
     // Add aurora effect
     float dither = fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453);
-    vec3 aurora = GetAurora(viewDir, v_underwaterRainTimeDay.z, dither);
+    vec3 aurora = GetAurora(viewDir, v_underwaterRainTimeDay.z, dither) * mask;
     skyColor += aurora;
 
     #ifdef NL_SHOOTING_STAR
