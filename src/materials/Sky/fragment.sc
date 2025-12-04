@@ -32,7 +32,7 @@ vec3 GetAurora(vec3 vDir, float time, float dither) {
     const int sampleCountP = sampleCount + 10;
 
     float ditherM = dither + 10.0;
-    float auroraAnimate = time * 0.0;
+    float auroraAnimate = time * 0.12;
 
     for (int i = 0; i < sampleCount; i++) {
         float current = pow2((float(i) + ditherM) / float(sampleCountP));
