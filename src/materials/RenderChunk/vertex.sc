@@ -63,6 +63,13 @@ void main() {
   bool isColored = color.r != color.g || color.r != color.b;
   float shade = isColored ? color.g*1.5 : color.g;
 
+  // tree leaves detection
+  #if defined(ALPHA_TEST) && !defined(RENDER_AS_BILLBOARDS)
+    bool isTree = (isColored && (bPos.x+bPos.y+bPos.z < 0.001)) || color.a == 0.0;
+  #else
+    bool isTree = false;
+  #endif
+
   nl_environment env = nlDetectEnvironment(FogColor.rgb, FogAndDistanceControl.xyz);
   nl_skycolor skycol = nlSkyColors(env, FogColor.rgb);
 
