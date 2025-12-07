@@ -11,6 +11,9 @@ uniform vec4 RenderChunkFogAlpha;
 uniform vec4 FogAndDistanceControl;
 uniform vec4 ViewPositionAndTime;
 uniform vec4 FogColor;
+uniform vec4 DimensionID;
+uniform vec4 TimeOfDay;
+uniform vec4 Day;
 
 SAMPLER2D_AUTOREG(s_MatTexture);
 
@@ -55,8 +58,9 @@ void main() {
   vec3 bPos = fract(cPos);
   vec3 tiledCpos = fract(cPos*0.0625);
 
-  float uvx16 = a_texcoord1.x*16.0;
-  vec2 uv1 = vec2(fract(uvx16), floor(uvx16)*0.0625);
+  // 0-255 = first 4 bits for y, remaining for x
+  float uvx16 = a_texcoord1.x * 15.9375; // 255/16
+  vec2 uv1 = vec2(fract(uvx16), floor(uvx16)*0.0625); // (a&15, a>>4)
 
   vec2 lit = uv1*uv1;
 
@@ -70,7 +74,7 @@ void main() {
     bool isTree = false;
   #endif
 
-  nl_environment env = nlDetectEnvironment(FogColor.rgb, FogAndDistanceControl.xyz);
+  nl_environment env = nlDetectEnvironment(DimensionID.x, TimeOfDay.x, Day.x, FogColor.rgb, FogAndDistanceControl.xyz);
   nl_skycolor skycol = nlSkyColors(env, FogColor.rgb);
 
   // time
