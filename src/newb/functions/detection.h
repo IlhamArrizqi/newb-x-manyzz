@@ -28,6 +28,7 @@ float timeOfDay(vec3 FOG_COLOR) {
 
 bool detectEnd(float DIMENSION_ID) {
   return DIMENSION_ID == 2.0;
+}
 bool detectNether(float DIMENSION_ID, vec3 FOG_COLOR, vec2 FOG_CONTROL) {
   // also consider underlava as nether
   bool underLava = FOG_CONTROL.x == 0.0 && FOG_COLOR.b == 0.0 && FOG_COLOR.g < 0.18 && FOG_COLOR.r-FOG_COLOR.g > 0.1;
