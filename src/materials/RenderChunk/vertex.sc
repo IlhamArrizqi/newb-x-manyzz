@@ -60,10 +60,12 @@ void main() {
   vec3 bPos = fract(cPos);
   vec3 tiledCpos = fract(cPos*0.0625);
 
-  // 0-255 = first 4 bits for y, remaining for x
-  float uvx16 = a_texcoord1.x * 15.9375; // 255/16
-  vec2 uv1 = vec2(fract(uvx16), floor(uvx16)*0.0625); // (a&15, a>>4)
-
+  // bit 16 for dithering / mask tint
+  // bits 15-9 for ??
+  // bits 8-5 for x, bits 4-1 for y
+  // uvec2 a16 = uvec2(round(a_texcoord1 * 65535.0));
+  // vec2 uv1 = vec2(uvec2(a16.y >> 4u, a16.y) & uvec2(15u)) * vec2(0.06666667);
+  vec2 uv1 = fract(a_texcoord1.y*vec2(256.0, 4096.0));
   vec2 lit = uv1*uv1;
 
   bool isColored = color.r != color.g || color.r != color.b;
