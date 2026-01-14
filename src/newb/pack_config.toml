@@ -1,15 +1,15 @@
-name = "Newb X Legacy"
+name = "§lNewb X §cManyzz §aV4.0"
 version = [0, 16, 0]
 min_supported_mc_version = [1, 21, 130]
 description = '''
 §c%w
-§7- An enchanced vanilla shader for Minecraft!
+§7- Upgrade Minecraft visuals: vibrant colors,  realistic lighting, immersive effects
 %v
 §3https://devendrn.github.io/newb-shader/
 ''' # %w = patch warning, %v = version
-authors = ["devendrn"]
+authors = ["devendrn","Itszmanyzz"]
 url = "https://devendrn.github.io/newb-shader/"
-uuid = "95f774cf-4afa-73e7-a21a-72146307b1d2" # Use https://www.uuidgenerator.net/version4
+uuid = "387557e7-80c4-4798-a853-61e6c8b70e08" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
 [info] 
@@ -29,13 +29,6 @@ credits = '''
 # right-most subpack is enabled by default
 
 [[subpack]]
-define = "ROUNDED_CLOUDS"
-materials = ["Clouds"]
-description = '''
-Rounded Clouds
-'''
-
-[[subpack]]
 define = "BOX_CLOUDS"
 materials = ["Clouds", "RenderChunk"]
 description = '''
@@ -43,31 +36,52 @@ Box Clouds
 '''
 
 [[subpack]]
-define = "CHUNK_ANIM"
-materials = ["RenderChunk"]
+define = "MULTILAYER_ROUNDED_CLOUDS"
+materials = ["Clouds"]
 description = '''
-Chunk loading animation
+Multilayer Rounded Clouds
 '''
 
 [[subpack]]
-define = "NO_WAVE_NO_FOG"
-materials = ["RenderChunk"]
+define = "ROUNDED_CLOUDS"
+materials = ["Clouds"]
 description = '''
-No fog and wave effects
+Rounded Clouds
 '''
 
 [[subpack]]
-define = "NO_FOG"
-materials = ["RenderChunk"]
+define = "REALISTIC_CLOUDS"
+materials = ["Clouds"]
 description = '''
-No fog effect
+Realistic Clouds
 '''
 
 [[subpack]]
-define = "NO_WAVE"
-materials = ["RenderChunk"]
+define = "SOFT_CLOUDS"
+materials = ["Clouds"]
 description = '''
-No wave effects
+Soft Clouds
+'''
+
+[[subpack]]
+define = "MULTILAYER_VANILLA_CLOUDS"
+materials = ["Clouds"]
+description = '''
+Multilayer Vanilla Clouds
+'''
+
+[[subpack]]
+define = "VANILLA_CLOUDS"
+materials = ["Clouds"]
+description = '''
+Vanilla Clouds
+'''
+
+[[subpack]]
+define = "NIGHT_VISION"
+materials = ["RenderChunk","Actor"]
+description = '''
+Night Vision
 '''
 
 #[[subpack]]

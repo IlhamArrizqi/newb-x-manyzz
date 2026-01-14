@@ -176,14 +176,10 @@ vec4 nlEntityEdgeHighlightPreprocess(vec2 texcoord) {
   return 2.0*step(edgeMap, vec4_splat(0.5)) - 1.0;
 }
 
-vec4 nlLavaNoise(vec3 tiledCpos, float t) {
-  t *=  NL_LAVA_NOISE_SPEED;
-  vec3 p = PI_HALF*tiledCpos;
-  float d = fastVoronoi2(4.3*tiledCpos.xz + t, 2.0);
-  float n = sin(2.0*(p.x+p.y+p.z) + 1.7*sin(2.0*d + 4.0*(p.x-p.z)) + 4.0*t);
-  n = 0.3*d*d +  0.7*n*n;
+vec4 nlLavaNoise(vec3 gPos, float t) {
+  float n = movingNoise2D(gPos.xz + gPos.yy, NL_LAVA_NOISE_SPEED*t, 0.9);
   n *= n;
-  return vec4(mix(vec3(0.7, 0.4, 0.0), vec3_splat(1.5), n),n);
+  return vec4(mix(vec3(0.7, 0.4, 0.0)*smoothstep(-0.1, 0.5, n), vec3_splat(1.5), n*n),n);
 }
 
 #endif

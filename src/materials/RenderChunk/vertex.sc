@@ -56,6 +56,7 @@ void main() {
 
   float relativeDist = camDis / FogAndDistanceControl.z;
 
+  vec3 gPos = worldPos.xyz + CameraPosition.xyz;
   vec3 cPos = a_position.xyz;
   vec3 bPos = fract(cPos);
   vec3 tiledCpos = fract(cPos*0.0625);
@@ -132,7 +133,7 @@ void main() {
     color.a = mix(color.a, 1.0, 0.5*clamp(relativeDist, 0.0, 1.0));
     if (a_color0.b > 0.3 && a_color0.a < 0.95) {
       water = 1.0;
-      refl = nlWater(color, worldPos, skycol, env, a_color0, viewDir, cPos, tiledCpos, CameraPosition.xyz, light, torchColor, lit, bPos.y, camDis, t);
+      refl = nlWater(color, worldPos, skycol, env, a_color0, viewDir, cPos, tiledCpos, gPos, CameraPosition.xyz, light, torchColor, lit, bPos.y, camDis, t);
     } else {
       refl = nlRefl(color, skycol, env, viewDir, worldPos, tiledCpos, CameraPosition.xyz, torchColor, lit, camDis, FogAndDistanceControl.z, t);
     }
@@ -164,7 +165,7 @@ void main() {
     bool isc = (a_color0.r+a_color0.g+a_color0.b) > 2.999;
     bool isb = bPos.y < 0.891 && bPos.y > 0.889;
     if (isc && isb && (uv1.x > 0.81 && uv1.x < 0.876) && a_texcoord0.y > 0.45) {
-      vec4 lava = nlLavaNoise(tiledCpos, t);
+      vec4 lava = nlLavaNoise(gPos, t);
       #ifdef NL_LAVA_NOISE_BUMP
         worldPos.y += NL_LAVA_NOISE_BUMP*lava.a;
       #endif
