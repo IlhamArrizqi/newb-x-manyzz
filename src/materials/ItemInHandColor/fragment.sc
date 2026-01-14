@@ -13,7 +13,7 @@ uniform vec4 MultiplicativeTintColor;
 void main() {
 
   #if defined(DEPTH_ONLY) || defined(INSTANCING)
-    gl_FragColor = vec4(0.0);
+    gl_FragColor = vec4_splat(0.0);
     return;
   #endif
 
