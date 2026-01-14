@@ -195,6 +195,10 @@
 #define NL_SUN_TILT        83.0 // 0.0 no tilt ~ 90.0 tilt of 90 degrees
 #define NL_MOON_TILT       83.0 // 0.0 no tilt ~ 90.0 tilt of 90 degrees
 
+/* Backward compatibility for old Sun/Moon code */
+#define NL_SUNMOON_SIZE  ((NL_SUN_SIZE + NL_MOON_SIZE) * 0.5)
+#define NL_SUNMOON_ANGLE ((NL_SUN_TILT + NL_MOON_TILT) * 0.5)
+
 /* Fake godrays during sunrise/sunset */
 #define NL_GODRAY 0.8 // [toggle] 0.1 subtle ~ 0.8 strong
 
