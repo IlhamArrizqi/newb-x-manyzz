@@ -108,6 +108,13 @@ vec3 renderOverworldSky(nl_skycolor skyCol, nl_environment env, vec3 viewDir, bo
   sky *= 0.5+0.5*gradient2;
   sky *= (1.0 + (2.0*mg8 + 7.0*mg8*mg8)*mask)*mix(1.0, mask, NL_SKY_VOID_DARKNESS);
 
+  if (!isSkyPlane) {
+    float source = max(0.0, (mg8-0.22)/0.78);
+    source *= source;
+    source *= source;
+    sky *= 1.0 + 15.0*source*(1.0-env.rainFactor);
+  }
+
   #ifdef NL_RAINBOW
     float rainbowFade = 0.5 + 0.5*viewDir.y;
     rainbowFade *= rainbowFade;
@@ -153,19 +160,22 @@ vec3 nlRenderSky(nl_skycolor skycol, nl_environment env, vec3 viewDir, float t, 
   } else {
     sky = renderOverworldSky(skycol, env, viewDir, isSkyPlane);
     #ifdef NL_UNDERWATER_STREAKS
-      // if (env.underwater) {
-      //   float a = atan2(viewDir.x, viewDir.z);
-      //   float grad = 0.5 + 0.5*viewDir.y;
-      //   grad *= grad;
-      //   float spread = (0.5 + 0.5*sin(3.0*a + 0.2*t + 2.0*sin(5.0*a - 0.4*t)));
-      //   spread *= (0.5 + 0.5*sin(3.0*a - sin(0.5*t)))*grad;
-      //   spread += (1.0-spread)*grad;
-      //   float streaks = spread*spread;
-      //   streaks *= streaks;
-      //   streaks = (spread + 3.0*grad*grad + 4.0*streaks*streaks);
-      //   sky += 2.0*streaks*skycol.horizon;
-      // }
+       if (env.underwater) {
+         float a = atan2(viewDir.x, viewDir.z);
+         float grad = 0.5 + 0.5*viewDir.y;
+         grad *= grad;
+         float spread = (0.5 + 0.5*sin(3.0*a + 0.2*t + 2.0*sin(5.0*a - 0.4*t)));
+         spread *= (0.5 + 0.5*sin(3.0*a - sin(0.5*t)))*grad;
+         spread += (1.0-spread)*grad;
+         float streaks = spread*spread;
+         streaks *= streaks;
+         streaks = (spread + 3.0*grad*grad + 4.0*streaks*streaks);
+         sky += 2.0*streaks*skycol.horizon;
+       }
     #endif
+    if (!env.nether) {
+      sky += getSunBloom(viewDir.x, skycol.horizonEdge, FOG_COLOR);
+    }
   }
 
   return sky;
