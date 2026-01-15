@@ -108,13 +108,6 @@ vec3 renderOverworldSky(nl_skycolor skyCol, nl_environment env, vec3 viewDir, bo
   sky *= 0.5+0.5*gradient2;
   sky *= (1.0 + (2.0*mg8 + 7.0*mg8*mg8)*mask)*mix(1.0, mask, NL_SKY_VOID_DARKNESS);
 
-  if (!isSkyPlane) {
-    float source = max(0.0, (mg8-0.22)/0.78);
-    source *= source;
-    source *= source;
-    sky *= 1.0 + 15.0*source*(1.0-env.rainFactor);
-  }
-
   #ifdef NL_RAINBOW
     float rainbowFade = 0.5 + 0.5*viewDir.y;
     rainbowFade *= rainbowFade;
