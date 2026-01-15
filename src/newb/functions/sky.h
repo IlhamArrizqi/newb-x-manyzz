@@ -173,9 +173,6 @@ vec3 nlRenderSky(nl_skycolor skycol, nl_environment env, vec3 viewDir, float t, 
          sky += 2.0*streaks*skycol.horizon;
        }
     #endif
-    if (!env.nether) {
-      sky += getSunBloom(viewDir.x, skycol.horizonEdge, FOG_COLOR);
-    }
   }
 
   return sky;
