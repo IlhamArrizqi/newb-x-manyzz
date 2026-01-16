@@ -1,5 +1,5 @@
 #ifndef INSTANCING
-  $input v_fogColor,v_worldPos, v_underwaterRainTimeDay
+  $input v_worldPos, v_underwaterRainTimeDay
 #endif
 
 #include <bgfx_shader.sh>
@@ -12,67 +12,45 @@
   uniform vec4 FogAndDistanceControl;
 #endif
 
-/* Stars Bloom */
-// Tamaño del núcleo cuadrado de la estrella
-#define STAR_SIZE       0.2     
+SAMPLER2D_AUTOREG(s_NoiseVoxel);
 
-// Color del núcleo de la estrella
-#define STAR_COLOR      vec3(1.0, 1.0, 1.0)
+float pow2(float x) { return x * x; }
+float pow1_5(float x) { return pow(x, 1.5); }
+float clamp01(float x) { return clamp(x, 0.0, 1.0); }
+float sqrt1(float x) { return sqrt(max(x, 0.0)); }
 
-// Color del bloom
-#define BLOOM_COLOR     vec3(0.5, 0.6, 1.0)
+vec3 GetAurora(vec3 vDir, float time, float dither) {
+    float VdotU = clamp(vDir.y, 0.0, 1.0);
+    float visibility = sqrt1(clamp01(VdotU * 4.5 - 0.225));
+    visibility *= 4.0 - VdotU * 0.9;
+    if (visibility <= 1.0) return vec3(0.0);
 
-// Intensidad del brillo global
-#define STAR_BRIGHTNESS 1.8      
+    vec3 aurora = vec3_splat(0.0);
+    vec3 wpos = vDir;
+    wpos.xz /= max(wpos.y, 0.1);
+    vec2 cameraPosM = vec2_splat(0.0);
+    cameraPosM.x += time * 10.0;
 
-// Escala de densidad de estrellas (mayor = más estrellas)
-#define STAR_DENSITY    160.0    
+    const int sampleCount = 7;
+    const int sampleCountP = sampleCount + 10;
 
-// Ruido
-float nlRand(vec2 co) {
-    return fract(sin(dot(co, vec2(12.9898, 78.233))) * 43758.5453);
-}
+    float ditherM = dither + 10.0;
+    float auroraAnimate = time * 0.0;
 
-// estrellas pixel + bloom circular 
-vec3 nlRenderPixelStars(vec3 dir, float nightFactor) {
-    dir = normalize(dir);
-
-    vec3 ad = abs(dir);
-    vec2 uv;
-    if (ad.x > ad.y && ad.x > ad.z) {
-        uv = dir.yz / ad.x;
-    } else if (ad.y > ad.x && ad.y > ad.z) {
-        uv = dir.xz / ad.y;
-    } else {
-        uv = dir.xy / ad.z;
-    }
-    uv = uv * 0.5 + 0.5; // rango [0,1]
-
-    vec3 color = vec3(0.0);
-
-    vec2 gridCoord = floor(uv * STAR_DENSITY);
-
-    for (int x = -1; x <= 1; ++x) {
-        for (int y = -1; y <= 1; ++y) {
-            vec2 cell = gridCoord + vec2(x, y);
-            float seed = nlRand(cell);
-
-            if (seed > 0.995) { // probabilidad estrella
-                vec2 starPos = (cell + 0.5) / STAR_DENSITY;
-                vec2 diff = (uv - starPos) * STAR_DENSITY;
-                float dist = length(diff);
-
-                float core = step(abs(diff.x), STAR_SIZE) * step(abs(diff.y), STAR_SIZE);
-                color += core * STAR_COLOR;
-
-                float bloom = exp(-dist * 2.0);
-                float mask = smoothstep(2.0, 0.0, dist); 
-                color += bloom * mask * BLOOM_COLOR * STAR_BRIGHTNESS;
-            }
-        }
+    for (int i = 0; i < sampleCount; i++) {
+        float current = pow2((float(i) + ditherM) / float(sampleCountP));
+        vec2 planePos = wpos.xz * (0.8 + current) * 10.0 + cameraPosM;
+        planePos *= 0.0007;
+        float noise = texture2D(s_NoiseVoxel, planePos).r;
+        noise = pow2(pow2(pow2(pow2(1.0- 0.8* abs(noise - 0.5)))));
+        noise *= texture2D(s_NoiseVoxel, planePos * 8.0 + auroraAnimate).b;
+        noise *= texture2D(s_NoiseVoxel, planePos * 1.0 - auroraAnimate).g;
+        float currentM = 1.0 - current;
+        aurora += noise * currentM * mix(vec3(0.65, 0.48, 1.05), vec3(0.0, 4.5, 3.0), pow2(pow2(currentM)));
     }
 
-    return color * nightFactor;
+    aurora *= 3.8;
+    return aurora * visibility / float(sampleCount);
 }
 
 void main() {
@@ -88,18 +66,16 @@ void main() {
     env.fogCol = FogColor.rgb;
     env = calculateSunParams(env, TimeOfDay.x, Day.x);
 
-    nl_skycolor skycol;
-    if (env.underwater) {
-      skycol = nlOverworldSkyColors(env.rainFactor, v_fogColor.rgb);
-    } else {
-      skycol = nlOverworldSkyColors(env.rainFactor, v_fogColor.rgb);
-    }
+    float mask = (1.0-1.0*env.rainFactor)*max(1.0 - 3.0*max(v_fogColor.b, v_fogColor.g), 0.0);
 
-    vec3 skyColor = nlRenderSky(skycol, env, -viewDir, v_fogColor, v_underwaterRainTimeDay.z);
+    nl_skycolor skycol = nlOverworldSkyColors(env);
 
-    float nightFactor = 1.0 - env.dayFactor;
+    vec3 skyColor = nlRenderSky(skycol, env, -viewDir, v_underwaterRainTimeDay.z, true);
 
-    skyColor += nlRenderPixelStars(viewDir, nightFactor);
+    // Add aurora effect
+    float dither = fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453);
+    vec3 aurora = GetAurora(viewDir, v_underwaterRainTimeDay.z, dither) * mask;
+    skyColor += aurora;
     #ifdef NL_SHOOTING_STAR
       skyColor += NL_SHOOTING_STAR*nlRenderShootingStar(viewDir, env.fogCol, v_underwaterRainTimeDay.z);
     #endif
