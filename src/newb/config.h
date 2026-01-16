@@ -186,7 +186,6 @@
 #define NL_GALAXY_VIBRANCE 0.75          // 0.0 white - 1.0 colorful
 #define NL_GALAXY_SPEED 0.15            // 0.01 slow motion - 0.2 fast motion
 #define NL_GALAXY_DAY_VISIBILITY 0.3    // 0.0 invisible - 1.0 visible
-#define NL_END_GALAXY_STARS      4.0     // [toggle] 0.1 dim ~ 4.0 bright (auto distorted when blackhole is enabled)
 
 /* Chunk loading slide in animation */
 #define NL_CHUNK_LOAD_ANIM 140.0 // [toggle] -600.0 fall from top ~ 600.0 rise from bottom
@@ -222,13 +221,6 @@
 #define NL_LAVA_NOISE            // [toggle] darken lava in certain regions
 #define NL_LAVA_NOISE_BUMP 0.2 // [toggle] 0.1 subtle ~ 0.8 massive waves
 #define NL_LAVA_NOISE_SPEED 0.2  // 0.0 still ~ 0.8 fast
-/* Blackhole */
-#define NL_END_BLACKHOLE    // [toggle] blackhole in the end sky
-#define NL_BH_COL_LOW  vec3(0.02, 0.01, 0.05)
-#define NL_BH_COL_HIGH vec3(0.9, 0.4, 0.1)
-#define NL_BH_DIR      1.96     // 3.14 radius
-#define NL_BH_DIST     2.0      // 1.0 close - 4.0 far
-#define NL_BH_SPEED    1.2      // 0.0 static - 2.0 violent
 
 /*
   NEWB SHADER SUBPACK CONFIG
