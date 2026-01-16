@@ -1,5 +1,5 @@
 #ifndef INSTANCING
-  $input v_worldPos, v_underwaterRainTimeDay
+  $input v_fogColor, v_worldPos, v_underwaterRainTimeDay
 #endif
 
 #include <bgfx_shader.sh>
