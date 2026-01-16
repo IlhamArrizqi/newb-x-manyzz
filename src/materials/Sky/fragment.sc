@@ -1,5 +1,5 @@
 #ifndef INSTANCING
-  $input v_worldPos, v_underwaterRainTimeDay
+  $input v_fogColor,v_worldPos, v_underwaterRainTimeDay
 #endif
 
 #include <bgfx_shader.sh>
@@ -94,7 +94,7 @@ void main() {
     } else {
       skycol = nlOverworldSkyColors(env.rainFactor, v_fogColor.rgb);
     }
-    
+
 vec3 skyColor = nlRenderSky(skycol, env, -viewDir, v_fogColor, v_underwaterRainTimeDay.z);
 
     float nightFactor = 1.0 - env.dayFactor;
