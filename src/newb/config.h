@@ -161,6 +161,11 @@
 #define NL_CLOUD3_SHADOW 0.9             // 0.1 subtle ~ 1.0 dark
 #define NL_CLOUD3_SHADOW_OFFSET 0.3      // 0.05 minimal ~ 1.0 large
 
+/* The end cloud settings (experimental) */
+//#define NL_END_CLOUD              // [toggle] the end cloud
+#define NL_END_CLOUD_SPEED   0.25   // 0.0 static ~ 3.0 fast
+#define NL_END_CLOUD_DENSITY 1.0    // 0.1 sublte ~ 2.0 massive
+
 /* Aurora settings */
 #define NL_AURORA 1.2           // [toggle] 0.4 dim ~ 4.0 very bright
 #define NL_AURORA_VELOCITY 0.14 // 0.0 static ~ 0.3 very fast
@@ -181,6 +186,7 @@
 #define NL_GALAXY_VIBRANCE 0.75          // 0.0 white - 1.0 colorful
 #define NL_GALAXY_SPEED 0.15            // 0.01 slow motion - 0.2 fast motion
 #define NL_GALAXY_DAY_VISIBILITY 0.3    // 0.0 invisible - 1.0 visible
+#define NL_END_GALAXY_STARS      4.0     // [toggle] 0.1 dim ~ 4.0 bright (auto distorted when blackhole is enabled)
 
 /* Chunk loading slide in animation */
 #define NL_CHUNK_LOAD_ANIM 140.0 // [toggle] -600.0 fall from top ~ 600.0 rise from bottom
@@ -216,6 +222,13 @@
 #define NL_LAVA_NOISE            // [toggle] darken lava in certain regions
 #define NL_LAVA_NOISE_BUMP 0.2 // [toggle] 0.1 subtle ~ 0.8 massive waves
 #define NL_LAVA_NOISE_SPEED 0.2  // 0.0 still ~ 0.8 fast
+/* Blackhole */
+#define NL_END_BLACKHOLE    // [toggle] blackhole in the end sky
+#define NL_BH_COL_LOW  vec3(0.02, 0.01, 0.05)
+#define NL_BH_COL_HIGH vec3(0.9, 0.4, 0.1)
+#define NL_BH_DIR      1.96     // 3.14 radius
+#define NL_BH_DIST     2.0      // 1.0 close - 4.0 far
+#define NL_BH_SPEED    1.2      // 0.0 static - 2.0 violent
 
 /*
   NEWB SHADER SUBPACK CONFIG
