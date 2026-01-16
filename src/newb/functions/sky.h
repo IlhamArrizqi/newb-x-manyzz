@@ -160,18 +160,18 @@ vec3 nlRenderSky(nl_skycolor skycol, nl_environment env, vec3 viewDir, float t, 
   } else {
     sky = renderOverworldSky(skycol, env, viewDir, isSkyPlane);
     #ifdef NL_UNDERWATER_STREAKS
-      // if (env.underwater) {
-      //   float a = atan2(viewDir.x, viewDir.z);
-      //   float grad = 0.5 + 0.5*viewDir.y;
-      //   grad *= grad;
-      //   float spread = (0.5 + 0.5*sin(3.0*a + 0.2*t + 2.0*sin(5.0*a - 0.4*t)));
-      //   spread *= (0.5 + 0.5*sin(3.0*a - sin(0.5*t)))*grad;
-      //   spread += (1.0-spread)*grad;
-      //   float streaks = spread*spread;
-      //   streaks *= streaks;
-      //   streaks = (spread + 3.0*grad*grad + 4.0*streaks*streaks);
-      //   sky += 2.0*streaks*skycol.horizon;
-      // }
+       if (env.underwater) {
+         float a = atan2(viewDir.x, viewDir.z);
+         float grad = 0.5 + 0.5*viewDir.y;
+         grad *= grad;
+         float spread = (0.5 + 0.5*sin(3.0*a + 0.2*t + 2.0*sin(5.0*a - 0.4*t)));
+         spread *= (0.5 + 0.5*sin(3.0*a - sin(0.5*t)))*grad;
+         spread += (1.0-spread)*grad;
+         float streaks = spread*spread;
+         streaks *= streaks;
+         streaks = (spread + 3.0*grad*grad + 4.0*streaks*streaks);
+         sky += 2.0*streaks*skycol.horizon;
+       }
     #endif
   }
 
@@ -252,43 +252,6 @@ vec3 nlRenderGalaxy(vec3 vdir, vec3 fogColor, nl_environment env, float t) {
   stars *= mix(1.0, NL_GALAXY_DAY_VISIBILITY, env.dayFactor);
 
   return stars*(1.0-env.rainFactor);
-}
-
-nl_skycolor nlUnderwaterSkyColors(float rainFactor, vec3 FOG_COLOR) {
-  nl_skycolor s;
-  s.zenith = getUnderwaterCol(FOG_COLOR);
-  s.horizon = s.zenith;
-  s.horizonEdge = s.zenith;
-  return s;
-}
-
-nl_skycolor nlEndSkyColors(float rainFactor, vec3 FOG_COLOR) {
-  nl_skycolor s;
-  s.zenith = getEndZenithCol();
-  s.horizon = getEndHorizonCol();
-  s.horizonEdge = s.horizon;
-  return s;
-}
-
-nl_skycolor nlOverworldSkyColors(float rainFactor, vec3 FOG_COLOR) {
-  nl_skycolor s;
-  vec3 fs = getSkyFactors(FOG_COLOR);
-  s.zenith = getZenithCol(rainFactor, FOG_COLOR, fs);
-  s.horizon = getHorizonCol(rainFactor, FOG_COLOR, fs);
-  s.horizonEdge = getHorizonEdgeCol(s.horizon, rainFactor, FOG_COLOR);
-  return s;
-}
-
-nl_skycolor nlSkyColors(nl_environment env, vec3 FOG_COLOR) {
-  nl_skycolor s;
-  if (env.underwater) {
-    s = nlUnderwaterSkyColors(env.rainFactor, FOG_COLOR);
-  } else if (env.end) {
-    s = nlEndSkyColors(env.rainFactor, FOG_COLOR);
-  } else {
-    s = nlOverworldSkyColors(env.rainFactor, FOG_COLOR);
-  }
-  return s;
 }
 
 #endif
