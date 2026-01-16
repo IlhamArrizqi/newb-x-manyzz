@@ -254,5 +254,41 @@ vec3 nlRenderGalaxy(vec3 vdir, vec3 fogColor, nl_environment env, float t) {
   return stars*(1.0-env.rainFactor);
 }
 
+nl_skycolor nlUnderwaterSkyColors(float rainFactor, vec3 FOG_COLOR) {
+  nl_skycolor s;
+  s.zenith = getUnderwaterCol(FOG_COLOR);
+  s.horizon = s.zenith;
+  s.horizonEdge = s.zenith;
+  return s;
+}
+
+nl_skycolor nlEndSkyColors(float rainFactor, vec3 FOG_COLOR) {
+  nl_skycolor s;
+  s.zenith = getEndZenithCol();
+  s.horizon = getEndHorizonCol();
+  s.horizonEdge = s.horizon;
+  return s;
+}
+
+nl_skycolor nlOverworldSkyColors(float rainFactor, vec3 FOG_COLOR) {
+  nl_skycolor s;
+  vec3 fs = getSkyFactors(FOG_COLOR);
+  s.zenith = getZenithCol(rainFactor, FOG_COLOR, fs);
+  s.horizon = getHorizonCol(rainFactor, FOG_COLOR, fs);
+  s.horizonEdge = getHorizonEdgeCol(s.horizon, rainFactor, FOG_COLOR);
+  return s;
+}
+
+nl_skycolor nlSkyColors(nl_environment env, vec3 FOG_COLOR) {
+  nl_skycolor s;
+  if (env.underwater) {
+    s = nlUnderwaterSkyColors(env.rainFactor, FOG_COLOR);
+  } else if (env.end) {
+    s = nlEndSkyColors(env.rainFactor, FOG_COLOR);
+  } else {
+    s = nlOverworldSkyColors(env.rainFactor, FOG_COLOR);
+  }
+  return s;
+}
 
 #endif
