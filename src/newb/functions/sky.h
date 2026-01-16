@@ -158,7 +158,7 @@ vec3 nlRenderSky(nl_skycolor skycol, nl_environment env, vec3 viewDir, float t, 
 #define NL_BH_CENTER_Y 0.25
 #define NL_BH_CENTER_Z 0.6
 
-vec4 renderBlackhole(vec3 vdir, float t) {
+vec4 renderBlackhole(vec3 vdir, float t) ;
   t *= NL_BH_SPEED;
 
   float r = NL_BH_DIR;
