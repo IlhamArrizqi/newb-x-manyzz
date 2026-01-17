@@ -46,14 +46,14 @@
 /* Sun/moon light color on terrain */
 #define NL_DAWN_SUNLIGHT_COL   vec3(0.85,0.6,0.6)
 #define NL_NOON_SUNLIGHT_COL   vec3(0.85,0.82,0.75)
-#define NL_NIGHT_MOONLIGHT_COL vec3(0.15,0.2,0.3)
+#define NL_NIGHT_MOONLIGHT_COL vec3(0.28,0.34,0.55)
 
 /* Ambient light on terrain (light that is added everywhere) */
 #define NL_NETHER_AMBIENT vec3(0.75,0.35,0.35)
 #define NL_END_AMBIENT    vec3(0.25,0.25,0.6)
 
 /* Torch colors */
-#define NL_OVERWORLD_TORCH_COL  vec3(.9,0.75,0.5)
+#define NL_OVERWORLD_TORCH_COL  vec3(0.9,0.75,0.5)
 #define NL_UNDERWATER_TORCH_COL vec3(0.5,0.25,0.1)
 #define NL_NETHER_TORCH_COL     vec3(1.0,0.15,0.15)
 #define NL_END_TORCH_COL        vec3(0.45,0.25,0.55)
@@ -73,12 +73,12 @@
 #define NL_DAWN_ZENITH_COL   vec3(0.06,0.07,0.14)
 #define NL_DAWN_HORIZON_COL  vec3(0.90,0.48,0.36)
 #define NL_DAWN_EDGE_COL     vec3(1.0,0.6,0.46)
-#define NL_DAY_ZENITH_COL    vec3(0.28,0.52,0.95)
-#define NL_DAY_HORIZON_COL   vec3(0.72,0.88,1.0)
-#define NL_DAY_EDGE_COL      vec3(0.62,0.76,0.98)
-#define NL_NIGHT_ZENITH_COL  vec3(0.003,0.004,0.01)
-#define NL_NIGHT_HORIZON_COL vec3(0.16,0.18,0.42)
-#define NL_NIGHT_EDGE_COL    vec3(0.10,0.14,0.32)
+#define NL_DAY_ZENITH_COL    vec3(0.34,0.5,0.9)
+#define NL_DAY_HORIZON_COL   vec3(0.72,0.86,1.0)
+#define NL_DAY_EDGE_COL      vec3(0.62,0.74,0.96)
+#define NL_NIGHT_ZENITH_COL  vec3(0.01,0.08,0.03)
+#define NL_NIGHT_HORIZON_COL vec3(0.18,0.16,0.42)
+#define NL_NIGHT_EDGE_COL    vec3(0.12,0.11,0.32)
 #define NL_RAIN_ZENITH_COL   vec3(0.55,0.6,0.7)
 #define NL_RAIN_HORIZON_COL  vec3(1.0,1.0,1.0)
 
@@ -173,14 +173,14 @@
 
 /* Shooting star */
 #define NL_SHOOTING_STAR 1.0        // [toggle] 0.2 dim ~ 1.0 bright
-#define NL_SHOOTING_STAR_PERIOD 5.0 // 0.4 fast ~ 12.0 slow (12 secs)
-#define NL_SHOOTING_STAR_DELAY 16.0 // 0.0 no delay ~ 100.0 long time (100 secs)
+#define NL_SHOOTING_STAR_PERIOD 3.0 // 0.4 fast ~ 12.0 slow (12 secs)
+#define NL_SHOOTING_STAR_DELAY 10.0 // 0.0 no delay ~ 100.0 long time (100 secs)
 
 /* Galaxy */
 #define NL_GALAXY_STARS 2.0           // [toggle] 0.1 dim - 4.0 bright
-#define NL_GALAXY_VIBRANCE 0.75          // 0.0 white - 1.0 colorful
+#define NL_GALAXY_VIBRANCE 0.45          // 0.0 white - 1.0 colorful
 #define NL_GALAXY_SPEED 0.15            // 0.01 slow motion - 0.2 fast motion
-#define NL_GALAXY_DAY_VISIBILITY 0.3    // 0.0 invisible - 1.0 visible
+#define NL_GALAXY_DAY_VISIBILITY 0.32    // 0.0 invisible - 1.0 visible
 
 /* Chunk loading slide in animation */
 #define NL_CHUNK_LOAD_ANIM 140.0 // [toggle] -600.0 fall from top ~ 600.0 rise from bottom
@@ -208,14 +208,14 @@
 #define NL_ENTITY_EDGE_HIGHLIGHT 0.41 // [toggle] 0.0 no highlight ~ 1.6 bright highlight
 
 /* Weather particles */
-#define NL_WEATHER_SPECK 0.6         // [toggle] 0.0 vanilla texture ~ 1.0 soft speck
-#define NL_WEATHER_RAIN_SLANT 4.0    // 1.0 minimal ~ 8.0 violent
+#define NL_WEATHER_SPECK 0.8         // [toggle] 0.0 vanilla texture ~ 1.0 soft speck
+#define NL_WEATHER_RAIN_SLANT 4.5    // 1.0 minimal ~ 8.0 violent
 #define NL_WEATHER_PARTICLE_SIZE 1.0 // 0.5 tiny ~ 4.0 large
 
 /* Lava effects */
 #define NL_LAVA_NOISE            // [toggle] darken lava in certain regions
-#define NL_LAVA_NOISE_BUMP 0.2   // [toggle] 0.1 subtle ~ 0.8 massive waves
-#define NL_LAVA_NOISE_SPEED 0.2  // 0.0 still ~ 0.8 fast
+#define NL_LAVA_NOISE_BUMP 0.1   // [toggle] 0.1 subtle ~ 0.8 massive waves
+#define NL_LAVA_NOISE_SPEED 0.3  // 0.0 still ~ 0.8 fast
 #define NL_LAVA_WAVE             // [toggle] lava wave effect
 
 /*
