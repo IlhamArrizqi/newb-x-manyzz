@@ -88,12 +88,7 @@ void main() {
     env.fogCol = FogColor.rgb;
     env = calculateSunParams(env, TimeOfDay.x, Day.x);
 
-    nl_skycolor skycol;
-    if (env.underwater) {
-      skycol = nlUnderwaterSkyColors(env.rainFactor, v_fogColor.rgb);
-    } else {
-      skycol = nlOverworldSkyColors(env.rainFactor, v_fogColor.rgb);
-    }
+    nl_skycolor skycol = nlOverworldSkyColors(env);
 
     vec3 skyColor = nlRenderSky(skycol, env, -viewDir, v_fogColor, v_underwaterRainTimeDay.z, true);
 
