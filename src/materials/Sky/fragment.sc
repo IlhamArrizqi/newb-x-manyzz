@@ -48,7 +48,7 @@ vec3 nlRenderPixelStars(vec3 dir, float nightFactor) {
     }
     uv = uv * 0.5 + 0.5; // rango [0,1]
 
-    vec3 color = vec3(0.0);
+    vec3 color = vec3_splat(0.0);
 
     vec2 gridCoord = floor(uv * STAR_DENSITY);
 
