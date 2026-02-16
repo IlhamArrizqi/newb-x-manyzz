@@ -1,4 +1,4 @@
-name = "Newb X Legacy"
+name = "Newb X §cManyzz [§fRemake§c] §aV2"
 version = [0, 16, 0]
 min_supported_mc_version = [1, 21, 130]
 description = '''
@@ -29,13 +29,6 @@ credits = '''
 # right-most subpack is enabled by default
 
 [[subpack]]
-define = "ROUNDED_CLOUDS"
-materials = ["Clouds"]
-description = '''
-Rounded Clouds
-'''
-
-[[subpack]]
 define = "BOX_CLOUDS"
 materials = ["Clouds", "RenderChunk"]
 description = '''
@@ -43,31 +36,52 @@ Box Clouds
 '''
 
 [[subpack]]
-define = "CHUNK_ANIM"
-materials = ["RenderChunk"]
+define = "MULTILAYER_ROUNDED_CLOUDS"
+materials = ["Clouds"]
 description = '''
-Chunk loading animation
+Multilayer Rounded Clouds
 '''
 
 [[subpack]]
-define = "NO_WAVE_NO_FOG"
-materials = ["RenderChunk"]
+define = "ROUNDED_CLOUDS"
+materials = ["Clouds"]
 description = '''
-No fog and wave effects
+Rounded Clouds
 '''
 
 [[subpack]]
-define = "NO_FOG"
-materials = ["RenderChunk"]
+define = "REALISTIC_CLOUDS"
+materials = ["Clouds"]
 description = '''
-No fog effect
+Realistic Clouds
 '''
 
 [[subpack]]
-define = "NO_WAVE"
-materials = ["RenderChunk"]
+define = "SOFT_CLOUDS"
+materials = ["Clouds"]
 description = '''
-No wave effects
+Soft Clouds
+'''
+
+[[subpack]]
+define = "MULTILAYER_VANILLA_CLOUDS"
+materials = ["Clouds"]
+description = '''
+Multilayer Vanilla Clouds
+'''
+
+[[subpack]]
+define = "VANILLA_CLOUDS"
+materials = ["Clouds"]
+description = '''
+Vanilla Clouds
+'''
+
+[[subpack]]
+define = "NIGHT_VISION"
+materials = ["RenderChunk","Actor"]
+description = '''
+Night Vision
 '''
 
 #[[subpack]]

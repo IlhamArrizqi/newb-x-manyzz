@@ -162,16 +162,20 @@ void main() {
   #endif
 
   #ifdef NL_LAVA_NOISE
-    bool isc = (a_color0.r+a_color0.g+a_color0.b) > 2.999;
-    bool isb = bPos.y < 0.891 && bPos.y > 0.889;
-    if (isc && isb && (uv1.x > 0.81 && uv1.x < 0.876) && a_texcoord0.y > 0.45) {
-      vec4 lava = nlLavaNoise(gPos, t);
-      #ifdef NL_LAVA_NOISE_BUMP
-        worldPos.y += NL_LAVA_NOISE_BUMP*lava.a;
-      #endif
-      color.rgb *= lava.rgb;
-    }
-  #endif
+  vec4 lava = vec4(1.0);
+  bool isc = (a_color0.r + a_color0.g + a_color0.b) > 2.999;
+  bool isb = bPos.y < 0.891 && bPos.y > 0.889;
+  if (isc && isb && (uv1.x > 0.81 && uv1.x < 0.876) && a_texcoord0.y > 0.45) {
+    lava = nlLavaNoise(tiledCpos, t);
+    #ifdef NL_LAVA_WAVE
+      pos.y += cos(length(abs(a_position.xyz - 8.0) * 10.0) + ViewPositionAndTime.w * 4.0) * 0.03;
+    #endif
+    #ifdef NL_LAVA_NOISE_BUMP
+      worldPos.y += NL_LAVA_NOISE_BUMP*lava.a;
+    #endif
+  }
+  color.rgb *= lava.rgb;
+#endif
 
   v_extra = vec4(shade, worldPos.y, water, shimmer);
   v_refl = refl;
