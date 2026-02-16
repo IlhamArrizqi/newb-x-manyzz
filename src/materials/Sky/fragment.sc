@@ -23,7 +23,7 @@ vec3 GetAurora(vec3 vDir, float time, float dither) {
     float VdotU = clamp(vDir.y, 0.0, 1.0);
     float visibility = sqrt1(clamp01(VdotU * 4.5 - 0.225));
     visibility *= 4.0 - VdotU * 0.9;
-    if (visibility <= 1.0) return vec3(0.0);
+    if (visibility <= 1.0) return vec3_splat(0.0);
 
     vec3 aurora = vec3_splat(0.0);
     vec3 wpos = vDir;
