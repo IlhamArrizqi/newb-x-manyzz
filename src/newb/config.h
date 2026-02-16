@@ -182,8 +182,8 @@
 #define NL_SHOOTING_STAR_DELAY 75.0 // 0.0 no delay ~ 100.0 long time (100 secs)
 
 /* Galaxy */
-#define NL_GALAXY_STARS 2.0           // [toggle] 0.1 dim - 4.0 bright
-#define NL_GALAXY_VIBRANCE 0.45          // 0.0 white - 1.0 colorful
+#define NL_GALAXY_STARS 1.0           // [toggle] 0.1 dim - 4.0 bright
+#define NL_GALAXY_VIBRANCE 0.35          // 0.0 white - 1.0 colorful
 #define NL_GALAXY_SPEED 0.15            // 0.01 slow motion - 0.2 fast motion
 #define NL_GALAXY_DAY_VISIBILITY 0.32    // 0.0 invisible - 1.0 visible
 #define NL_END_GALAXY_STARS      4.0     // [toggle] 0.1 dim ~ 4.0 bright (auto distorted when blackhole is enabled)

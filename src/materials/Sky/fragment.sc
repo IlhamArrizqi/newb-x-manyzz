@@ -29,7 +29,7 @@ vec3 GetAurora(vec3 vDir, float time, float dither) {
     vec3 wpos = vDir;
     wpos.xz /= max(wpos.y, 0.1);
     vec2 cameraPosM = vec2_splat(0.0);
-    cameraPosM.x += time * 1.3;
+    cameraPosM.x += time * 0.6;
 
     const int sampleCount = 7;
     const int sampleCountP = sampleCount + 10;
@@ -39,7 +39,7 @@ vec3 GetAurora(vec3 vDir, float time, float dither) {
 
     for (int i = 0; i < sampleCount; i++) {
         float current = pow2((float(i) + ditherM) / float(sampleCountP));
-        vec2 planePos = wpos.xz * (1.3 + current) * 16.0 + cameraPosM;
+        vec2 planePos = wpos.xz * (1.3 + current) * 5.0 + cameraPosM;
         planePos *= 0.0007;
         float noise = texture2D(s_NoiseVoxel, planePos).r;
         noise = pow2(pow2(pow2(pow2(1.0- 0.8* abs(noise - 0.5)))));
@@ -66,15 +66,17 @@ void main() {
     env.fogCol = FogColor.rgb;
     env = calculateSunParams(env, TimeOfDay.x, Day.x);
 
-    float mask = (1.0-1.0*env.rainFactor)*max(1.0 - 3.0*max(env.fogCol.b, env.fogCol.g), 0.0);
 
     nl_skycolor skycol = nlOverworldSkyColors(env);
 
     vec3 skyColor = nlRenderSky(skycol, env, -viewDir, v_underwaterRainTimeDay.z, true);
 
       float dither = fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453);
+      float nightMask = smoothstep(0.4, 0.0, env.dayFactor);
      vec3 aurora = GetAurora(viewDir, v_underwaterRainTimeDay.z, dither);
-    skyColor += aurora;
+    aurora *= nightMask * (1.0 - env.rainFactor);
+
+skyColor += aurora;
     
     #ifdef NL_SHOOTING_STAR
       skyColor += NL_SHOOTING_STAR*nlRenderShootingStar(viewDir, env.fogCol, v_underwaterRainTimeDay.z);
