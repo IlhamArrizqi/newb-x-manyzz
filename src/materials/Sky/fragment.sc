@@ -57,10 +57,6 @@ void main() {
   #ifndef INSTANCING
     vec3 viewDir = normalize(v_worldPos);
 
-      float dither = fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453);
-     vec3 aurora = GetAurora(viewDir, v_underwaterRainTimeDay.z, dither);
-    skyColor += aurora;
-
     nl_environment env;
     env.end = false;
     env.nether = false;
@@ -73,6 +69,11 @@ void main() {
     nl_skycolor skycol = nlOverworldSkyColors(env);
 
     vec3 skyColor = nlRenderSky(skycol, env, -viewDir, v_underwaterRainTimeDay.z, true);
+
+      float dither = fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453);
+     vec3 aurora = GetAurora(viewDir, v_underwaterRainTimeDay.z, dither);
+    skyColor += aurora;
+    
     #ifdef NL_SHOOTING_STAR
       skyColor += NL_SHOOTING_STAR*nlRenderShootingStar(viewDir, env.fogCol, v_underwaterRainTimeDay.z);
     #endif
