@@ -7,6 +7,8 @@ $input v_texcoord0, v_posTime
 #ifndef INSTANCING
   #include <newb/main.sh>
 
+  uniform vec4 FogColor;
+
   SAMPLER2D_AUTOREG(s_SkyTexture);
 #endif
 
