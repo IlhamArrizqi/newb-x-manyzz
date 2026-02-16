@@ -229,9 +229,6 @@ vec3 distortByBlackhole(vec3 vdir, float t, float strength) {
 
   return vdir_rot;
 }
-}
-
-vec3 nlRenderSky(nl_skycolor skycol, nl_environment env, vec3 viewDir, vec3 FOG_COLOR, float t) {
 
   vec3 sky;
   viewDir.y = -viewDir.y;
