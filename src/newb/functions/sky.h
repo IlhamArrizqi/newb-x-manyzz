@@ -151,8 +151,6 @@ vec3 renderEndSky(vec3 horizonCol, vec3 zenithCol, vec3 viewDir, float t) {
   return sky;
 }
 
-vec3 nlRenderSky(nl_skycolor skycol, nl_environment env, vec3 viewDir, float t, bool isSkyPlane) {
-
 // Blackhole center for manual control (don't change)
 #define NL_BH_CENTER_X 0.7
 #define NL_BH_CENTER_Y 0.25
@@ -229,6 +227,8 @@ vec3 distortByBlackhole(vec3 vdir, float t, float strength) {
 
   return vdir_rot;
 }
+
+vec3 nlRenderSky(nl_skycolor skycol, nl_environment env, vec3 viewDir, float t, bool isSkyPlane) {
 
   vec3 sky;
   viewDir.y = -viewDir.y;
