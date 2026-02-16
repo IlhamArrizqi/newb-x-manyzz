@@ -152,6 +152,87 @@ vec3 renderEndSky(vec3 horizonCol, vec3 zenithCol, vec3 viewDir, float t) {
 }
 
 vec3 nlRenderSky(nl_skycolor skycol, nl_environment env, vec3 viewDir, float t, bool isSkyPlane) {
+
+// Blackhole center for manual control (don't change)
+#define NL_BH_CENTER_X 0.7
+#define NL_BH_CENTER_Y 0.25
+#define NL_BH_CENTER_Z 0.6
+
+vec4 renderBlackhole(vec3 vdir, float t) {
+  t *= NL_BH_SPEED;
+
+  float r = NL_BH_DIR;
+  //r += 0.0001 * t;
+  vec3 vr = vdir;
+
+  //vr.xy = mat2(cos(r), -sin(r), sin(r), cos(r)) * vr.xy;
+  // manual calculation mat2 to fix windows compiling
+  float cx = cos(r);
+  float sx = sin(r);
+  vr.xy = vec2(cx*vr.x - sx*vr.y, sx*vr.x + cx*vr.y);
+  //r *= 2.0;
+
+  vec3 bhCenter = vec3(NL_BH_CENTER_X, NL_BH_CENTER_Y, NL_BH_CENTER_Z);
+  bhCenter.xy = vec2(cx*bhCenter.x - sx*bhCenter.y, sx*bhCenter.x + cx*bhCenter.y);
+
+  vec3 vd = vr - bhCenter;
+    
+  float nl = sin(8.0*vd.x + t)*sin(8.0*vd.y - t)*sin(8.0*vd.z + t);
+  nl = mix(nl, sin(4.0*vd.x + t)*sin(4.0*vd.y - t), 0.5);
+
+  float a = atan2(vd.x, vd.z);
+  float d = NL_BH_DIST*length(vd + 0.002*nl);
+
+  float d0 = (0.6 - d) / 0.6;
+  float dm0 = 1.0 - max(d0, 0.0);
+    
+  float gl = 1.0 - clamp(-0.2*d0, 0.0, 1.0);
+  float gla = pow(1.0 - min(abs(d0), 1.0), 6.0);
+  float gl8 = pow(gl, 6.0); 
+
+  float hole = 0.9*pow(dm0, 20.0) + 0.1*pow(dm0, 3.0);
+  float bh = (gla + 0.7*gl8 + 0.2*gl8*gl8)*hole;
+
+  float df = sin(2.0*a - 3.0*d + 20.0*pow(1.2 - d, 3.0) + t*0.5);
+  df *= 0.85 + 0.1*sin(6.0*a + d + 2.0*t - 2.0*df);
+  bh *= 1.0 + pow(df, 3.0)*hole*max(1.0 - bh, 0.0);
+
+  vec3 col = bh*3.5*mix(NL_BH_COL_LOW, NL_BH_COL_HIGH, smoothstep(0.0, 1.0, bh));
+  return vec4(col, hole);
+}
+
+vec3 distortByBlackhole(vec3 vdir, float t, float strength) {
+  // Rotation of viewdir and blackhole center to the same space
+  float r = NL_BH_DIR;
+  float cx = cos(r);
+  float sx = sin(r);
+
+  // Blackhole center after rotation
+  vec3 bhCenter = vec3(NL_BH_CENTER_X, NL_BH_CENTER_Y, NL_BH_CENTER_Z);
+  bhCenter.xy = vec2(cx*bhCenter.x - sx*bhCenter.y, sx*bhCenter.x + cx*bhCenter.y);
+
+  // Viewdir is also rotated to blackhole space
+  vec3 vdir_rot = vdir;
+  vdir_rot.xy = vec2(cx*vdir.x - sx*vdir.y, sx*vdir.x + cx*vdir.y);
+
+  vec3 toBH = bhCenter - vdir_rot;
+  float dist = length(toBH);
+  float effect = smoothstep(0.6, 0.4, dist);
+  vec3 dir = normalize(vdir_rot - bhCenter);
+  float bend = strength*effect/(dist+0.2);
+
+  vdir_rot = normalize(mix(vdir_rot, dir, bend));
+  // Inverse rotation to return to the original viewdir space
+  float icx = cos(-r);
+  float isx = sin(-r);
+  vdir_rot.xy = vec2(icx*vdir_rot.x - isx*vdir_rot.y, isx*vdir_rot.x + icx*vdir_rot.y);
+
+  return vdir_rot;
+}
+}
+
+vec3 nlRenderSky(nl_skycolor skycol, nl_environment env, vec3 viewDir, vec3 FOG_COLOR, float t) {
+
   vec3 sky;
   viewDir.y = -viewDir.y;
 

@@ -161,6 +161,11 @@
 #define NL_CLOUD3_SHADOW 0.9             // 0.1 subtle ~ 1.0 dark
 #define NL_CLOUD3_SHADOW_OFFSET 0.3      // 0.05 minimal ~ 1.0 large
 
+/* The end cloud settings (experimental) */
+//#define NL_END_CLOUD              // [toggle] the end cloud
+#define NL_END_CLOUD_SPEED   0.25   // 0.0 static ~ 3.0 fast
+#define NL_END_CLOUD_DENSITY 1.0    // 0.1 sublte ~ 2.0 massive
+
 /* Aurora settings */
 #define NL_AURORA 3.5           // [toggle] 0.4 dim ~ 4.0 very bright
 #define NL_AURORA_VELOCITY 0.14 // 0.0 static ~ 0.3 very fast
@@ -216,6 +221,15 @@
 #define NL_LAVA_NOISE            // [toggle] darken lava in certain regions
 #define NL_LAVA_NOISE_BUMP 0.2 // [toggle] 0.1 subtle ~ 0.8 massive waves
 #define NL_LAVA_NOISE_SPEED 0.2  // 0.0 still ~ 0.8 fast
+#define NL_LAVA_WAVE          // [toggle] wave effect for lava
+
+/* Blackhole */
+#define NL_END_BLACKHOLE    // [toggle] blackhole in the end sky
+#define NL_BH_COL_LOW  vec3(0.02, 0.01, 0.05)
+#define NL_BH_COL_HIGH vec3(0.9, 0.4, 0.1)
+#define NL_BH_DIR      1.96     // 3.14 radius
+#define NL_BH_DIST     2.0      // 1.0 close - 4.0 far
+#define NL_BH_SPEED    1.2      // 0.0 static - 2.0 violent
 
 /*
   NEWB SHADER SUBPACK CONFIG
