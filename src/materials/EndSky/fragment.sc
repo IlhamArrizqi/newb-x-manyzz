@@ -20,6 +20,8 @@ void main() {
     env.nether = false;
     env.underwater = v_posTime.w < 1.0;
     env.rainFactor = 0.0;
+    env.dayFactor = 1.0;
+    env.fogCol = FogColor.rgb;
 
     nl_skycolor skycol = nlEndSkyColors(env);
     
