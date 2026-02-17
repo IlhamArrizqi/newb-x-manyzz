@@ -46,10 +46,6 @@ void main() {
       color += bh.rgb;
     #endif
 
-    #ifdef NL_END_CLOUD
-      color += renderCloudsEnd(getEndHorizonCol(), getEndZenithCol(), viewDir, v_posTime.w);
-    #endif
-
     color = colorCorrection(color);
 
     gl_FragColor = vec4(color, 1.0);

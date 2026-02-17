@@ -161,11 +161,6 @@
 #define NL_CLOUD3_SHADOW 0.9             // 0.1 subtle ~ 1.0 dark
 #define NL_CLOUD3_SHADOW_OFFSET 0.3      // 0.05 minimal ~ 1.0 large
 
-/* The end cloud settings (experimental) */
-#define NL_END_CLOUD              // [toggle] the end cloud
-#define NL_END_CLOUD_SPEED   0.25   // 0.0 static ~ 3.0 fast
-#define NL_END_CLOUD_DENSITY 1.0    // 0.1 sublte ~ 2.0 massive
-
 /* Aurora settings */
 #define NL_AURORA 3.5           // [toggle] 0.4 dim ~ 4.0 very bright
 #define NL_AURORA_VELOCITY 0.14 // 0.0 static ~ 0.3 very fast
