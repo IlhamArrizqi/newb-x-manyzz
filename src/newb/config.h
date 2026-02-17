@@ -60,7 +60,7 @@
 
 /* Fog */
 #define NL_FOG 1.0                // [toggle] 0.1 subtle ~ 1.0 blend with sky completely
-#define NL_MIST_DENSITY 3.0      // 0.0 no mist ~ 1.0 misty
+#define NL_MIST_DENSITY 31.0      // 0.0 no mist ~ 1.0 misty
 #define NL_RAIN_MIST_OPACITY 0.12 // [toggle] 0.04 very subtle ~ 0.5 thick rain mist blow
 #define NL_CLOUDY_FOG 0.5         // [toggle] 0.0 subtle - 0.8 dense fog clouds
 
@@ -76,7 +76,7 @@
 #define NL_DAY_ZENITH_COL    vec3(0.48,0.55,0.9)
 #define NL_DAY_HORIZON_COL   vec3(1.0,0.78,0.8)
 #define NL_DAY_EDGE_COL      vec3(0.92,0.76,0.9)
-#define NL_NIGHT_ZENITH_COL  vec3(0.01,0.08,0.03)
+#define NL_NIGHT_ZENITH_COL  vec3(0.01,0.008,0.03)
 #define NL_NIGHT_HORIZON_COL vec3(0.18,0.16,0.42)
 #define NL_NIGHT_EDGE_COL    vec3(0.12,0.11,0.32)
 #define NL_RAIN_ZENITH_COL   vec3(0.55,0.6,0.7)
@@ -162,7 +162,7 @@
 #define NL_CLOUD3_SHADOW_OFFSET 0.3      // 0.05 minimal ~ 1.0 large
 
 /* The end cloud settings (experimental) */
-//#define NL_END_CLOUD              // [toggle] the end cloud
+#define NL_END_CLOUD              // [toggle] the end cloud
 #define NL_END_CLOUD_SPEED   0.25   // 0.0 static ~ 3.0 fast
 #define NL_END_CLOUD_DENSITY 1.0    // 0.1 sublte ~ 2.0 massive
 
@@ -182,7 +182,7 @@
 #define NL_SHOOTING_STAR_DELAY 75.0 // 0.0 no delay ~ 100.0 long time (100 secs)
 
 /* Galaxy */
-#define NL_GALAXY_STARS 1.0           // [toggle] 0.1 dim - 4.0 bright
+#define NL_GALAXY_STARS 1.2           // [toggle] 0.1 dim - 4.0 bright
 #define NL_GALAXY_VIBRANCE 0.35          // 0.0 white - 1.0 colorful
 #define NL_GALAXY_SPEED 0.15            // 0.01 slow motion - 0.2 fast motion
 #define NL_GALAXY_DAY_VISIBILITY 0.32    // 0.0 invisible - 1.0 visible
@@ -226,8 +226,8 @@
 
 /* Blackhole */
 #define NL_END_BLACKHOLE    // [toggle] blackhole in the end sky
-#define NL_BH_COL_LOW  vec3(0.01, 0.005, 0.03)
-#define NL_BH_COL_HIGH vec3(0.85, 0.45, 0.95)
+#define NL_BH_COL_LOW  vec3(0.002, 0.004, 0.01)
+#define NL_BH_COL_HIGH vec3(1.0, 0.65, 0.25)
 #define NL_BH_DIR      1.96     // 3.14 radius
 #define NL_BH_DIST     2.0      // 1.0 close - 4.0 far
 #define NL_BH_SPEED    1.2      // 0.0 static - 2.0 violent

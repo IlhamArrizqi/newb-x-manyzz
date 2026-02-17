@@ -27,7 +27,9 @@ vec3 GetAurora(vec3 vDir, float time, float dither) {
 
     vec3 aurora = vec3_splat(0.0);
     vec3 wpos = vDir;
-    wpos.xz /= max(wpos.y, 0.1);
+    float h = clamp(vDir.y, 0.0, 1.0);
+    float curve = mix(2.5, 0.6, h);
+    wpos.xz /= (h * curve + 0.15);
     vec2 cameraPosM = vec2_splat(0.0);
     cameraPosM.x += time * 0.6;
 
@@ -39,7 +41,7 @@ vec3 GetAurora(vec3 vDir, float time, float dither) {
 
     for (int i = 0; i < sampleCount; i++) {
         float current = pow2((float(i) + ditherM) / float(sampleCountP));
-        vec2 planePos = wpos.xz * (1.3 + current) * 5.0 + cameraPosM;
+        vec2 planePos = wpos.xz * (1.3 + current) * 3.5 + cameraPosM;
         planePos *= 0.0007;
         float noise = texture2D(s_NoiseVoxel, planePos).r;
         noise = pow2(pow2(pow2(pow2(1.0- 0.8* abs(noise - 0.5)))));
