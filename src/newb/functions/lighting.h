@@ -96,8 +96,10 @@ vec3 nlLighting(
   light += torchLight/(1.0+lum);
 
   // game min brightness
+  if (!(env.nether || env.end)) {
   lum = luminance(light);
   light += vec3_splat(gameBrightness*(1.5/(1.0+lum)));
+  }
 
   // darken at crevices
   light *= COLOR.g > 0.35 ? 1.0 : 0.8;
@@ -168,22 +170,6 @@ vec3 nlEntityLighting(nl_skycolor skycol, nl_environment env, vec3 pos, vec4 nor
   } else {
     torchColor = NL_OVERWORLD_TORCH_COL;
   }
-
-  return light;
-}
-
-float nlEntityEdgeHighlight(vec4 edgemap) {
-  #ifdef NL_ENTITY_EDGE_HIGHLIGHT
-    vec2 len = min(abs(edgemap.xy),abs(edgemap.zw));
-    len *= len;
-    len *= len;
-    float ambient = len.x + len.y*(1.0-len.x);
-    return NL_ENTITY_BRIGHTNESS + ambient*NL_ENTITY_EDGE_HIGHLIGHT;
-  #else
-    return 1.0;
-  #endif
-}
-
   float tl = max(tileLightCol.r-0.07, 0.0);
   tl *= 4.0*tl;
   lum = luminance(light);
@@ -202,6 +188,21 @@ float nlEntityEdgeHighlight(vec4 edgemap) {
 
   lum = luminance(light);
   light += vec3_splat(overlayCol.a*(1.5/(1.0+lum)));
+
+    return light;
+}
+
+float nlEntityEdgeHighlight(vec4 edgemap) {
+  #ifdef NL_ENTITY_EDGE_HIGHLIGHT
+    vec2 len = min(abs(edgemap.xy),abs(edgemap.zw));
+    len *= len;
+    len *= len;
+    float ambient = len.x + len.y*(1.0-len.x);
+    return NL_ENTITY_BRIGHTNESS + ambient*NL_ENTITY_EDGE_HIGHLIGHT;
+  #else
+    return 1.0;
+  #endif
+}
 
 vec4 nlEntityEdgeHighlightPreprocess(vec2 texcoord) {
   vec4 edgeMap = fract(vec4(texcoord*128.0, texcoord*256.0));
