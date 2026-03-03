@@ -60,7 +60,7 @@
 
 /* Fog */
 #define NL_FOG 1.0                // [toggle] 0.1 subtle ~ 1.0 blend with sky completely
-#define NL_MIST_DENSITY 31.0      // 0.0 no mist ~ 1.0 misty
+#define NL_MIST_DENSITY 64.0      // 0.0 no mist ~ 1.0 misty
 #define NL_RAIN_MIST_OPACITY 0.12 // [toggle] 0.04 very subtle ~ 0.5 thick rain mist blow
 #define NL_CLOUDY_FOG 0.5         // [toggle] 0.0 subtle - 0.8 dense fog clouds
 
@@ -76,7 +76,7 @@
 #define NL_DAY_ZENITH_COL    vec3(0.48,0.55,0.9)
 #define NL_DAY_HORIZON_COL   vec3(1.0,0.78,0.8)
 #define NL_DAY_EDGE_COL      vec3(0.92,0.76,0.9)
-#define NL_NIGHT_ZENITH_COL  vec3(0.01,0.008,0.03)
+#define NL_NIGHT_ZENITH_COL  vec3(0.1,0.08,0.3)
 #define NL_NIGHT_HORIZON_COL vec3(0.18,0.16,0.42)
 #define NL_NIGHT_EDGE_COL    vec3(0.12,0.11,0.32)
 #define NL_RAIN_ZENITH_COL   vec3(0.55,0.6,0.7)
@@ -162,7 +162,7 @@
 #define NL_CLOUD3_SHADOW_OFFSET 0.3      // 0.05 minimal ~ 1.0 large
 
 /* Aurora settings */
-#define NL_AURORA 3.5           // [toggle] 0.4 dim ~ 4.0 very bright
+#define NL_AURORA 3.4           // [toggle] 0.4 dim ~ 4.0 very bright
 #define NL_AURORA_VELOCITY 0.14 // 0.0 static ~ 0.3 very fast
 #define NL_AURORA_SCALE 0.02    // 0.002 large ~ 0.4 tiny
 #define NL_AURORA_WIDTH 0.15    // 0.04 thin line ~ 0.4 thick lines
