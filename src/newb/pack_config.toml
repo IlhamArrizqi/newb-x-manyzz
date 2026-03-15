@@ -1,4 +1,4 @@
-name = "Newb X §cManyzz [§fRemake§c] §aV3"
+name = "Newb X §cManyzz [§flite§c] §aV1"
 version = [0, 16, 0]
 min_supported_mc_version = [1, 26, 0]
 description = '''
@@ -9,7 +9,7 @@ description = '''
 ''' # %w = patch warning, %v = version
 authors = ["devendrn","Itszmanyzz"]
 url = "https://devendrn.github.io/newb-shader/"
-uuid = "18973215-0132-42b5-94d8-16f697b15ff3" # Use https://www.uuidgenerator.net/version4
+uuid = "85ef1fa4-741b-45e5-a251-594a94666c93" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
 [info] 
@@ -27,69 +27,6 @@ credits = '''
 
 # subpacks are arranged in left to right order
 # right-most subpack is enabled by default
-
-[[subpack]]
-define = "BOX_CLOUDS"
-materials = ["Clouds", "RenderChunk"]
-description = '''
-Box Clouds
-'''
-
-[[subpack]]
-define = "MULTILAYER_ROUNDED_CLOUDS"
-materials = ["Clouds"]
-description = '''
-Multilayer Rounded Clouds
-'''
-
-[[subpack]]
-define = "ROUNDED_CLOUDS"
-materials = ["Clouds"]
-description = '''
-Rounded Clouds
-'''
-
-[[subpack]]
-define = "REALISTIC_CLOUDS"
-materials = ["Clouds"]
-description = '''
-Realistic Clouds
-'''
-
-[[subpack]]
-define = "SOFT_CLOUDS"
-materials = ["Clouds"]
-description = '''
-Soft Clouds
-'''
-
-[[subpack]]
-define = "MULTILAYER_VANILLA_CLOUDS"
-materials = ["Clouds"]
-description = '''
-Multilayer Vanilla Clouds
-'''
-
-[[subpack]]
-define = "VANILLA_CLOUDS"
-materials = ["Clouds"]
-description = '''
-Vanilla Clouds
-'''
-
-[[subpack]]
-define = "NIGHT_VISION"
-materials = ["RenderChunk","Actor"]
-description = '''
-Night Vision
-'''
-
-#[[subpack]]
-#define = "LITE"
-#materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
-#description = '''
-#Many effects disabled. A bit lighter!
-#'''
 
 [[subpack]]
 define = "DEFAULT"
