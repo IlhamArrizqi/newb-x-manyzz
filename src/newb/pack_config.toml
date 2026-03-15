@@ -1,4 +1,4 @@
-name = "Newb X §cManyzz [§fRemake§c] §aV3"
+name = "Newb X §cManyzz [§fRemake§c] §aV4"
 version = [0, 16, 0]
 min_supported_mc_version = [1, 26, 0]
 description = '''
@@ -9,7 +9,7 @@ description = '''
 ''' # %w = patch warning, %v = version
 authors = ["devendrn","Itszmanyzz"]
 url = "https://devendrn.github.io/newb-shader/"
-uuid = "18973215-0132-42b5-94d8-16f697b15ff3" # Use https://www.uuidgenerator.net/version4
+uuid = "b81d6d00-de77-42f8-bfd5-6df79350ca85" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
 [info] 
@@ -83,13 +83,6 @@ materials = ["RenderChunk","Actor"]
 description = '''
 Night Vision
 '''
-
-#[[subpack]]
-#define = "LITE"
-#materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
-#description = '''
-#Many effects disabled. A bit lighter!
-#'''
 
 [[subpack]]
 define = "DEFAULT"
