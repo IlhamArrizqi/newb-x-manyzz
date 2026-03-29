@@ -12,6 +12,7 @@
   uniform vec4 FogAndDistanceControl;
 #endif
 
+#ifdef NL_AURORA_3D
 SAMPLER2D_AUTOREG(s_NoiseVoxel);
 
 float pow2(float x) { return x * x; }
@@ -54,6 +55,7 @@ vec3 GetAurora(vec3 vDir, float time, float dither) {
     aurora *= 3.8;
     return aurora * visibility / float(sampleCount);
 }
+#endif
 
 void main() {
   #ifndef INSTANCING

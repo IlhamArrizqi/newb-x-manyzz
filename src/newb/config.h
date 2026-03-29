@@ -146,7 +146,7 @@
 #define NL_CLOUD2_DENSITY 25.0             // 1.0 blurry ~ 100.0 sharp
 #define NL_CLOUD2_VELOCITY 1.0             // 0.0 static ~ 4.0 very fast
 #define NL_CLOUD2_SMOOTH                      // [toggle] super soft clouds
-#define NL_CLOUD2_LAYER2                      // [toggle] extra cloud layer
+//#define NL_CLOUD2_LAYER2                      // [toggle] extra cloud layer
 #define NL_CLOUD2_LAYER2_OFFSET 143.0           // 30.0 near ~ 300.0 very high
 #define NL_CLOUD2_LAYER2_THICKNESS 2.5          // 0.7 slim ~ 5.0 fat
 #define NL_CLOUD2_LAYER2_RAIN_THICKNESS 3.0     // 0.7 slim ~ 5.0 fat
@@ -164,6 +164,7 @@
 
 /* Aurora settings */
 #define NL_AURORA 3.4           // [toggle] 0.4 dim ~ 4.0 very bright
+#define NL_AURORA_3D            // [toggle] 3d aurora
 #define NL_AURORA_VELOCITY 0.14 // 0.0 static ~ 0.3 very fast
 #define NL_AURORA_SCALE 0.02    // 0.002 large ~ 0.4 tiny
 #define NL_AURORA_WIDTH 0.15    // 0.04 thin line ~ 0.4 thick lines
@@ -247,6 +248,11 @@
   #define NL_CAVE_BRIGHTNESS 100.0
 #endif
 
+#ifdef NO_AURORA
+  #undef NL_AURORA
+  #undef NL_AURORA_3D
+#endif
+
 #ifdef VANILLA_CLOUDS
   #undef NL_CLOUD_TYPE
   #undef NL_CLOUD0_MULTILAYER
@@ -271,7 +277,6 @@
 #ifdef ROUNDED_CLOUDS
   #undef NL_CLOUD_TYPE
   #undef NL_CLOUD2_SMOOTH
-  #undef NL_CLOUD2_LAYER2
   #define NL_CLOUD_TYPE 2
 #endif
 
@@ -279,6 +284,7 @@
   #undef NL_CLOUD_TYPE
   #undef NL_CLOUD2_SMOOTH
   #define NL_CLOUD_TYPE 2
+  #define NL_CLOUD2_LAYER2
 #endif
 
 #ifdef BOX_CLOUDS
