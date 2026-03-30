@@ -75,7 +75,7 @@ void main() {
 
     vec3 skyColor = nlRenderSky(skycol, env, -viewDir, v_underwaterRainTimeDay.z, true);
 
-#indef NL_AURORA_3D
+#ifdef NL_AURORA_3D
       float dither = fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453);
       float nightMask = smoothstep(0.4, 0.0, env.dayFactor);
      vec3 aurora = GetAurora(viewDir, v_underwaterRainTimeDay.z, dither);
