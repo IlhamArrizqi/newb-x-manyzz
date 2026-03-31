@@ -27,3 +27,10 @@ credits = '''
 
 # subpacks are arranged in left to right order
 # right-most subpack is enabled by default
+
+[[subpack]]
+define = "DEFAULT"
+materials = []
+description = '''
+Default
+'''
