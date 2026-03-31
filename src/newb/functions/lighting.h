@@ -98,7 +98,7 @@ vec3 nlLighting(
   // game min brightness
   if (!(env.nether || env.end)) {
   lum = luminance(light);
-  light += vec3_splat(gameBrightness*(1.5/(1.0+lum)));
+  light += vec3_splat(gameBrightness*(NL_MIN_LIGHTING_BOOST/(1.0+lum)));
   }
 
   // darken at crevices
@@ -124,19 +124,24 @@ void nlUnderwaterLighting(inout vec3 light, inout vec3 pos, vec2 lit, vec2 uv1, 
   #endif
 }
 
-vec3 nlEntityLighting(nl_skycolor skycol, nl_environment env, vec3 pos, vec4 normal, vec3 wPos, mat4 world, vec4 tileLightCol, vec4 overlayCol, vec3 horizonEdgeCol, float t, float TIME_OF_DAY, float renderdistance) {
+vec3 nlEntityLighting(nl_skycolor skycol, nl_environment env, vec3 pos, vec4 normal, vec3 wPos, mat4 world, vec4 tileLightCol, vec4 overlayCol, vec3 horizonEdgeCol, float t, float TIME_OF_DAY, float renderdistance, vec3 CAMERA_POS) {
   float l = tileLightCol.b;
+  float tl = tileLightCol.r;
   float lum;
   vec3 light;
   if (env.nether || env.end) {
+    tl = max(tl-0.6, 0.0);
+    tl *= 21.0*tl;
+
     // nether & end lighting
     light = env.end ? NL_END_AMBIENT : NL_NETHER_AMBIENT;
-    light *= tileLightCol.b; // lets clamp this for max value in darkness?
+    light *= min(tileLightCol.b, 0.25);
 
     lum = luminance(light);
     light += skycol.horizon/(1.0+lum);
-
   } else {
+    tl = max(tl-0.08, 0.0);
+    tl *= 4.0*tl;
 
     float nightFactor = step(env.dayFactor, 0.0);
     float dawnFactor = 1.0-env.dayFactor*env.dayFactor;
@@ -170,8 +175,7 @@ vec3 nlEntityLighting(nl_skycolor skycol, nl_environment env, vec3 pos, vec4 nor
   } else {
     torchColor = NL_OVERWORLD_TORCH_COL;
   }
-  float tl = max(tileLightCol.r-0.07, 0.0);
-  tl *= 4.0*tl;
+
   lum = luminance(light);
   light += torchColor*(smoothstep(0.1, 0.0, tileLightCol.b-tileLightCol.r)*NL_TORCHLIGHT_INTENSITY*tl/(1.0+lum));
 
@@ -179,11 +183,14 @@ vec3 nlEntityLighting(nl_skycolor skycol, nl_environment env, vec3 pos, vec4 nor
   lum = luminance(light);
   if (!(env.nether || env.end)) {
     lum = luminance(light);
-    light += vec3_splat(min(tileLightCol.r, 0.15)*(1.5/(1.0+lum)));
+    light += vec3_splat(min(tileLightCol.r, 0.15)*(NL_MIN_LIGHTING_BOOST/(1.0+lum)));
   }
 
   if (env.underwater) {
-    light *= mix(normalize(skycol.horizon), vec3_splat(0.6), tileLightCol.b*0.6);
+    vec3 gPos = wPos + CAMERA_POS;
+    float caustics = 0.2 + 0.2*sin(dot(gPos, vec3(1.8, 2.4, 2.1)) + 0.8*t);
+    light += 0.8*NL_UNDERWATER_BRIGHTNESS + NL_CAUSTIC_INTENSITY*caustics*(0.1 + tl);
+    light *= mix(normalize(skycol.horizon), vec3_splat(0.5), tileLightCol.b*0.2);
   }
 
   lum = luminance(light);

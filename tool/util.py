@@ -5,7 +5,7 @@ import platform
 
 CONF_FILE = "tool/data/.builder.pkl"
 NS_DEV_RELEASE = "https://github.com/devendrn/newb-shader/releases/download/dev/"
-NS_DEV_MAT_SRC_URL = NS_DEV_RELEASE + "src-materials-1.26.0.zip"
+NS_DEV_MAT_SRC_URL = NS_DEV_RELEASE + "src-materials-1.26.10.zip"
 NS_DEV_SHADERC_URL_PREFIX = NS_DEV_RELEASE + "shaderc-"
 SHADERC_PATH = os.path.join('tool', 'data', 'shaderc')
 if os.name == 'nt':
@@ -15,11 +15,10 @@ SRC_MATERIALS_EG_PATH = os.path.join('tool', 'data', 'materials', 'Sky.material.
 
 def print_styled_error(console: Console, log: str):
     log = log.strip().split('\n')
-    for line in log[:-2]:
+    for line in log:
         split_line = line.split()
         style = 'dim'
         if not split_line:
-            print('')
             continue
         if split_line[0] == "Command:":
             style = 'dim'
@@ -27,7 +26,6 @@ def print_styled_error(console: Console, log: str):
             style = 'red'
         elif split_line[0] in ["Error:", ">>>", "cpp:"]:
             style = 'bold red'
-
         console.print(line, style=style)
 
 

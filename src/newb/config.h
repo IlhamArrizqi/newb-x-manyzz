@@ -36,21 +36,22 @@
 #define NL_TINT_LOW  vec3(0.6,0.5,0.4) // color tint for dark tone
 #define NL_TINT_HIGH vec3(1.08,0.95,0.7) // color tint for light tone
 
-/* Terrain lighting */
+/* Lighting */
 #define NL_SUNLIGHT_INTENSITY   3.2  // 1.0 weak ~ 5.0 bright
 #define NL_TORCHLIGHT_INTENSITY 1.6  // 0.5 weak ~ 3.0 bright
 #define NL_SHADOW_INTENSITY     0.9  // 0.0 no shadow ~ 1.0 strong shadow
+#define NL_MIN_LIGHTING_BOOST   1.65  // 1.0 minimal lighting boost for dark areas ~ 3.0 brighter dark areas
 #define NL_BLINKING_TORCH  // [toggle] flickering light
 //#define NL_CLOUD_SHADOW      // [toggle] cloud shadow (simple clouds only)
 
-/* Sun/moon light color on terrain */
+/* Ambient light for nether/end */
+#define NL_NETHER_AMBIENT vec3(3.0,2.16,1.89)
+#define NL_END_AMBIENT    vec3(1.98,1.25,2.3)
+
+/* Sun/moon light color */
 #define NL_DAWN_SUNLIGHT_COL   vec3(0.80,0.55,0.5)
 #define NL_NOON_SUNLIGHT_COL   vec3(0.78,0.8,0.72)
 #define NL_NIGHT_MOONLIGHT_COL vec3(0.22,0.26,0.4)
-
-/* Ambient light on terrain (light that is added everywhere) */
-#define NL_NETHER_AMBIENT vec3(0.75,0.35,0.35)
-#define NL_END_AMBIENT    vec3(0.25,0.25,0.6)
 
 /* Torch colors */
 #define NL_OVERWORLD_TORCH_COL  vec3(0.9,0.75,0.5)
@@ -162,7 +163,7 @@
 #define NL_CLOUD3_SHADOW_OFFSET 0.3      // 0.05 minimal ~ 1.0 large
 
 /* Aurora settings */
-#define NL_AURORA 3.4           // [toggle] 0.4 dim ~ 4.0 very bright
+//#define NL_AURORA 3.4           // [toggle] 0.4 dim ~ 4.0 very bright
 #define NL_AURORA_VELOCITY 0.14 // 0.0 static ~ 0.3 very fast
 #define NL_AURORA_SCALE 0.02    // 0.002 large ~ 0.4 tiny
 #define NL_AURORA_WIDTH 0.15    // 0.04 thin line ~ 0.4 thick lines
