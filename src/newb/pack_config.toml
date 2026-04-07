@@ -1,5 +1,5 @@
-name = "Newb X §cManyzz [§fRemake§c] §aV5"
-version = [0, 16, 0]
+name = "Newb X §cManyzz [§fRemake§c] §aV6"
+version = [0, 6, 0]
 min_supported_mc_version = [1, 26, 10]
 description = '''
 §c%w
@@ -9,7 +9,7 @@ description = '''
 ''' # %w = patch warning, %v = version
 authors = ["devendrn","Itszmanyzz"]
 url = "https://devendrn.github.io/newb-shader/"
-uuid = "1cc1eb0c-be64-4f91-86f6-835db3d44e2c" # Use https://www.uuidgenerator.net/version4
+uuid = "1db1663a-7689-4513-84d1-cc450e5c4632" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
 [info] 
@@ -82,6 +82,13 @@ define = "NO_AURORA"
 materials = ["Sky"]
 description = '''
 No Aurora
+'''
+
+[[subpack]]
+define = "CLASSIC_NIGHT"
+materials = ["Sky"]
+description = '''
+Classic Night
 '''
 
 [[subpack]]
