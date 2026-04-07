@@ -1,5 +1,5 @@
-name = "Newb X §cManyzz [§flite§c] §aV2"
-version = [0, 16, 0]
+name = "Newb X §cManyzz [§flite§c] §aV3"
+version = [0, 3, 0]
 min_supported_mc_version = [1, 26, 10]
 description = '''
 §c%w
@@ -9,7 +9,7 @@ description = '''
 ''' # %w = patch warning, %v = version
 authors = ["devendrn","Itszmanyzz"]
 url = "https://devendrn.github.io/newb-shader/"
-uuid = "8a4f0f62-2a97-4f2e-bb66-de3756cf85dd" # Use https://www.uuidgenerator.net/version4
+uuid = "9affb9d3-5409-4dc7-8481-737c58b43029" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
 [info] 

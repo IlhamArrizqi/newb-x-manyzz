@@ -131,8 +131,8 @@
 #define NL_CLOUD0_MULTILAYER         // [toggle] extra cloud layer
 
 /* Soft cloud settings */
-#define NL_CLOUD1_SCALE vec2(0.033, 0.033) // 0.003 large ~ 0.2 tiny
-#define NL_CLOUD1_DEPTH 0.5                // 0.0 no bump ~ 10.0 large bumps
+#define NL_CLOUD1_SCALE vec2(0.013, 0.022) // 0.003 large ~ 0.2 tiny
+#define NL_CLOUD1_DEPTH 1.3                // 0.0 no bump ~ 10.0 large bumps
 #define NL_CLOUD1_SPEED 0.24               // 0.0 static ~ 0.4 fast moving
 #define NL_CLOUD1_DENSITY 0.5             // 0.1 less clouds ~ 0.8 more clouds
 #define NL_CLOUD1_OPACITY 0.8              // 0.0 invisible ~ 1.0 opaque
@@ -175,7 +175,7 @@
 /* Shooting star */
 #define NL_SHOOTING_STAR 1.0        // [toggle] 0.2 dim ~ 1.0 bright
 #define NL_SHOOTING_STAR_PERIOD 3.0 // 0.4 fast ~ 12.0 slow (12 secs)
-#define NL_SHOOTING_STAR_DELAY 75.0 // 0.0 no delay ~ 100.0 long time (100 secs)
+#define NL_SHOOTING_STAR_DELAY 15.0 // 0.0 no delay ~ 100.0 long time (100 secs)
 
 /* Galaxy */
 #define NL_GALAXY_STARS 1.2           // [toggle] 0.1 dim - 4.0 bright
