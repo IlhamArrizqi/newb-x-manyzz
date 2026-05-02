@@ -31,7 +31,7 @@
 #define NL_TONEMAP_TYPE 4              // 1:Exponential, 2:Reinhard, 3:Extended Reinhard, 4:ACES
 #define NL_GAMMA 1.0                  // 0.3 low ~ 2.0 high
 #define NL_EXPOSURE 1.25              // [toggle] 0.5 dark ~ 3.0 bright
-#define NL_SATURATION 1.35            // [toggle] 0.0 grayscale ~ 4.0 super saturated
+#define NL_SATURATION 1.45            // [toggle] 0.0 grayscale ~ 4.0 super saturated
 #define NL_TINT                      // [toggle] enable light/dark tone tinting
 #define NL_TINT_LOW  vec3(0.6,0.5,0.4) // color tint for dark tone
 #define NL_TINT_HIGH vec3(1.08,0.95,0.7) // color tint for light tone
@@ -140,10 +140,10 @@
 /* Rounded cloud settings */
 #define NL_CLOUD2_THICKNESS 1.0            // 0.5 slim ~ 5.0 fat
 #define NL_CLOUD2_RAIN_THICKNESS 1.0       // 0.5 slim ~ 5.0 fat
-#define NL_CLOUD2_STEPS 4                  // 3 low quality ~ 16 high quality
+#define NL_CLOUD2_STEPS 3                  // 3 low quality ~ 16 high quality
 #define NL_CLOUD2_SCALE vec2(0.033, 0.033) // 0.003 large ~ 0.3 tiny
 #define NL_CLOUD2_SHAPE vec2(0.5, 0.5)     // 0.0 round ~ 1.0 box vec2(horizontal shape, vertical shape)
-#define NL_CLOUD2_DENSITY 25.0             // 1.0 blurry ~ 100.0 sharp
+#define NL_CLOUD2_DENSITY 20.5             // 1.0 blurry ~ 100.0 sharp
 #define NL_CLOUD2_VELOCITY 1.0             // 0.0 static ~ 4.0 very fast
 #define NL_CLOUD2_SMOOTH                      // [toggle] super soft clouds
 //#define NL_CLOUD2_LAYER2                      // [toggle] extra cloud layer
