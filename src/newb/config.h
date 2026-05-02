@@ -212,13 +212,13 @@
 
 /* Weather particles */
 #define NL_WEATHER_SPECK 0.8         // [toggle] 0.0 vanilla texture ~ 1.0 soft speck
-#define NL_WEATHER_RAIN_SLANT 4.5    // 1.0 minimal ~ 8.0 violent
-#define NL_WEATHER_PARTICLE_SIZE 1.0 // 0.5 tiny ~ 4.0 large
+#define NL_WEATHER_RAIN_SLANT 3.5    // 1.0 minimal ~ 8.0 violent
+#define NL_WEATHER_PARTICLE_SIZE 0.7 // 0.5 tiny ~ 4.0 large
 
 /* Lava effects */
-#define NL_LAVA_NOISE            // [toggle] darken lava in certain regions
-#define NL_LAVA_NOISE_BUMP 0.2 // [toggle] 0.1 subtle ~ 0.8 massive waves
-#define NL_LAVA_NOISE_SPEED 0.2  // 0.0 still ~ 0.8 fast
+//#define NL_LAVA_NOISE            // [toggle] darken lava in certain regions
+#define NL_LAVA_NOISE_BUMP 0.4 // [toggle] 0.1 subtle ~ 0.8 massive waves
+#define NL_LAVA_NOISE_SPEED 0.6  // 0.0 still ~ 0.8 fast
 #define NL_LAVA_WAVE          // [toggle] wave effect for lava
 
 /* Blackhole */
