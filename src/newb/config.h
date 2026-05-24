@@ -30,15 +30,15 @@
 /* Color correction */
 #define NL_TONEMAP_TYPE 4              // 1:Exponential, 2:Reinhard, 3:Extended Reinhard, 4:ACES
 #define NL_GAMMA 1.0                  // 0.3 low ~ 2.0 high
-#define NL_EXPOSURE 1.25              // [toggle] 0.5 dark ~ 3.0 bright
+#define NL_EXPOSURE 1.1              // [toggle] 0.5 dark ~ 3.0 bright
 #define NL_SATURATION 1.45            // [toggle] 0.0 grayscale ~ 4.0 super saturated
 #define NL_TINT                      // [toggle] enable light/dark tone tinting
-#define NL_TINT_LOW  vec3(0.6,0.5,0.4) // color tint for dark tone
-#define NL_TINT_HIGH vec3(1.08,0.95,0.7) // color tint for light tone
+#define NL_TINT_LOW  vec3(0.62,0.56,0.52) // color tint for dark tone
+#define NL_TINT_HIGH vec3(1.05,0.98,0.88) // color tint for light tone
 
 /* Lighting */
 #define NL_SUNLIGHT_INTENSITY   3.2  // 1.0 weak ~ 5.0 bright
-#define NL_TORCHLIGHT_INTENSITY 1.5  // 0.5 weak ~ 3.0 bright
+#define NL_TORCHLIGHT_INTENSITY 1.7  // 0.5 weak ~ 3.0 bright
 #define NL_SHADOW_INTENSITY     0.8  // 0.0 no shadow ~ 1.0 strong shadow
 #define NL_MIN_LIGHTING_BOOST   1.65  // 1.0 minimal lighting boost for dark areas ~ 3.0 brighter dark areas
 #define NL_BLINKING_TORCH  // [toggle] flickering light
@@ -50,11 +50,11 @@
 
 /* Sun/moon light color */
 #define NL_DAWN_SUNLIGHT_COL   vec3(0.80,0.55,0.5)
-#define NL_NOON_SUNLIGHT_COL   vec3(0.78,0.8,0.72)
+#define NL_NOON_SUNLIGHT_COL   vec3(0.84,0.84,0.80)
 #define NL_NIGHT_MOONLIGHT_COL vec3(0.22,0.26,0.4)
 
 /* Torch colors */
-#define NL_OVERWORLD_TORCH_COL  vec3(0.85,0.78,0.65)
+#define NL_OVERWORLD_TORCH_COL  vec3(0.95,0.75,0.55)
 #define NL_UNDERWATER_TORCH_COL vec3(0.5,0.25,0.1)
 #define NL_NETHER_TORCH_COL     vec3(1.0,0.15,0.15)
 #define NL_END_TORCH_COL        vec3(0.45,0.25,0.55)
@@ -62,8 +62,8 @@
 /* Fog */
 #define NL_FOG 1.0                // [toggle] 0.1 subtle ~ 1.0 blend with sky completely
 #define NL_MIST_DENSITY 100.0      // 0.0 no mist ~ 1.0 misty
-#define NL_RAIN_MIST_OPACITY 0.12 // [toggle] 0.04 very subtle ~ 0.5 thick rain mist blow
-#define NL_CLOUDY_FOG 0.5         // [toggle] 0.0 subtle - 0.8 dense fog clouds
+#define NL_RAIN_MIST_OPACITY 0.16 // [toggle] 0.04 very subtle ~ 0.5 thick rain mist blow
+#define NL_CLOUDY_FOG 0.6         // [toggle] 0.0 subtle - 0.8 dense fog clouds
 
 /* Sky */
 #define NL_SKY_VOID_FACTOR     0.55
@@ -74,7 +74,7 @@
 #define NL_DAWN_ZENITH_COL   vec3(0.08,0.09,0.18)
 #define NL_DAWN_HORIZON_COL  vec3(0.96,0.56,0.42)
 #define NL_DAWN_EDGE_COL     vec3(1.05,0.68,0.5)
-#define NL_DAY_ZENITH_COL    vec3(0.42,0.58,1.05)
+#define NL_DAY_ZENITH_COL    vec3(0.50,0.68,1.15)
 #define NL_DAY_HORIZON_COL   vec3(0.95,0.92,1.05)
 #define NL_DAY_EDGE_COL      vec3(1.05,1.0,1.1)
 #define NL_NIGHT_ZENITH_COL  vec3(0.07,0.06,0.24)
@@ -107,12 +107,12 @@
 
 /* Water */
 #define NL_WATER_TRANSPARENCY 0.55 // 0.0 transparent ~ 1.0 normal
-#define NL_WATER_BUMP 0.2        // 0.001 plain ~ 0.2 bumpy water
+#define NL_WATER_BUMP 0.12        // 0.001 plain ~ 0.2 bumpy water
 #define NL_WATER_WAVE_SPEED  1.7  // 0.2 calm ~ 2.0 turbulent
-#define NL_WATER_TEX_OPACITY 0.47  // 0.0 plain water ~ 1.0 vanilla water texture
+#define NL_WATER_TEX_OPACITY 0.35  // 0.0 plain water ~ 1.0 vanilla water texture
 #define NL_WATER_WAVE             // [toggle] wave effect
 #define NL_WATER_REFL_MASK      // [toggle] fake water reflection mask
-#define NL_WATER_TINT vec3(0.85,0.9,0.92)
+#define NL_WATER_TINT vec3(0.82,0.9,0.95)
 
 /* Underwater */
 #define NL_UNDERWATER_BRIGHTNESS 2.0         // 0.0 dark ~ 3.0 bright
@@ -163,11 +163,11 @@
 #define NL_CLOUD3_SHADOW_OFFSET 0.3      // 0.05 minimal ~ 1.0 large
 
 /* Aurora settings */
-#define NL_AURORA 3.4           // [toggle] 0.4 dim ~ 4.0 very bright
+#define NL_AURORA 2.2           // [toggle] 0.4 dim ~ 4.0 very bright
 #define NL_AURORA_3D            // [toggle] 3d aurora
 #define NL_AURORA_VELOCITY 0.14 // 0.0 static ~ 0.3 very fast
 #define NL_AURORA_SCALE 0.02    // 0.002 large ~ 0.4 tiny
-#define NL_AURORA_WIDTH 0.15    // 0.04 thin line ~ 0.4 thick lines
+#define NL_AURORA_WIDTH 0.12    // 0.04 thin line ~ 0.4 thick lines
 #define NL_AURORA_COL1 vec3(0.0,0.5,1.0)
 #define NL_AURORA_COL2 vec3(0.5,0.0,0.5)
 
@@ -180,9 +180,9 @@
 
 /* Galaxy */
 #define NL_GALAXY_STARS 1.2           // [toggle] 0.1 dim - 4.0 bright
-#define NL_GALAXY_VIBRANCE 0.35          // 0.0 white - 1.0 colorful
+#define NL_GALAXY_VIBRANCE 0.45          // 0.0 white - 1.0 colorful
 #define NL_GALAXY_SPEED 0.10            // 0.01 slow motion - 0.2 fast motion
-#define NL_GALAXY_DAY_VISIBILITY 0.32    // 0.0 invisible - 1.0 visible
+#define NL_GALAXY_DAY_VISIBILITY 0.18    // 0.0 invisible - 1.0 visible
 #define NL_END_GALAXY_STARS      4.0     // [toggle] 0.1 dim ~ 4.0 bright (auto distorted when blackhole is enabled)
 
 /* Chunk loading slide in animation */
@@ -226,7 +226,7 @@
 #define NL_BH_COL_LOW  vec3(0.002, 0.004, 0.01)
 #define NL_BH_COL_HIGH vec3(1.0, 0.65, 0.25)
 #define NL_BH_DIR      1.96     // 3.14 radius
-#define NL_BH_DIST     2.0      // 1.0 close - 4.0 far
+#define NL_BH_DIST     4.0      // 1.0 close - 4.0 far
 #define NL_BH_SPEED    1.2      // 0.0 static - 2.0 violent
 
 /*
