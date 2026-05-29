@@ -226,7 +226,7 @@
 #define NL_BH_COL_LOW  vec3(0.002, 0.004, 0.01)
 #define NL_BH_COL_HIGH vec3(1.0, 0.65, 0.25)
 #define NL_BH_DIR      1.96     // 3.14 radius
-#define NL_BH_DIST     4.0      // 1.0 close - 4.0 far
+#define NL_BH_DIST     2.0      // 1.0 close - 4.0 far
 #define NL_BH_SPEED    1.2      // 0.0 static - 2.0 violent
 
 /*
