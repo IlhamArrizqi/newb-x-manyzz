@@ -66,6 +66,7 @@ void main() {
   // bits 8-5 for x, bits 4-1 for y
   // uvec2 a16 = uvec2(round(a_texcoord1 * 65535.0));
   // vec2 uv1 = vec2(uvec2(a16.y >> 4u, a16.y) & uvec2(15u)) * vec2(0.06666667);
+  uvec2 uv0 = uvec2(round(a_texcoord0 * 65535.0));
   vec2 uv1 = fract(a_texcoord1.y*vec2(256.0, 4096.0));
   vec2 lit = uv1*uv1;
 
@@ -179,7 +180,7 @@ void main() {
 
   v_extra = vec4(shade, worldPos.y, water, shimmer);
   v_refl = refl;
-  v_texcoord0 = a_texcoord0;
+  v_texcoord0 = vec2(float((uv0.x & 32767u) << uint(1)), float((uv0.y & 32767u) << uint(1))) * vec2_splat(1.525902189314365386962890625e-05);
   v_lightmapUV = uv1;
   v_color0 = color;
   v_color1 = a_color0;
