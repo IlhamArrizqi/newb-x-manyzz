@@ -1,14 +1,14 @@
 name = "Newb X §cManyzz [§fRemake§c] §aV8"
 version = [0, 6, 0]
-min_supported_mc_version = [1, 26, 10]
+min_supported_mc_version = [1, 26, 30]
 description = '''
 §c%w
 §7- Upgrade Minecraft visuals: vibrant colors,  realistic lighting, immersive effects
 %v
-§3https://devendrn.github.io/newb-shader/
+§3https://newb-shader.devendrn.com/
 ''' # %w = patch warning, %v = version
 authors = ["devendrn","Itszmanyzz"]
-url = "https://devendrn.github.io/newb-shader/"
+url = "https://newb-shader.devendrn.com/"
 uuid = "eb4e3d65-5487-4b3f-8676-a222345d0f12" # Use https://www.uuidgenerator.net/version4
 materials = ["Sky", "RenderChunk", "Actor", "ActorGlint", "EndSky", "Clouds", "SunMoon", "Weather", "ItemInHandTextured", "ItemInHandColor", "ItemInHandColorGlint", "Stars"]
 
