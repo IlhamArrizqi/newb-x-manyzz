@@ -50,7 +50,7 @@
 
 /* Sun/moon light color */
 #define NL_DAWN_SUNLIGHT_COL   vec3(0.80,0.55,0.5)
-#define NL_NOON_SUNLIGHT_COL   vec3(0.84,0.84,0.80)
+#define NL_NOON_SUNLIGHT_COL   vec3(1.1,0.98,0.78)
 #define NL_NIGHT_MOONLIGHT_COL vec3(0.22,0.26,0.4)
 
 /* Torch colors */
@@ -74,9 +74,9 @@
 #define NL_DAWN_ZENITH_COL   vec3(0.08,0.09,0.18)
 #define NL_DAWN_HORIZON_COL  vec3(0.96,0.56,0.42)
 #define NL_DAWN_EDGE_COL     vec3(1.05,0.68,0.5)
-#define NL_DAY_ZENITH_COL    vec3(0.50,0.68,1.15)
-#define NL_DAY_HORIZON_COL   vec3(0.95,0.92,1.05)
-#define NL_DAY_EDGE_COL      vec3(1.05,1.0,1.1)
+#define NL_DAY_ZENITH_COL    vec3(0.35,0.62,1.35)
+#define NL_DAY_HORIZON_COL   vec3(1.15,1.05,0.92)
+#define NL_DAY_EDGE_COL      vec3(1.25,1.05,0.85)
 #define NL_NIGHT_ZENITH_COL  vec3(0.07,0.06,0.24)
 #define NL_NIGHT_HORIZON_COL vec3(0.15,0.14,0.34)
 #define NL_NIGHT_EDGE_COL    vec3(0.11,0.1,0.28)
@@ -189,8 +189,8 @@
 #define NL_CHUNK_LOAD_ANIM 140.0 // [toggle] -600.0 fall from top ~ 600.0 rise from bottom
 
 /* Sun/Moon */
-#define NL_SUN_SIZE  1.0           // 0.3 tiny ~ 4.0 massive
-#define NL_MOON_SIZE 1.0           // 0.3 tiny ~ 4.0 massive
+#define NL_SUN_SIZE  1.5           // 0.3 tiny ~ 4.0 massive
+#define NL_MOON_SIZE 1.5           // 0.3 tiny ~ 4.0 massive
 #define NL_SUN_PATH_YAW    15.0 //
 #define NL_MOON_PATH_YAW   17.0 //
 #define NL_SUN_PATH_TILT   31.0 //
