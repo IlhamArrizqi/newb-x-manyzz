@@ -30,7 +30,7 @@
 /* Color correction */
 #define NL_TONEMAP_TYPE 4              // 1:Exponential, 2:Reinhard, 3:Extended Reinhard, 4:ACES
 #define NL_GAMMA 1.0                  // 0.3 low ~ 2.0 high
-#define NL_EXPOSURE 1.1              // [toggle] 0.5 dark ~ 3.0 bright
+#define NL_EXPOSURE 0.95              // [toggle] 0.5 dark ~ 3.0 bright
 #define NL_SATURATION 1.45            // [toggle] 0.0 grayscale ~ 4.0 super saturated
 #define NL_TINT                      // [toggle] enable light/dark tone tinting
 #define NL_TINT_LOW  vec3(0.62,0.56,0.52) // color tint for dark tone
@@ -75,8 +75,8 @@
 #define NL_DAWN_HORIZON_COL  vec3(0.96,0.56,0.42)
 #define NL_DAWN_EDGE_COL     vec3(1.05,0.68,0.5)
 #define NL_DAY_ZENITH_COL    vec3(0.35,0.62,1.35)
-#define NL_DAY_HORIZON_COL   vec3(1.15,1.05,0.92)
-#define NL_DAY_EDGE_COL      vec3(1.25,1.05,0.85)
+#define NL_DAY_HORIZON_COL   vec3(1.35,1.0,0.55)
+#define NL_DAY_EDGE_COL      vec3(1.2,1.0,0.75)
 #define NL_NIGHT_ZENITH_COL  vec3(0.07,0.06,0.24)
 #define NL_NIGHT_HORIZON_COL vec3(0.15,0.14,0.34)
 #define NL_NIGHT_EDGE_COL    vec3(0.11,0.1,0.28)
@@ -94,7 +94,7 @@
 
 /* Ore glow intensity */
 #define NL_GLOW_TEX 4.0           // 0.4 weak ~ 8.0 bright
-#define NL_GLOW_SHIMMER 0.8       // [toggle] 0.1 subtle ~ 1.0 100% shimmer
+#define NL_GLOW_SHIMMER 0.4       // [toggle] 0.1 subtle ~ 1.0 100% shimmer
 #define NL_GLOW_SHIMMER_SPEED 0.9 // 0.5 slow - 2.0 fast
 //#define NL_GLOW_LEAK 0.6        // [toggle] 0.08 subtle ~ 1.0 100% brightness of NL_GLOW_TEX
 
