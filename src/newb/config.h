@@ -30,7 +30,7 @@
 /* Color correction */
 #define NL_TONEMAP_TYPE 4              // 1:Exponential, 2:Reinhard, 3:Extended Reinhard, 4:ACES
 #define NL_GAMMA 1.0                  // 0.3 low ~ 2.0 high
-#define NL_EXPOSURE 1.1              // [toggle] 0.5 dark ~ 3.0 bright
+#define NL_EXPOSURE 0.95              // [toggle] 0.5 dark ~ 3.0 bright
 #define NL_SATURATION 1.45            // [toggle] 0.0 grayscale ~ 4.0 super saturated
 #define NL_TINT                      // [toggle] enable light/dark tone tinting
 #define NL_TINT_LOW  vec3(0.62,0.56,0.52) // color tint for dark tone
@@ -50,7 +50,7 @@
 
 /* Sun/moon light color */
 #define NL_DAWN_SUNLIGHT_COL   vec3(0.80,0.55,0.5)
-#define NL_NOON_SUNLIGHT_COL   vec3(0.84,0.84,0.80)
+#define NL_NOON_SUNLIGHT_COL   vec3(1.1,0.98,0.78)
 #define NL_NIGHT_MOONLIGHT_COL vec3(0.22,0.26,0.4)
 
 /* Torch colors */
@@ -74,9 +74,9 @@
 #define NL_DAWN_ZENITH_COL   vec3(0.08,0.09,0.18)
 #define NL_DAWN_HORIZON_COL  vec3(0.96,0.56,0.42)
 #define NL_DAWN_EDGE_COL     vec3(1.05,0.68,0.5)
-#define NL_DAY_ZENITH_COL    vec3(0.42,0.58,1.05)
-#define NL_DAY_HORIZON_COL   vec3(0.95,0.92,1.05)
-#define NL_DAY_EDGE_COL      vec3(1.05,1.0,1.1)
+#define NL_DAY_ZENITH_COL    vec3(0.3,0.55,1.45)
+#define NL_DAY_HORIZON_COL   vec3(1.5,0.75,0.85)
+#define NL_DAY_EDGE_COL      vec3(1.6,0.95,0.6)
 #define NL_NIGHT_ZENITH_COL  vec3(0.07,0.06,0.24)
 #define NL_NIGHT_HORIZON_COL vec3(0.15,0.14,0.34)
 #define NL_NIGHT_EDGE_COL    vec3(0.11,0.1,0.28)
@@ -94,7 +94,7 @@
 
 /* Ore glow intensity */
 #define NL_GLOW_TEX 4.0           // 0.4 weak ~ 8.0 bright
-#define NL_GLOW_SHIMMER 0.8       // [toggle] 0.1 subtle ~ 1.0 100% shimmer
+#define NL_GLOW_SHIMMER 0.4       // [toggle] 0.1 subtle ~ 1.0 100% shimmer
 #define NL_GLOW_SHIMMER_SPEED 0.9 // 0.5 slow - 2.0 fast
 //#define NL_GLOW_LEAK 0.6        // [toggle] 0.08 subtle ~ 1.0 100% brightness of NL_GLOW_TEX
 
@@ -188,8 +188,8 @@
 #define NL_CHUNK_LOAD_ANIM 140.0 // [toggle] -600.0 fall from top ~ 600.0 rise from bottom
 
 /* Sun/Moon */
-#define NL_SUN_SIZE  1.0           // 0.3 tiny ~ 4.0 massive
-#define NL_MOON_SIZE 1.0           // 0.3 tiny ~ 4.0 massive
+#define NL_SUN_SIZE  1.5           // 0.3 tiny ~ 4.0 massive
+#define NL_MOON_SIZE 1.5           // 0.3 tiny ~ 4.0 massive
 #define NL_SUN_PATH_YAW    15.0 //
 #define NL_MOON_PATH_YAW   17.0 //
 #define NL_SUN_PATH_TILT   31.0 //
