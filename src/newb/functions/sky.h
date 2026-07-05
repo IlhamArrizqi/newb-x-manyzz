@@ -106,7 +106,7 @@ vec3 renderOverworldSky(nl_skycolor skyCol, nl_environment env, vec3 viewDir, bo
   sky = mix(skyCol.zenith, sky, gradient2*df);
 
   sky *= 0.5+0.5*gradient2;
-  sky *= 1.0 + 0.5*gradient1*(1.0-mg8);
+  sky *= 1.0 + 0.2*gradient1*(1.0-mg8);
   sky *= (1.0 + (2.0*mg8 + 7.0*mg8*mg8)*mask)*mix(1.0, mask, NL_SKY_VOID_DARKNESS);
 
   if (!isSkyPlane) {
